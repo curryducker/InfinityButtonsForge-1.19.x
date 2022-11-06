@@ -254,6 +254,9 @@ public class InfinityButtonsBlocks {
     public static final RegistryObject<Block> CHISELED_STONE_BRICK_SECRET_BUTTON = registerBlock("chiseled_stone_brick_secret_button",
             () -> new ChiseledStoneBrickSecretButton(BlockBehaviour.Properties.of(Material.STONE).strength(1.5f, 6.0f).noOcclusion().sound(SoundType.STONE).requiresCorrectToolForDrops()));
 
+    public static final RegistryObject<Block> MUD_BRICK_SECRET_BUTTON = registerBlock("mud_brick_secret_button",
+            () -> new MudBrickSecretButton(BlockBehaviour.Properties.of(Material.STONE, MaterialColor.TERRACOTTA_LIGHT_GRAY).strength(1.5f, 3.0f).noOcclusion().sound(SoundType.MUD_BRICKS).requiresCorrectToolForDrops()));
+
     public static final RegistryObject<Block> DEEPSLATE_BRICK_SECRET_BUTTON = registerBlock("deepslate_brick_secret_button",
             () -> new BigBrickSecretButton(BlockBehaviour.Properties.of(Material.STONE, MaterialColor.COLOR_GRAY).strength(3.5f, 6.0f).noOcclusion().sound(SoundType.DEEPSLATE_BRICKS).requiresCorrectToolForDrops()));
 
