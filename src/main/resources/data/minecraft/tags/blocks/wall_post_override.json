@@ -1,0 +1,16 @@
+{
+  "replace": false,
+  "values": [
+    "infinitybuttons:torch_button",
+    "infinitybuttons:torch_lever",
+    "infinitybuttons:soul_torch_button",
+    "infinitybuttons:soul_torch_lever",
+    "infinitybuttons:redstone_torch_button",
+    "infinitybuttons:redstone_torch_lever"
+
+  ],
+  "optional": [
+    "infinitybuttons:propelplant_torch_button",
+    "infinitybuttons:propelplant_torch_lever"
+  ]
+}

@@ -1,0 +1,26 @@
+{
+  "alarm": {
+    "subtitle": "infinitybuttons.subtitle.alarm",
+    "sounds": [
+      "infinitybuttons:alarm"
+    ]
+  },
+  "stone_scrape": {
+    "subtitle": "infinitybuttons.subtitle.stone_scrape",
+    "sounds": [
+      "infinitybuttons:stone_scrape"
+    ]
+  },
+  "wood_scrape": {
+    "subtitle": "infinitybuttons.subtitle.wood_scrape",
+    "sounds": [
+      "infinitybuttons:wood_scrape"
+    ]
+  },
+  "doorbell": {
+    "subtitle": "infinitybuttons.subtitle.doorbell",
+    "sounds": [
+      "infinitybuttons:doorbell"
+    ]
+  }
+}

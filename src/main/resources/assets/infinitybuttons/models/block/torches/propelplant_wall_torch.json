@@ -1,0 +1,7 @@
+{
+ "parent": "infinitybuttons:block/wall_torch_pressed",
+  "textures": {
+    "torch": "nethersdelight:block/propelplant_torch"
+  },
+  "render_type": "cutout"
+}

@@ -1,0 +1,7 @@
+{
+ "parent": "infinitybuttons:block/torch_pressed",
+  "textures": {
+    "torch": "minecraft:block/soul_torch"
+  },
+  "render_type": "cutout"
+}
