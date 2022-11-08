@@ -26,6 +26,8 @@
   "block.infinitybuttons.jungle_large_button": "Oerwoudhouten grote knop",
   "block.infinitybuttons.warped_large_button": "Spookachtige houten grote knop",
   "block.infinitybuttons.crimson_large_button": "Helrode houten grote knop",
+  "block.infinitybuttons.blossom_large_button": "Bloesem grote knop",
+  "block.infinitybuttons.azalea_large_button": "Azalea grote knop",
   "block.infinitybuttons.stone_large_button": "Stenen grote knop",
   "block.infinitybuttons.polished_blackstone_large_button": "Gepolijste zwartstenen grote knop",
   "block.infinitybuttons.copper_large_button": "Koperen grote knop",
@@ -64,6 +66,7 @@
   "block.infinitybuttons.gray_emergency_button": "Grijze noodknop",
   "block.infinitybuttons.black_emergency_button": "Zwarte noodknop",
   "block.infinitybuttons.fancy_emergency_button": "\u00A7cG\u00A76r\u00A7ea\u00A7ac\u00A7bi\u00A79e\u00A7du\u00A7cz\u00A76e \u00A7en\u00A7ao\u00A7bo\u00A79d\u00A7dk\u00A7cn\u00A76o\u00A7ep",
+  "block.infinitybuttons.safe_emergency_button": "Veilige noodknop",
 
   "block.infinitybuttons.bookshelf_secret_button": "Boekenkast verborgen knop",
   "block.infinitybuttons.stone_brick_secret_button": "Blokstenen verborgen knop",
@@ -99,6 +102,8 @@
   "block.infinitybuttons.doorbell_button": "Deurbelknop",
   "block.infinitybuttons.hoglin_mount_button": "Opgezette-hoglinknop",
 
+  "block.infinitybuttons.blossom_plank_secret_button": "Bloesem planken verborgen knop",
+  "block.infinitybuttons.azalea_plank_secret_button": "Azalea planken verborgen knop",
   "block.infinitybuttons.permafrost_brick_secret_button": "Permafrostblokstenen verborgen knop",
   "block.infinitybuttons.blue_nether_brick_secret_button": "Blauwe netherbakstenen verborgen knop",
   "block.infinitybuttons.polished_granite_brick_secret_button": "Gepolijst granietblokstenen verborgen knop",
@@ -133,6 +138,7 @@
   "infinitybuttons.tooltip.diamond_button": "\u00A77The biggest flex in the west",
   "infinitybuttons.tooltip.prismarine_button": "\u00A77Deze knop kan in het water",
   "infinitybuttons.tooltip.falling_button": "\u00A77Deze knop kan maar één keer ingedrukt worden",
+  "infinitybuttons.tooltip.safe_emergency_button": "\u00A77Shift-klik met een lege hand om het omhulsel te openen",
   "infinitybuttons.tooltip.doorbell_button": "\u00A77Deze deurbel produceert een redstone-signaal",
 
   "itemGroup.infinityButtonsTab": "Infinity Buttons",

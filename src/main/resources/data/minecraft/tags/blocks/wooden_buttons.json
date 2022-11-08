@@ -22,5 +22,12 @@
 
     "infinitybuttons:doorbell",
     "infinitybuttons:doorbell_button"
-    ]
+  ],
+  "optional": [
+    "infinitybuttons:blossom_large_button",
+    "infinitybuttons:azalea_large_button",
+
+    "infinitybuttons:blossom_plank_secret_button",
+    "infinitybuttons:azalea_plank_secret_button"
+  ]
 }

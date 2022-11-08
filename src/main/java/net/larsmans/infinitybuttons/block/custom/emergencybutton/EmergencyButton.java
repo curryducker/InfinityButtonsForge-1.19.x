@@ -23,6 +23,7 @@ import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.block.state.StateDefinition;
 import net.minecraft.world.level.block.state.properties.AttachFace;
 import net.minecraft.world.level.block.state.properties.BooleanProperty;
+import net.minecraft.world.level.gameevent.GameEvent;
 import net.minecraft.world.phys.BlockHitResult;
 import net.minecraft.world.phys.shapes.CollisionContext;
 import net.minecraft.world.phys.shapes.Shapes;
@@ -75,111 +76,113 @@ public class EmergencyButton extends FaceAttachedHorizontalDirectionalBlock {
     private static final VoxelShape CEILING_Z_PRESSED_SHAPE = Shapes.or(
             Block.box(5, 13, 5, 11, 15, 11), STONE_UP).optimize();
 
-    protected int getPressDuration(){
-        return 10;
-    };
-
     public EmergencyButton(BlockBehaviour.Properties properties) {
         super(properties);
         this.registerDefaultState(this.stateDefinition.any().setValue(FACING, Direction.NORTH).setValue(PRESSED, false).setValue(FACE, AttachFace.FLOOR));
     }
 
+    @Override
     public VoxelShape getShape(BlockState state, BlockGetter worldIn, BlockPos pos, CollisionContext context) {
         Direction direction = state.getValue(FACING);
         boolean flag = state.getValue(PRESSED);
-        switch((AttachFace)state.getValue(FACE)) {
-            case FLOOR:
+        switch(state.getValue(FACE)) {
+            case FLOOR -> {
                 if (direction.getAxis() == Direction.Axis.X) {
                     return flag ? FLOOR_X_PRESSED_SHAPE : FLOOR_X_SHAPE;
                 }
-
                 return flag ? FLOOR_Z_PRESSED_SHAPE : FLOOR_Z_SHAPE;
-            case WALL:
-                switch(direction) {
-                    case EAST:
+            }
+            case WALL -> {
+                switch (direction) {
+                    case EAST -> {
                         return flag ? EAST_PRESSED_SHAPE : EAST_SHAPE;
-                    case WEST:
+                    }
+                    case WEST -> {
                         return flag ? WEST_PRESSED_SHAPE : WEST_SHAPE;
-                    case SOUTH:
+                    }
+                    case SOUTH -> {
                         return flag ? SOUTH_PRESSED_SHAPE : SOUTH_SHAPE;
-                    case NORTH:
-                    default:
-                        return flag ? NORTH_PRESSED_SHAPE : NORTH_SHAPE;
+                    }
                 }
-            case CEILING:
-            default:
-                if (direction.getAxis() == Direction.Axis.X) {
-                    return flag ? CEILING_X_PRESSED_SHAPE : CEILING_X_SHAPE;
-                } else {
-                    return flag ? CEILING_Z_PRESSED_SHAPE : CEILING_Z_SHAPE;
-                }
+                return flag ? NORTH_PRESSED_SHAPE : NORTH_SHAPE;
+            }
         }
+        if (direction.getAxis() == Direction.Axis.X) {
+            return flag ? CEILING_X_PRESSED_SHAPE : CEILING_X_SHAPE;
+        }
+        return flag ? CEILING_Z_PRESSED_SHAPE : CEILING_Z_SHAPE;
     }
 
+    @Override
+    protected void createBlockStateDefinition(StateDefinition.Builder<Block, BlockState> pBuilder) {
+        pBuilder.add(FACING, PRESSED, FACE);
+    }
+
+    @Override
     public InteractionResult use(BlockState state, Level worldIn, BlockPos pos, Player player, InteractionHand handIn, BlockHitResult hit) {
         if (state.getValue(PRESSED)) {
             return InteractionResult.CONSUME;
-        } else {
-            this.powerBlock(state, worldIn, pos);
-            this.playSound(player, worldIn, pos, true);
-            if (config.alarmSound) {
-                worldIn.playSound(player, pos, InfinityButtonsSounds.ALARM.get(), SoundSource.BLOCKS, 2f, 0.6f);
-            }
-            return InteractionResult.sidedSuccess(worldIn.isClientSide);
         }
+        this.powerBlock(state, worldIn, pos);
+        this.playSound(player, worldIn, pos, true);
+        if (config.alarmSound) {
+            worldIn.playSound(player, pos, InfinityButtonsSounds.ALARM.get(), SoundSource.BLOCKS, 2f, 0.6f);
+        }
+        worldIn.gameEvent(player, GameEvent.BLOCK_ACTIVATE, pos);
+        return InteractionResult.sidedSuccess(worldIn.isClientSide);
     }
 
     public void powerBlock(BlockState state, Level world, BlockPos pos) {
-        world.setBlock(pos, state.setValue(PRESSED, Boolean.TRUE), 3);
+        world.setBlock(pos, state.setValue(PRESSED, true), 3);
         this.updateNeighbors(state, world, pos);
-        world.scheduleTick(pos, this, this.getPressDuration());
+        world.scheduleTick(pos, this, 10);
     }
 
-    protected void playSound(@Nullable Player playerIn, LevelAccessor worldIn, BlockPos pos, boolean hitByArrow) {
-        worldIn.playSound(hitByArrow ? playerIn : null, pos, this.getSoundEvent(hitByArrow), SoundSource.BLOCKS, 0.3F, hitByArrow ? 0.6F : 0.5F);
+    protected void playSound(@Nullable Player playerIn, LevelAccessor worldIn, BlockPos pos, boolean pressed) {
+        worldIn.playSound(pressed ? playerIn : null, pos, SoundEvents.BONE_BLOCK_BREAK, SoundSource.BLOCKS, 0.75F, pressed ? 0.6F : 0.5F);
     }
 
-    protected SoundEvent getSoundEvent(boolean isOn) {
-        return SoundEvents.BONE_BLOCK_BREAK;
-    }
-
-    public void onRemove(BlockState state, Level worldIn, BlockPos pos, BlockState newState, boolean isMoving) {
-        if (!isMoving && !state.is(newState.getBlock())) {
-            if (state.getValue(PRESSED)) {
-                this.updateNeighbors(state, worldIn, pos);
-            }
-
-            super.onRemove(state, worldIn, pos, newState, isMoving);
+    @Override
+    public void onRemove(BlockState state, Level worldIn, BlockPos pos, BlockState newState, boolean moved) {
+        if (moved || state.is(newState.getBlock())) {
+            return;
         }
+        if (state.getValue(PRESSED)) {
+            this.updateNeighbors(state, worldIn, pos);
+        }
+        super.onRemove(state, worldIn, pos, newState, moved);
     }
 
+    @Override
     public int getSignal(BlockState blockState, BlockGetter blockAccess, BlockPos pos, Direction side) {
         return blockState.getValue(PRESSED) ? 15 : 0;
     }
 
+    @Override
     public int getDirectSignal(BlockState blockState, BlockGetter blockAccess, BlockPos pos, Direction side) {
-        return blockState.getValue(PRESSED) && getConnectedDirection(blockState) == side ? 15 : 0;
+        if (blockState.getValue(PRESSED) && getConnectedDirection(blockState) == side) {
+            return 15;
+        }
+        return 0;
     }
 
+    @Override
     public boolean isSignalSource(BlockState state) {
         return true;
     }
 
+    @Override
     public void tick(BlockState state, ServerLevel worldIn, BlockPos pos, RandomSource rand) {
         if (state.getValue(PRESSED)) {
             worldIn.setBlock(pos, state.setValue(PRESSED, false), 3);
             this.updateNeighbors(state, worldIn, pos);
-            this.playSound((Player)null, worldIn, pos, false);
-
+            this.playSound(null, worldIn, pos, false);
+            worldIn.gameEvent(null, GameEvent.BLOCK_DEACTIVATE, pos);
         }
     }
 
-    public void updateNeighbors(BlockState state, Level worldIn, BlockPos pos) {
+    private void updateNeighbors(BlockState state, Level worldIn, BlockPos pos) {
         worldIn.updateNeighborsAt(pos, this);
         worldIn.updateNeighborsAt(pos.relative(getConnectedDirection(state).getOpposite()), this);
-    }
-
-    protected void createBlockStateDefinition(StateDefinition.Builder<Block, BlockState> pBuilder) {
-        pBuilder.add(FACING, PRESSED, FACE);
     }
 }

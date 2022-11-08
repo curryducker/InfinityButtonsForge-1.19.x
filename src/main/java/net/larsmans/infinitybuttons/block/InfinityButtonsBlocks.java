@@ -6,6 +6,7 @@ import net.larsmans.infinitybuttons.block.custom.DoorbellButton;
 import net.larsmans.infinitybuttons.block.custom.emergencybutton.EmergencyButton;
 import net.larsmans.infinitybuttons.block.custom.HoglinMountButton;
 import net.larsmans.infinitybuttons.block.custom.button.*;
+import net.larsmans.infinitybuttons.block.custom.emergencybutton.SafeEmergencyButton;
 import net.larsmans.infinitybuttons.block.custom.largebutton.*;
 import net.larsmans.infinitybuttons.block.custom.secretbutton.*;
 import net.larsmans.infinitybuttons.block.custom.torch.*;
@@ -118,6 +119,12 @@ public class InfinityButtonsBlocks {
             () -> new WoodenLargeButton(BlockBehaviour.Properties.of(Material.DECORATION).strength(0.5f).noCollission().sound(SoundType.WOOD)));
 
     public static final RegistryObject<Block> CRIMSON_LARGE_BUTTON = registerBlock("crimson_large_button",
+            () -> new WoodenLargeButton(BlockBehaviour.Properties.of(Material.DECORATION).strength(0.5f).noCollission().sound(SoundType.WOOD)));
+
+    public static final RegistryObject<Block> BLOSSOM_LARGE_BUTTON = registerCompatBlock("quark", "blossom_large_button",
+            () -> new WoodenLargeButton(BlockBehaviour.Properties.of(Material.DECORATION).strength(0.5f).noCollission().sound(SoundType.WOOD)));
+
+    public static final RegistryObject<Block> AZALEA_LARGE_BUTTON = registerCompatBlock("quark", "azalea_large_button",
             () -> new WoodenLargeButton(BlockBehaviour.Properties.of(Material.DECORATION).strength(0.5f).noCollission().sound(SoundType.WOOD)));
 
     public static final RegistryObject<Block> STONE_LARGE_BUTTON = registerBlock("stone_large_button",
@@ -235,6 +242,9 @@ public class InfinityButtonsBlocks {
     public static final RegistryObject<Block> FANCY_EMERGENCY_BUTTON = registerBlock("fancy_emergency_button",
             () -> new EmergencyButton(BlockBehaviour.Properties.of(Material.DECORATION).strength(0.5f).noOcclusion().sound(SoundType.METAL)));
 
+    public static final RegistryObject<Block> SAFE_EMERGENCY_BUTTON = registerTorchBlock("safe_emergency_button",
+            () -> new SafeEmergencyButton(BlockBehaviour.Properties.of(Material.DECORATION).strength(0.5f).noOcclusion().sound(SoundType.METAL)));
+
     /**
      * Secret Buttons
      */
@@ -325,6 +335,12 @@ public class InfinityButtonsBlocks {
 
     public static final RegistryObject<Block> WARPED_PLANK_SECRET_BUTTON = registerBlock("warped_plank_secret_button",
             () -> new PlankSecretButton(BlockBehaviour.Properties.of(Material.NETHER_WOOD, MaterialColor.WARPED_STEM).strength(2.0f, 3.0f).noOcclusion().sound(SoundType.WOOD)));
+
+    public static final RegistryObject<Block> BLOSSOM_PLANK_SECRET_BUTTON = registerCompatBlock("quark", "blossom_plank_secret_button",
+            () -> new PlankSecretButton(BlockBehaviour.Properties.of(Material.WOOD, MaterialColor.COLOR_RED).strength(2.0f, 3.0f).noOcclusion().sound(SoundType.WOOD)));
+
+    public static final RegistryObject<Block> AZALEA_PLANK_SECRET_BUTTON = registerCompatBlock("quark", "azalea_plank_secret_button",
+            () -> new PlankSecretButton(BlockBehaviour.Properties.of(Material.WOOD, MaterialColor.COLOR_LIGHT_GREEN).strength(2.0f, 3.0f).noOcclusion().sound(SoundType.WOOD)));
 
     public static final RegistryObject<Block> PERMAFROST_BRICK_SECRET_BUTTON = registerCompatBlock("quark", "permafrost_brick_secret_button",
             () -> new BigBrickSecretButton(BlockBehaviour.Properties.of(Material.STONE, MaterialColor.COLOR_LIGHT_BLUE).strength(1.5f, 10.0f).noOcclusion().sound(SoundType.STONE).requiresCorrectToolForDrops()));
