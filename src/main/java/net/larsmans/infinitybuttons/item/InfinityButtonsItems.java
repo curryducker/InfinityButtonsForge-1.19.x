@@ -46,13 +46,6 @@ public class InfinityButtonsItems {
             () -> new StandingAndWallBlockItem(InfinityButtonsBlocks.PROPELPLANT_TORCH_LEVER.get(), InfinityButtonsBlocks.PROPELPLANT_WALL_TORCH_LEVER.get(), new Item.Properties().tab(InfinityButtonsItemGroup.INFINITYBUTTONSCOMPAT)));
 
     /**
-     * Safe Emergency Buttons
-     */
-
-    public static final RegistryObject<Item> SAFE_EMERGENCY_BUTTON = registerItem("safe_emergency_button",
-            () -> new SafeEmergencyButtonItem(InfinityButtonsBlocks.SAFE_EMERGENCY_BUTTON.get(), new Item.Properties().tab(InfinityButtonsItemGroup.INFINITYBUTTONS)));
-
-    /**
      * Methods
      */
 
