@@ -1,3 +1,5 @@
+[![Discord](https://i.imgur.com/JiW4MLF.png)](https://discord.gg/PJCXjSJnu2)
+
 # Infinity Buttons
 
 Infinity Buttons is a Minecraft Mod by [LarsMans](https://github.com/LarsMans64), ported to Forge by curryducker
