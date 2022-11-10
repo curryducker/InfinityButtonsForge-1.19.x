@@ -194,7 +194,7 @@ public class SafeEmergencyButton extends FaceAttachedHorizontalDirectionalBlock 
                 return InteractionResult.CONSUME;
             }
             case OPEN -> {
-                if (Screen.hasShiftDown()) {
+                if (player.isShiftKeyDown()) {
                     this.closeCase(state, worldIn, pos);
                     this.playToggleSound(player, worldIn, pos, false);
                 } else {
@@ -207,7 +207,7 @@ public class SafeEmergencyButton extends FaceAttachedHorizontalDirectionalBlock 
                 }
             }
             case CLOSED -> {
-                if (Screen.hasShiftDown()) {
+                if (player.isShiftKeyDown()) {
                     this.openCase(state, worldIn, pos);
                     this.playToggleSound(player, worldIn, pos, true);
                 } else {
