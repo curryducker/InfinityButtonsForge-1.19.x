@@ -103,6 +103,7 @@ public class DiamondButton extends AbstractButton{
     }
 
     @Override
+    @OnlyIn(Dist.CLIENT)
     public void appendHoverText(ItemStack pStack, @org.jetbrains.annotations.Nullable BlockGetter pLevel, List<Component> pTooltip, TooltipFlag pFlag) {
         if (config.tooltips) {
             if(Screen.hasShiftDown()) {
