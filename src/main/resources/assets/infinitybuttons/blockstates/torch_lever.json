@@ -1,18 +1,18 @@
 {
   "variants": {
     "pressed=false,facing=north": {
-      "model": "minecraft:block/torch",
+      "model": "infinitybuttons:block/torches/minecraft/torch",
       "y": 270
     },
     "pressed=false,facing=east": {
-      "model": "minecraft:block/torch"
+      "model": "infinitybuttons:block/torches/minecraft/torch"
     },
     "pressed=false,facing=west": {
-      "model": "minecraft:block/torch",
+      "model": "infinitybuttons:block/torches/minecraft/torch",
       "y": 180
     },
     "pressed=false,facing=south": {
-      "model": "minecraft:block/torch",
+      "model": "infinitybuttons:block/torches/minecraft/torch",
       "y": 90
     },
     "pressed=true,facing=north": {
