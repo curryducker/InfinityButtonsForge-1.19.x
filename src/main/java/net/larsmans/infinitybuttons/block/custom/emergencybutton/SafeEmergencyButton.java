@@ -211,6 +211,7 @@ public class SafeEmergencyButton extends FaceAttachedHorizontalDirectionalBlock 
                     this.openCase(state, worldIn, pos);
                     this.playToggleSound(player, worldIn, pos, true);
                 } else {
+                    player.displayClientMessage(Component.translatable("infinitybuttons.actionbar.closed_safety_button"), true);
                     return InteractionResult.CONSUME;
                 }
             }
