@@ -26,8 +26,6 @@
   "block.infinitybuttons.jungle_large_button": "丛林木大按钮",
   "block.infinitybuttons.warped_large_button": "诡异木大按钮",
   "block.infinitybuttons.crimson_large_button": "绯红木大按钮",
-  "block.infinitybuttons.blossom_large_button": "Blossom Large Button",
-  "block.infinitybuttons.azalea_large_button": "Azalea Large Button",
   "block.infinitybuttons.stone_large_button": "石质大按钮",
   "block.infinitybuttons.polished_blackstone_large_button": "磨制黑石大按钮",
   "block.infinitybuttons.copper_large_button": "铜质大按钮",
@@ -119,8 +117,6 @@
   "block.infinitybuttons.doorbell_button": "门铃按钮",
   "block.infinitybuttons.hoglin_mount_button": "Hoglin Mount Button",
 
-  "block.infinitybuttons.blossom_plank_secret_button": "Blossom Plank Secret Button",
-  "block.infinitybuttons.azalea_plank_secret_button": "Azalea Plank Secret Button",
   "block.infinitybuttons.permafrost_brick_secret_button": "Permafrost Brick Secret Button",
   "block.infinitybuttons.blue_nether_brick_secret_button": "Blue Nether Brick Secret Button",
   "block.infinitybuttons.polished_granite_brick_secret_button": "Polished Granite Brick Secret Button",

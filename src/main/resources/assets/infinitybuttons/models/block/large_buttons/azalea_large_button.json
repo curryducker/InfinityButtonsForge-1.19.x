@@ -1,6 +1,0 @@
-{
-  "parent": "infinitybuttons:block/large_button",
-  "textures": {
-    "texture": "quark:block/azalea_planks"
-  }
-}

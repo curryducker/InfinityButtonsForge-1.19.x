@@ -26,8 +26,6 @@
   "block.infinitybuttons.jungle_large_button": "Oerwoudhouten grote knop",
   "block.infinitybuttons.warped_large_button": "Spookachtige houten grote knop",
   "block.infinitybuttons.crimson_large_button": "Helrode houten grote knop",
-  "block.infinitybuttons.blossom_large_button": "Bloesem grote knop",
-  "block.infinitybuttons.azalea_large_button": "Azalea grote knop",
   "block.infinitybuttons.stone_large_button": "Stenen grote knop",
   "block.infinitybuttons.polished_blackstone_large_button": "Gepolijste zwartstenen grote knop",
   "block.infinitybuttons.copper_large_button": "Koperen grote knop",
@@ -119,8 +117,6 @@
   "block.infinitybuttons.doorbell_button": "Deurbelknop",
   "block.infinitybuttons.hoglin_mount_button": "Opgezette-hoglinknop",
 
-  "block.infinitybuttons.blossom_plank_secret_button": "Bloesem planken verborgen knop",
-  "block.infinitybuttons.azalea_plank_secret_button": "Azalea planken verborgen knop",
   "block.infinitybuttons.permafrost_brick_secret_button": "Permafrostblokstenen verborgen knop",
   "block.infinitybuttons.blue_nether_brick_secret_button": "Blauwe netherbakstenen verborgen knop",
   "block.infinitybuttons.polished_granite_brick_secret_button": "Gepolijst granietblokstenen verborgen knop",

@@ -9,7 +9,13 @@ import net.larsmans.infinitybuttons.block.custom.button.*;
 import net.larsmans.infinitybuttons.block.custom.emergencybutton.SafeEmergencyButton;
 import net.larsmans.infinitybuttons.block.custom.largebutton.*;
 import net.larsmans.infinitybuttons.block.custom.secretbutton.*;
+import net.larsmans.infinitybuttons.block.custom.secretbutton.compat.BigCompatSecretButton;
+import net.larsmans.infinitybuttons.block.custom.secretbutton.compat.FullCompatBrickSecretButton;
 import net.larsmans.infinitybuttons.block.custom.torch.*;
+import net.larsmans.infinitybuttons.block.custom.torch.compat.PropelTorchButton;
+import net.larsmans.infinitybuttons.block.custom.torch.compat.PropelTorchLever;
+import net.larsmans.infinitybuttons.block.custom.torch.compat.PropelWallTorchButton;
+import net.larsmans.infinitybuttons.block.custom.torch.compat.PropelWallTorchLever;
 import net.larsmans.infinitybuttons.item.InfinityButtonsItemGroup;
 import net.larsmans.infinitybuttons.item.InfinityButtonsItems;
 import net.larsmans.infinitybuttons.item.custom.SafeEmergencyButtonItem;
@@ -120,12 +126,6 @@ public class InfinityButtonsBlocks {
             () -> new WoodenLargeButton(BlockBehaviour.Properties.of(Material.DECORATION).strength(0.5f).noCollission().sound(SoundType.WOOD)));
 
     public static final RegistryObject<Block> CRIMSON_LARGE_BUTTON = registerBlock("crimson_large_button",
-            () -> new WoodenLargeButton(BlockBehaviour.Properties.of(Material.DECORATION).strength(0.5f).noCollission().sound(SoundType.WOOD)));
-
-    public static final RegistryObject<Block> BLOSSOM_LARGE_BUTTON = registerCompatBlock("quark", "blossom_large_button",
-            () -> new WoodenLargeButton(BlockBehaviour.Properties.of(Material.DECORATION).strength(0.5f).noCollission().sound(SoundType.WOOD)));
-
-    public static final RegistryObject<Block> AZALEA_LARGE_BUTTON = registerCompatBlock("quark", "azalea_large_button",
             () -> new WoodenLargeButton(BlockBehaviour.Properties.of(Material.DECORATION).strength(0.5f).noCollission().sound(SoundType.WOOD)));
 
     public static final RegistryObject<Block> STONE_LARGE_BUTTON = registerBlock("stone_large_button",
@@ -385,44 +385,38 @@ public class InfinityButtonsBlocks {
     public static final RegistryObject<Block> WARPED_PLANK_SECRET_BUTTON = registerBlock("warped_plank_secret_button",
             () -> new PlankSecretButton(BlockBehaviour.Properties.of(Material.NETHER_WOOD, MaterialColor.WARPED_STEM).strength(2.0f, 3.0f).noOcclusion().sound(SoundType.WOOD)));
 
-    public static final RegistryObject<Block> BLOSSOM_PLANK_SECRET_BUTTON = registerCompatBlock("quark", "blossom_plank_secret_button",
-            () -> new PlankSecretButton(BlockBehaviour.Properties.of(Material.WOOD, MaterialColor.COLOR_RED).strength(2.0f, 3.0f).noOcclusion().sound(SoundType.WOOD)));
-
-    public static final RegistryObject<Block> AZALEA_PLANK_SECRET_BUTTON = registerCompatBlock("quark", "azalea_plank_secret_button",
-            () -> new PlankSecretButton(BlockBehaviour.Properties.of(Material.WOOD, MaterialColor.COLOR_LIGHT_GREEN).strength(2.0f, 3.0f).noOcclusion().sound(SoundType.WOOD)));
-
     public static final RegistryObject<Block> PERMAFROST_BRICK_SECRET_BUTTON = registerCompatBlock("quark", "permafrost_brick_secret_button",
-            () -> new BigBrickSecretButton(BlockBehaviour.Properties.of(Material.STONE, MaterialColor.COLOR_LIGHT_BLUE).strength(1.5f, 10.0f).noOcclusion().sound(SoundType.STONE).requiresCorrectToolForDrops()));
+            () -> new BigCompatSecretButton(BlockBehaviour.Properties.of(Material.STONE, MaterialColor.COLOR_LIGHT_BLUE).strength(1.5f, 10.0f).noOcclusion().sound(SoundType.STONE).requiresCorrectToolForDrops()));
 
     public static final RegistryObject<Block> BLUE_NETHER_BRICK_SECRET_BUTTON = registerCompatBlock("quark", "blue_nether_brick_secret_button",
-            () -> new FullBlockBrickSecretButton(BlockBehaviour.Properties.of(Material.STONE, MaterialColor.NETHER).strength(2.0f, 6.0f).noOcclusion().sound(SoundType.NETHER_BRICKS).requiresCorrectToolForDrops()));
+            () -> new FullCompatBrickSecretButton(BlockBehaviour.Properties.of(Material.STONE, MaterialColor.NETHER).strength(2.0f, 6.0f).noOcclusion().sound(SoundType.NETHER_BRICKS).requiresCorrectToolForDrops()));
 
     public static final RegistryObject<Block> POLISHED_GRANITE_BRICK_SECRET_BUTTON = registerCompatBlock("quark", "polished_granite_brick_secret_button",
-            () -> new BigBrickSecretButton(BlockBehaviour.Properties.of(Material.STONE, MaterialColor.DIRT).strength(1.5f, 6.0f).noOcclusion().sound(SoundType.STONE).requiresCorrectToolForDrops()));
+            () -> new BigCompatSecretButton(BlockBehaviour.Properties.of(Material.STONE, MaterialColor.DIRT).strength(1.5f, 6.0f).noOcclusion().sound(SoundType.STONE).requiresCorrectToolForDrops()));
 
     public static final RegistryObject<Block> POLISHED_DIORITE_BRICK_SECRET_BUTTON = registerCompatBlock("quark", "polished_diorite_brick_secret_button",
-            () -> new BigBrickSecretButton(BlockBehaviour.Properties.of(Material.STONE, MaterialColor.QUARTZ).strength(1.5f, 6.0f).noOcclusion().sound(SoundType.STONE).requiresCorrectToolForDrops()));
+            () -> new BigCompatSecretButton(BlockBehaviour.Properties.of(Material.STONE, MaterialColor.QUARTZ).strength(1.5f, 6.0f).noOcclusion().sound(SoundType.STONE).requiresCorrectToolForDrops()));
 
     public static final RegistryObject<Block> POLISHED_ANDESITE_BRICK_SECRET_BUTTON = registerCompatBlock("quark", "polished_andesite_brick_secret_button",
-            () -> new BigBrickSecretButton(BlockBehaviour.Properties.of(Material.STONE, MaterialColor.STONE).strength(1.5f, 6.0f).noOcclusion().sound(SoundType.STONE).requiresCorrectToolForDrops()));
+            () -> new BigCompatSecretButton(BlockBehaviour.Properties.of(Material.STONE, MaterialColor.STONE).strength(1.5f, 6.0f).noOcclusion().sound(SoundType.STONE).requiresCorrectToolForDrops()));
 
     public static final RegistryObject<Block> POLISHED_CALCITE_BRICK_SECRET_BUTTON = registerCompatBlock("quark", "polished_calcite_brick_secret_button",
-            () -> new BigBrickSecretButton(BlockBehaviour.Properties.of(Material.STONE, MaterialColor.TERRACOTTA_WHITE).strength(0.75f, 0.75f).noOcclusion().sound(SoundType.CALCITE).requiresCorrectToolForDrops()));
+            () -> new BigCompatSecretButton(BlockBehaviour.Properties.of(Material.STONE, MaterialColor.TERRACOTTA_WHITE).strength(0.75f, 0.75f).noOcclusion().sound(SoundType.CALCITE).requiresCorrectToolForDrops()));
 
     public static final RegistryObject<Block> POLISHED_DRIPSTONE_BRICK_SECRET_BUTTON = registerCompatBlock("quark", "polished_dripstone_brick_secret_button",
-            () -> new BigBrickSecretButton(BlockBehaviour.Properties.of(Material.STONE, MaterialColor.TERRACOTTA_BROWN).strength(1.5f, 1.0f).noOcclusion().sound(SoundType.DRIPSTONE_BLOCK).requiresCorrectToolForDrops()));
+            () -> new BigCompatSecretButton(BlockBehaviour.Properties.of(Material.STONE, MaterialColor.TERRACOTTA_BROWN).strength(1.5f, 1.0f).noOcclusion().sound(SoundType.DRIPSTONE_BLOCK).requiresCorrectToolForDrops()));
 
     public static final RegistryObject<Block> POLISHED_TUFF_BRICK_SECRET_BUTTON = registerCompatBlock("quark", "polished_tuff_brick_secret_button",
-            () -> new BigBrickSecretButton(BlockBehaviour.Properties.of(Material.STONE, MaterialColor.TERRACOTTA_GRAY).strength(1.5f, 1.0f).noOcclusion().sound(SoundType.TUFF).requiresCorrectToolForDrops()));
+            () -> new BigCompatSecretButton(BlockBehaviour.Properties.of(Material.STONE, MaterialColor.TERRACOTTA_GRAY).strength(1.5f, 1.0f).noOcclusion().sound(SoundType.TUFF).requiresCorrectToolForDrops()));
 
     public static final RegistryObject<Block> POLISHED_LIMESTONE_BRICK_SECRET_BUTTON = registerCompatBlock("quark", "polished_limestone_brick_secret_button",
-            () -> new BigBrickSecretButton(BlockBehaviour.Properties.of(Material.STONE, MaterialColor.STONE).strength(1.5f, 6.0f).noOcclusion().sound(SoundType.STONE).requiresCorrectToolForDrops()));
+            () -> new BigCompatSecretButton(BlockBehaviour.Properties.of(Material.STONE, MaterialColor.STONE).strength(1.5f, 6.0f).noOcclusion().sound(SoundType.STONE).requiresCorrectToolForDrops()));
 
     public static final RegistryObject<Block> POLISHED_JASPER_BRICK_SECRET_BUTTON = registerCompatBlock("quark", "polished_jasper_brick_secret_button",
-            () -> new BigBrickSecretButton(BlockBehaviour.Properties.of(Material.STONE, MaterialColor.TERRACOTTA_RED).strength(1.5f, 6.0f).noOcclusion().sound(SoundType.STONE).requiresCorrectToolForDrops()));
+            () -> new BigCompatSecretButton(BlockBehaviour.Properties.of(Material.STONE, MaterialColor.TERRACOTTA_RED).strength(1.5f, 6.0f).noOcclusion().sound(SoundType.STONE).requiresCorrectToolForDrops()));
 
     public static final RegistryObject<Block> POLISHED_SHALE_BRICK_SECRET_BUTTON = registerCompatBlock("quark", "polished_shale_brick_secret_button",
-            () -> new BigBrickSecretButton(BlockBehaviour.Properties.of(Material.STONE, MaterialColor.ICE).strength(1.5f, 6.0f).noOcclusion().sound(SoundType.STONE).requiresCorrectToolForDrops()));
+            () -> new BigCompatSecretButton(BlockBehaviour.Properties.of(Material.STONE, MaterialColor.ICE).strength(1.5f, 6.0f).noOcclusion().sound(SoundType.STONE).requiresCorrectToolForDrops()));
 
     /**
      * Misc
@@ -512,7 +506,7 @@ public class InfinityButtonsBlocks {
     public static final RegistryObject<Block> PROPELPLANT_WALL_TORCH_BUTTON = registerCompatTorchBlock("nethersdelight", "propelplant_wall_torch_button",
             () -> new PropelWallTorchButton(BlockBehaviour.Properties.of(Material.PLANT).noCollission().instabreak().lightLevel((p_50876_) -> {
                 return 12;
-            }).sound(SoundType.WOOD).lootFrom(PROPELPLANT_TORCH_BUTTON)));
+            }).sound(SoundType.WOOD)));
 
     public static final RegistryObject<Block> PROPELPLANT_TORCH_LEVER = registerCompatTorchBlock("nethersdelight", "propelplant_torch_lever",
             () -> new PropelTorchLever(BlockBehaviour.Properties.of(Material.PLANT).noCollission().instabreak().lightLevel((p_50876_) -> {
@@ -522,7 +516,7 @@ public class InfinityButtonsBlocks {
     public static final RegistryObject<Block> PROPELPLANT_WALL_TORCH_LEVER = registerCompatTorchBlock("nethersdelight", "propelplant_wall_torch_lever",
             () -> new PropelWallTorchLever(BlockBehaviour.Properties.of(Material.PLANT).noCollission().instabreak().lightLevel((p_50876_) -> {
                 return 12;
-            }).sound(SoundType.WOOD).lootFrom(PROPELPLANT_TORCH_LEVER)));
+            }).sound(SoundType.WOOD)));
 
     /**
      * Methods
