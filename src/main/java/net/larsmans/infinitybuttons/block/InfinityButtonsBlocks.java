@@ -100,6 +100,54 @@ public class InfinityButtonsBlocks {
     public static final RegistryObject<Block> GRAVEL_BUTTON = registerBlock("gravel_button",
             () -> new FallingButton(true, BlockBehaviour.Properties.of(Material.DECORATION).strength(0.5f).noCollission().sound(SoundType.GRAVEL)));
 
+    public static final RegistryObject<Block> RED_CONCRETE_POWDER_BUTTON = registerBlock("red_concrete_powder_button",
+            () -> new FallingButton(false, BlockBehaviour.Properties.of(Material.DECORATION).strength(0.5f).noCollission().sound(SoundType.SAND)));
+
+    public static final RegistryObject<Block> ORANGE_CONCRETE_POWDER_BUTTON = registerBlock("orange_concrete_powder_button",
+            () -> new FallingButton(false, BlockBehaviour.Properties.of(Material.DECORATION).strength(0.5f).noCollission().sound(SoundType.SAND)));
+
+    public static final RegistryObject<Block> YELLOW_CONCRETE_POWDER_BUTTON = registerBlock("yellow_concrete_powder_button",
+            () -> new FallingButton(false, BlockBehaviour.Properties.of(Material.DECORATION).strength(0.5f).noCollission().sound(SoundType.SAND)));
+
+    public static final RegistryObject<Block> LIME_CONCRETE_POWDER_BUTTON = registerBlock("lime_concrete_powder_button",
+            () -> new FallingButton(false, BlockBehaviour.Properties.of(Material.DECORATION).strength(0.5f).noCollission().sound(SoundType.SAND)));
+
+    public static final RegistryObject<Block> GREEN_CONCRETE_POWDER_BUTTON = registerBlock("green_concrete_powder_button",
+            () -> new FallingButton(false, BlockBehaviour.Properties.of(Material.DECORATION).strength(0.5f).noCollission().sound(SoundType.SAND)));
+
+    public static final RegistryObject<Block> CYAN_CONCRETE_POWDER_BUTTON = registerBlock("cyan_concrete_powder_button",
+            () -> new FallingButton(false, BlockBehaviour.Properties.of(Material.DECORATION).strength(0.5f).noCollission().sound(SoundType.SAND)));
+
+    public static final RegistryObject<Block> LIGHT_BLUE_CONCRETE_POWDER_BUTTON = registerBlock("light_blue_concrete_powder_button",
+            () -> new FallingButton(false, BlockBehaviour.Properties.of(Material.DECORATION).strength(0.5f).noCollission().sound(SoundType.SAND)));
+
+    public static final RegistryObject<Block> BLUE_CONCRETE_POWDER_BUTTON = registerBlock("blue_concrete_powder_button",
+            () -> new FallingButton(false, BlockBehaviour.Properties.of(Material.DECORATION).strength(0.5f).noCollission().sound(SoundType.SAND)));
+
+    public static final RegistryObject<Block> PURPLE_CONCRETE_POWDER_BUTTON = registerBlock("purple_concrete_powder_button",
+            () -> new FallingButton(false, BlockBehaviour.Properties.of(Material.DECORATION).strength(0.5f).noCollission().sound(SoundType.SAND)));
+
+    public static final RegistryObject<Block> MAGENTA_CONCRETE_POWDER_BUTTON = registerBlock("magenta_concrete_powder_button",
+            () -> new FallingButton(false, BlockBehaviour.Properties.of(Material.DECORATION).strength(0.5f).noCollission().sound(SoundType.SAND)));
+
+    public static final RegistryObject<Block> PINK_CONCRETE_POWDER_BUTTON = registerBlock("pink_concrete_powder_button",
+            () -> new FallingButton(false, BlockBehaviour.Properties.of(Material.DECORATION).strength(0.5f).noCollission().sound(SoundType.SAND)));
+
+    public static final RegistryObject<Block> BROWN_CONCRETE_POWDER_BUTTON = registerBlock("brown_concrete_powder_button",
+            () -> new FallingButton(false, BlockBehaviour.Properties.of(Material.DECORATION).strength(0.5f).noCollission().sound(SoundType.SAND)));
+
+    public static final RegistryObject<Block> WHITE_CONCRETE_POWDER_BUTTON = registerBlock("white_concrete_powder_button",
+            () -> new FallingButton(false, BlockBehaviour.Properties.of(Material.DECORATION).strength(0.5f).noCollission().sound(SoundType.SAND)));
+
+    public static final RegistryObject<Block> LIGHT_GRAY_CONCRETE_POWDER_BUTTON = registerBlock("light_gray_concrete_powder_button",
+            () -> new FallingButton(false, BlockBehaviour.Properties.of(Material.DECORATION).strength(0.5f).noCollission().sound(SoundType.SAND)));
+
+    public static final RegistryObject<Block> GRAY_CONCRETE_POWDER_BUTTON = registerBlock("gray_concrete_powder_button",
+            () -> new FallingButton(false, BlockBehaviour.Properties.of(Material.DECORATION).strength(0.5f).noCollission().sound(SoundType.SAND)));
+
+    public static final RegistryObject<Block> BLACK_CONCRETE_POWDER_BUTTON = registerBlock("black_concrete_powder_button",
+            () -> new FallingButton(false, BlockBehaviour.Properties.of(Material.DECORATION).strength(0.5f).noCollission().sound(SoundType.SAND)));
+
     /**
      * Large Buttons
      */
@@ -187,6 +235,54 @@ public class InfinityButtonsBlocks {
 
     public static final RegistryObject<Block> GRAVEL_LARGE_BUTTON = registerBlock("gravel_large_button",
             () -> new FallingLargeButton(true, BlockBehaviour.Properties.of(Material.DECORATION).strength(0.5f).noCollission().sound(SoundType.GRAVEL)));
+
+    public static final RegistryObject<Block> RED_CONCRETE_POWDER_LARGE_BUTTON = registerBlock("red_concrete_powder_large_button",
+            () -> new FallingLargeButton(false, BlockBehaviour.Properties.of(Material.DECORATION).strength(0.5f).noCollission().sound(SoundType.SAND)));
+
+    public static final RegistryObject<Block> ORANGE_CONCRETE_POWDER_LARGE_BUTTON = registerBlock("orange_concrete_powder_large_button",
+            () -> new FallingLargeButton(false, BlockBehaviour.Properties.of(Material.DECORATION).strength(0.5f).noCollission().sound(SoundType.SAND)));
+
+    public static final RegistryObject<Block> YELLOW_CONCRETE_POWDER_LARGE_BUTTON = registerBlock("yellow_concrete_powder_large_button",
+            () -> new FallingLargeButton(false, BlockBehaviour.Properties.of(Material.DECORATION).strength(0.5f).noCollission().sound(SoundType.SAND)));
+
+    public static final RegistryObject<Block> LIME_CONCRETE_POWDER_LARGE_BUTTON = registerBlock("lime_concrete_powder_large_button",
+            () -> new FallingLargeButton(false, BlockBehaviour.Properties.of(Material.DECORATION).strength(0.5f).noCollission().sound(SoundType.SAND)));
+
+    public static final RegistryObject<Block> GREEN_CONCRETE_POWDER_LARGE_BUTTON = registerBlock("green_concrete_powder_large_button",
+            () -> new FallingLargeButton(false, BlockBehaviour.Properties.of(Material.DECORATION).strength(0.5f).noCollission().sound(SoundType.SAND)));
+
+    public static final RegistryObject<Block> CYAN_CONCRETE_POWDER_LARGE_BUTTON = registerBlock("cyan_concrete_powder_large_button",
+            () -> new FallingLargeButton(false, BlockBehaviour.Properties.of(Material.DECORATION).strength(0.5f).noCollission().sound(SoundType.SAND)));
+
+    public static final RegistryObject<Block> LIGHT_BLUE_CONCRETE_POWDER_LARGE_BUTTON = registerBlock("light_blue_concrete_powder_large_button",
+            () -> new FallingLargeButton(false, BlockBehaviour.Properties.of(Material.DECORATION).strength(0.5f).noCollission().sound(SoundType.SAND)));
+
+    public static final RegistryObject<Block> BLUE_CONCRETE_POWDER_LARGE_BUTTON = registerBlock("blue_concrete_powder_large_button",
+            () -> new FallingLargeButton(false, BlockBehaviour.Properties.of(Material.DECORATION).strength(0.5f).noCollission().sound(SoundType.SAND)));
+
+    public static final RegistryObject<Block> PURPLE_CONCRETE_POWDER_LARGE_BUTTON = registerBlock("purple_concrete_powder_large_button",
+            () -> new FallingLargeButton(false, BlockBehaviour.Properties.of(Material.DECORATION).strength(0.5f).noCollission().sound(SoundType.SAND)));
+
+    public static final RegistryObject<Block> MAGENTA_CONCRETE_POWDER_LARGE_BUTTON = registerBlock("magenta_concrete_powder_large_button",
+            () -> new FallingLargeButton(false, BlockBehaviour.Properties.of(Material.DECORATION).strength(0.5f).noCollission().sound(SoundType.SAND)));
+
+    public static final RegistryObject<Block> PINK_CONCRETE_POWDER_LARGE_BUTTON = registerBlock("pink_concrete_powder_large_button",
+            () -> new FallingLargeButton(false, BlockBehaviour.Properties.of(Material.DECORATION).strength(0.5f).noCollission().sound(SoundType.SAND)));
+
+    public static final RegistryObject<Block> BROWN_CONCRETE_POWDER_LARGE_BUTTON = registerBlock("brown_concrete_powder_large_button",
+            () -> new FallingLargeButton(false, BlockBehaviour.Properties.of(Material.DECORATION).strength(0.5f).noCollission().sound(SoundType.SAND)));
+
+    public static final RegistryObject<Block> WHITE_CONCRETE_POWDER_LARGE_BUTTON = registerBlock("white_concrete_powder_large_button",
+            () -> new FallingLargeButton(false, BlockBehaviour.Properties.of(Material.DECORATION).strength(0.5f).noCollission().sound(SoundType.SAND)));
+
+    public static final RegistryObject<Block> LIGHT_GRAY_CONCRETE_POWDER_LARGE_BUTTON = registerBlock("light_gray_concrete_powder_large_button",
+            () -> new FallingLargeButton(false, BlockBehaviour.Properties.of(Material.DECORATION).strength(0.5f).noCollission().sound(SoundType.SAND)));
+
+    public static final RegistryObject<Block> GRAY_CONCRETE_POWDER_LARGE_BUTTON = registerBlock("gray_concrete_powder_large_button",
+            () -> new FallingLargeButton(false, BlockBehaviour.Properties.of(Material.DECORATION).strength(0.5f).noCollission().sound(SoundType.SAND)));
+
+    public static final RegistryObject<Block> BLACK_CONCRETE_POWDER_LARGE_BUTTON = registerBlock("black_concrete_powder_large_button",
+            () -> new FallingLargeButton(false, BlockBehaviour.Properties.of(Material.DECORATION).strength(0.5f).noCollission().sound(SoundType.SAND)));
 
     /**
      * Emergency Buttons
