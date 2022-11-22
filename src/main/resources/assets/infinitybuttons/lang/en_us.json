@@ -40,6 +40,7 @@
   "block.infinitybuttons.spruce_large_button": "Spruce Large Button",
   "block.infinitybuttons.dark_oak_large_button": "Dark Oak Large Button",
   "block.infinitybuttons.jungle_large_button": "Jungle Large Button",
+  "block.infinitybuttons.mangrove_large_button": "Mangrove Large Button",
   "block.infinitybuttons.warped_large_button": "Warped Large Button",
   "block.infinitybuttons.crimson_large_button": "Crimson Large Button",
   "block.infinitybuttons.stone_large_button": "Stone Large Button",
@@ -142,6 +143,7 @@
   "block.infinitybuttons.acacia_plank_secret_button": "Acacia Plank Secret Button",
   "block.infinitybuttons.dark_oak_plank_secret_button": "Dark Oak Plank Secret Button",
   "block.infinitybuttons.jungle_plank_secret_button": "Jungle Plank Secret Button",
+  "block.infinitybuttons.mangrove_plank_secret_button": "Mangrove Plank Secret Button",
   "block.infinitybuttons.crimson_plank_secret_button": "Crimson Plank Secret Button",
   "block.infinitybuttons.warped_plank_secret_button": "Warped Plank Secret Button",
 

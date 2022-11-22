@@ -170,6 +170,9 @@ public class InfinityButtonsBlocks {
     public static final RegistryObject<Block> JUNGLE_LARGE_BUTTON = registerBlock("jungle_large_button",
             () -> new WoodenLargeButton(BlockBehaviour.Properties.of(Material.DECORATION).strength(0.5f).noCollission().sound(SoundType.WOOD)));
 
+    public static final RegistryObject<Block> MANGROVE_LARGE_BUTTON = registerBlock("mangrove_large_button",
+            () -> new WoodenLargeButton(BlockBehaviour.Properties.of(Material.DECORATION).strength(0.5f).noCollission().sound(SoundType.WOOD)));
+
     public static final RegistryObject<Block> WARPED_LARGE_BUTTON = registerBlock("warped_large_button",
             () -> new WoodenLargeButton(BlockBehaviour.Properties.of(Material.DECORATION).strength(0.5f).noCollission().sound(SoundType.WOOD)));
 
@@ -474,6 +477,9 @@ public class InfinityButtonsBlocks {
 
     public static final RegistryObject<Block> JUNGLE_PLANK_SECRET_BUTTON = registerBlock("jungle_plank_secret_button",
             () -> new PlankSecretButton(BlockBehaviour.Properties.of(Material.WOOD, MaterialColor.DIRT).strength(2.0f, 3.0f).noOcclusion().sound(SoundType.WOOD)));
+
+    public static final RegistryObject<Block> MANGROVE_PLANK_SECRET_BUTTON = registerBlock("mangrove_plank_secret_button",
+            () -> new PlankSecretButton(BlockBehaviour.Properties.of(Material.WOOD, MaterialColor.COLOR_RED).strength(2.0f, 3.0f).noOcclusion().sound(SoundType.WOOD)));
 
     public static final RegistryObject<Block> CRIMSON_PLANK_SECRET_BUTTON = registerBlock("crimson_plank_secret_button",
             () -> new PlankSecretButton(BlockBehaviour.Properties.of(Material.NETHER_WOOD, MaterialColor.CRIMSON_STEM).strength(2.0f, 3.0f).noOcclusion().sound(SoundType.WOOD)));
