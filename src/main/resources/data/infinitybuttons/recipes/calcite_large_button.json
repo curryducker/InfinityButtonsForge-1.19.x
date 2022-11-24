@@ -1,0 +1,15 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "ingredients": [
+    {
+      "item": "infinitybuttons:calcite_button"
+    },
+    {
+      "item": "infinitybuttons:calcite_button"
+    }
+  ],
+  "result": {
+    "item": "infinitybuttons:calcite_large_button",
+    "count": 1
+  }
+}

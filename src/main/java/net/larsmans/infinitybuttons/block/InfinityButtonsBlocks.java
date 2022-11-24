@@ -26,6 +26,7 @@ import net.minecraft.world.item.Item;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.level.block.SoundType;
+import net.minecraft.world.level.block.StoneButtonBlock;
 import net.minecraft.world.level.block.state.BlockBehaviour;
 import net.minecraft.world.level.material.Material;
 import net.minecraft.world.level.material.MaterialColor;
@@ -45,6 +46,21 @@ public class InfinityButtonsBlocks {
     /**
      * Buttons
      */
+
+    public static final RegistryObject<Block> ANDESITE_BUTTON = registerBlock("andesite_button",
+            () -> new StoneButtonBlock(BlockBehaviour.Properties.of(Material.DECORATION).strength(0.5f).noCollission().sound(SoundType.STONE)));
+
+    public static final RegistryObject<Block> GRANITE_BUTTON = registerBlock("granite_button",
+            () -> new StoneButtonBlock(BlockBehaviour.Properties.of(Material.DECORATION).strength(0.5f).noCollission().sound(SoundType.STONE)));
+
+    public static final RegistryObject<Block> DIORITE_BUTTON = registerBlock("diorite_button",
+            () -> new StoneButtonBlock(BlockBehaviour.Properties.of(Material.DECORATION).strength(0.5f).noCollission().sound(SoundType.STONE)));
+
+    public static final RegistryObject<Block> TUFF_BUTTON = registerBlock("tuff_button",
+            () -> new StoneButtonBlock(BlockBehaviour.Properties.of(Material.DECORATION).strength(0.5f).noCollission().sound(SoundType.STONE)));
+
+    public static final RegistryObject<Block> CALCITE_BUTTON = registerBlock("calcite_button",
+            () -> new StoneButtonBlock(BlockBehaviour.Properties.of(Material.DECORATION).strength(0.5f).noCollission().sound(SoundType.STONE)));
 
     public static final RegistryObject<Block> COPPER_BUTTON = registerBlock("copper_button",
             () -> new CopperButton(BlockBehaviour.Properties.of(Material.DECORATION).strength(0.5f).noCollission().sound(SoundType.COPPER)));
@@ -180,10 +196,25 @@ public class InfinityButtonsBlocks {
             () -> new WoodenLargeButton(BlockBehaviour.Properties.of(Material.DECORATION).strength(0.5f).noCollission().sound(SoundType.WOOD)));
 
     public static final RegistryObject<Block> STONE_LARGE_BUTTON = registerBlock("stone_large_button",
-            () -> new StoneLargeButton(BlockBehaviour.Properties.of(Material.DECORATION).strength(0.5f).noCollission()));
+            () -> new StoneLargeButton(BlockBehaviour.Properties.of(Material.DECORATION).strength(0.5f).noCollission().sound(SoundType.STONE)));
+
+    public static final RegistryObject<Block> ANDESITE_LARGE_BUTTON = registerBlock("andesite_large_button",
+            () -> new StoneLargeButton(BlockBehaviour.Properties.of(Material.DECORATION).strength(0.5f).noCollission().sound(SoundType.STONE)));
+
+    public static final RegistryObject<Block> GRANITE_LARGE_BUTTON = registerBlock("granite_large_button",
+            () -> new StoneLargeButton(BlockBehaviour.Properties.of(Material.DECORATION).strength(0.5f).noCollission().sound(SoundType.STONE)));
+
+    public static final RegistryObject<Block> DIORITE_LARGE_BUTTON = registerBlock("diorite_large_button",
+            () -> new StoneLargeButton(BlockBehaviour.Properties.of(Material.DECORATION).strength(0.5f).noCollission().sound(SoundType.STONE)));
+
+    public static final RegistryObject<Block> TUFF_LARGE_BUTTON = registerBlock("tuff_large_button",
+            () -> new StoneLargeButton(BlockBehaviour.Properties.of(Material.DECORATION).strength(0.5f).noCollission().sound(SoundType.STONE)));
+
+    public static final RegistryObject<Block> CALCITE_LARGE_BUTTON = registerBlock("calcite_large_button",
+            () -> new StoneLargeButton(BlockBehaviour.Properties.of(Material.DECORATION).strength(0.5f).noCollission().sound(SoundType.STONE)));
 
     public static final RegistryObject<Block> POLISHED_BLACKSTONE_LARGE_BUTTON = registerBlock("polished_blackstone_large_button",
-            () -> new StoneLargeButton(BlockBehaviour.Properties.of(Material.DECORATION).strength(0.5f).noCollission()));
+            () -> new StoneLargeButton(BlockBehaviour.Properties.of(Material.DECORATION).strength(0.5f).noCollission().sound(SoundType.STONE)));
 
     public static final RegistryObject<Block> COPPER_LARGE_BUTTON = registerBlock("copper_large_button",
             () -> new CopperLargeButton(BlockBehaviour.Properties.of(Material.DECORATION).strength(0.5f).noCollission().sound(SoundType.COPPER)));
