@@ -10,6 +10,7 @@ import net.larsmans.infinitybuttons.block.custom.emergencybutton.SafeEmergencyBu
 import net.larsmans.infinitybuttons.block.custom.largebutton.*;
 import net.larsmans.infinitybuttons.block.custom.secretbutton.*;
 import net.larsmans.infinitybuttons.block.custom.secretbutton.compat.BigCompatSecretButton;
+import net.larsmans.infinitybuttons.block.custom.secretbutton.compat.ChiseledCompatSecretButton;
 import net.larsmans.infinitybuttons.block.custom.secretbutton.compat.FullCompatBrickSecretButton;
 import net.larsmans.infinitybuttons.block.custom.torch.*;
 import net.larsmans.infinitybuttons.block.custom.torch.compat.PropelTorchButton;
@@ -550,6 +551,33 @@ public class InfinityButtonsBlocks {
 
     public static final RegistryObject<Block> POLISHED_SHALE_BRICK_SECRET_BUTTON = registerCompatBlock("quark", "polished_shale_brick_secret_button",
             () -> new BigCompatSecretButton(BlockBehaviour.Properties.of(Material.STONE, MaterialColor.ICE).strength(1.5f, 6.0f).noOcclusion().sound(SoundType.STONE).requiresCorrectToolForDrops()));
+
+    public static final RegistryObject<Block> CHISELED_POLISHED_GRANITE_BRICK_SECRET_BUTTON = registerCompatBlock("quark", "chiseled_polished_granite_brick_secret_button",
+            () -> new ChiseledCompatSecretButton(BlockBehaviour.Properties.of(Material.STONE, MaterialColor.DIRT).strength(1.5f, 6.0f).noOcclusion().sound(SoundType.STONE).requiresCorrectToolForDrops()));
+
+    public static final RegistryObject<Block> CHISELED_POLISHED_DIORITE_BRICK_SECRET_BUTTON = registerCompatBlock("quark", "chiseled_polished_diorite_brick_secret_button",
+            () -> new ChiseledCompatSecretButton(BlockBehaviour.Properties.of(Material.STONE, MaterialColor.QUARTZ).strength(1.5f, 6.0f).noOcclusion().sound(SoundType.STONE).requiresCorrectToolForDrops()));
+
+    public static final RegistryObject<Block> CHISELED_POLISHED_ANDESITE_BRICK_SECRET_BUTTON = registerCompatBlock("quark", "chiseled_polished_andesite_brick_secret_button",
+            () -> new ChiseledCompatSecretButton(BlockBehaviour.Properties.of(Material.STONE, MaterialColor.STONE).strength(1.5f, 6.0f).noOcclusion().sound(SoundType.STONE).requiresCorrectToolForDrops()));
+
+    public static final RegistryObject<Block> CHISELED_POLISHED_CALCITE_BRICK_SECRET_BUTTON = registerCompatBlock("quark", "chiseled_polished_calcite_brick_secret_button",
+            () -> new ChiseledCompatSecretButton(BlockBehaviour.Properties.of(Material.STONE, MaterialColor.TERRACOTTA_WHITE).strength(0.75f, 0.75f).noOcclusion().sound(SoundType.CALCITE).requiresCorrectToolForDrops()));
+
+    public static final RegistryObject<Block> CHISELED_POLISHED_DRIPSTONE_BRICK_SECRET_BUTTON = registerCompatBlock("quark", "chiseled_polished_dripstone_brick_secret_button",
+            () -> new ChiseledCompatSecretButton(BlockBehaviour.Properties.of(Material.STONE, MaterialColor.TERRACOTTA_BROWN).strength(1.5f, 1.0f).noOcclusion().sound(SoundType.DRIPSTONE_BLOCK).requiresCorrectToolForDrops()));
+
+    public static final RegistryObject<Block> CHISELED_POLISHED_TUFF_BRICK_SECRET_BUTTON = registerCompatBlock("quark", "chiseled_polished_tuff_brick_secret_button",
+            () -> new ChiseledCompatSecretButton(BlockBehaviour.Properties.of(Material.STONE, MaterialColor.TERRACOTTA_GRAY).strength(1.5f, 1.0f).noOcclusion().sound(SoundType.TUFF).requiresCorrectToolForDrops()));
+
+    public static final RegistryObject<Block> CHISELED_POLISHED_LIMESTONE_BRICK_SECRET_BUTTON = registerCompatBlock("quark", "chiseled_polished_limestone_brick_secret_button",
+            () -> new ChiseledCompatSecretButton(BlockBehaviour.Properties.of(Material.STONE, MaterialColor.STONE).strength(1.5f, 6.0f).noOcclusion().sound(SoundType.STONE).requiresCorrectToolForDrops()));
+
+    public static final RegistryObject<Block> CHISELED_POLISHED_JASPER_BRICK_SECRET_BUTTON = registerCompatBlock("quark", "chiseled_polished_jasper_brick_secret_button",
+            () -> new ChiseledCompatSecretButton(BlockBehaviour.Properties.of(Material.STONE, MaterialColor.TERRACOTTA_RED).strength(1.5f, 6.0f).noOcclusion().sound(SoundType.STONE).requiresCorrectToolForDrops()));
+
+    public static final RegistryObject<Block> CHISELED_POLISHED_SHALE_BRICK_SECRET_BUTTON = registerCompatBlock("quark", "chiseled_polished_shale_brick_secret_button",
+            () -> new ChiseledCompatSecretButton(BlockBehaviour.Properties.of(Material.STONE, MaterialColor.ICE).strength(1.5f, 6.0f).noOcclusion().sound(SoundType.STONE).requiresCorrectToolForDrops()));
 
     /**
      * Misc

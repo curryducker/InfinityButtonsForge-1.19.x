@@ -173,6 +173,16 @@
   "block.infinitybuttons.polished_jasper_brick_secret_button": "Gepolijst jaspisblokstenen verborgen knop",
   "block.infinitybuttons.polished_shale_brick_secret_button": "Gepolijst zachte leistenen blokstenen verborgen knop",
 
+  "block.infinitybuttons.chiseled_polished_granite_brick_secret_button": "Gebeiteld gepolijst granietblokstenen verborgen knop",
+  "block.infinitybuttons.chiseled_polished_diorite_brick_secret_button": "Gebeiteld gepolijst diorietblokstenen verborgen knop",
+  "block.infinitybuttons.chiseled_polished_andesite_brick_secret_button": "Gebeiteld gepolijst andesietblokstenen verborgen knop",
+  "block.infinitybuttons.chiseled_polished_calcite_brick_secret_button": "Gebeiteld gepolijst calcietblokstenen verborgen knop",
+  "block.infinitybuttons.chiseled_polished_dripstone_brick_secret_button": "Gebeiteld gepolijst druipstenen blokstenen verborgen knop",
+  "block.infinitybuttons.chiseled_polished_tuff_brick_secret_button": "Gebeiteld gepolijst tufstenen blokstenen verborgen knop",
+  "block.infinitybuttons.chiseled_polished_limestone_brick_secret_button": "Gebeiteld gepolijst kalkstenen blokstenen verborgen knop",
+  "block.infinitybuttons.chiseled_polished_jasper_brick_secret_button": "Gebeiteld gepolijst jaspisblokstenen verborgen knop",
+  "block.infinitybuttons.chiseled_polished_shale_brick_secret_button": "Gebeiteld gepolijst zachte leistenen blokstenen verborgen knop",
+
   "block.infinitybuttons.torch_button": "Fakkelknop",
   "block.infinitybuttons.torch_lever": "Fakkelhendel",
   "block.infinitybuttons.soul_torch_button": "Zielenfakkelknop",
