@@ -4,19 +4,23 @@ import com.mojang.logging.LogUtils;
 import me.shedaniel.autoconfig.AutoConfig;
 import me.shedaniel.autoconfig.serializer.Toml4jConfigSerializer;
 import net.larsmans.infinitybuttons.block.InfinityButtonsBlocks;
+import net.larsmans.infinitybuttons.compat.NethersDelightBlocks;
+import net.larsmans.infinitybuttons.compat.NethersDelightItems;
+import net.larsmans.infinitybuttons.compat.QuarkBlocks;
 import net.larsmans.infinitybuttons.item.InfinityButtonsItems;
 import net.larsmans.infinitybuttons.sounds.InfinityButtonsSounds;
 import net.minecraft.client.Minecraft;
 import net.minecraft.world.level.block.Blocks;
 import net.minecraftforge.api.distmarker.Dist;
 import net.minecraftforge.common.MinecraftForge;
+import net.minecraftforge.event.server.ServerStartingEvent;
 import net.minecraftforge.eventbus.api.IEventBus;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.fml.DistExecutor;
+import net.minecraftforge.fml.ModList;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.event.lifecycle.FMLClientSetupEvent;
 import net.minecraftforge.fml.event.lifecycle.FMLCommonSetupEvent;
-import net.minecraftforge.event.server.ServerStartingEvent;
 import net.minecraftforge.fml.javafmlmod.FMLJavaModLoadingContext;
 import net.minecraftforge.registries.ForgeRegistries;
 import org.slf4j.Logger;
@@ -28,7 +32,7 @@ public class InfinityButtons
     public static final String MOD_ID = "infinitybuttons";
 
     // Directly reference a slf4j logger
-    private static final Logger LOGGER = LogUtils.getLogger();
+    public static final Logger LOGGER = LogUtils.getLogger();
 
     public InfinityButtons()
     {
@@ -37,6 +41,14 @@ public class InfinityButtons
         InfinityButtonsItems.register(eventBus);
         InfinityButtonsBlocks.register(eventBus);
         InfinityButtonsSounds.register(eventBus);
+
+        if (ModList.get().isLoaded("nethers_delight")) {
+            NethersDelightItems.registerCompatItems();
+            NethersDelightBlocks.registerCompatBlocks();
+        }
+        if (ModList.get().isLoaded("quark")){
+            QuarkBlocks.registerCompatBlocks();
+        }
 
         AutoConfig.register(InfinityButtonsConfig.class, Toml4jConfigSerializer::new);
         DistExecutor.safeRunWhenOn(Dist.CLIENT, () -> InfinityButtonsConfigMenu::registerConfigMenu);

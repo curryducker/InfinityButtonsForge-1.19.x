@@ -64,13 +64,13 @@ public class Doorbell extends HorizontalDirectionalBlock {
     public VoxelShape getShape(BlockState state, BlockGetter worldIn, BlockPos pos, CollisionContext context) {
         boolean bl = state.getValue(PRESSED);
         switch (state.getValue(FACING)) {
-            case NORTH: {
+            case NORTH -> {
                 return bl ? NORTH_PRESSED_SHAPE : NORTH_SHAPE;
             }
-            case EAST: {
+            case EAST -> {
                 return bl ? EAST_PRESSED_SHAPE : EAST_SHAPE;
             }
-            case SOUTH: {
+            case SOUTH -> {
                 return bl ? SOUTH_PRESSED_SHAPE : SOUTH_SHAPE;
             }
         }

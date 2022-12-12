@@ -1,7 +1,7 @@
 package net.larsmans.infinitybuttons.block.custom.torch.compat;
 
 import net.larsmans.infinitybuttons.block.custom.torch.TorchLever;
-import net.larsmans.infinitybuttons.item.InfinityButtonsItems;
+import net.larsmans.infinitybuttons.compat.NethersDelightItems;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.particles.ParticleTypes;
 import net.minecraft.util.RandomSource;
@@ -26,6 +26,6 @@ public class PropelTorchLever extends TorchLever {
 
     @Override
     public List<ItemStack> getDrops(BlockState state, LootContext.Builder builder) {
-        return List.of(new ItemStack(InfinityButtonsItems.PROPELPLANT_TORCH_LEVER.get()));
+        return List.of(new ItemStack(NethersDelightItems.PROPELPLANT_TORCH_LEVER.get()));
     }
 }

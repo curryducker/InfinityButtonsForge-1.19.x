@@ -50,13 +50,13 @@ public class HoglinMountButton extends HorizontalDirectionalBlock {
     @Override
     public VoxelShape getShape(BlockState state, BlockGetter worldIn, BlockPos pos, CollisionContext context) {
         switch (state.getValue(FACING)) {
-            case NORTH: {
+            case NORTH -> {
                 return NORTH_SHAPE;
             }
-            case EAST: {
+            case EAST -> {
                 return EAST_SHAPE;
             }
-            case SOUTH: {
+            case SOUTH -> {
                 return SOUTH_SHAPE;
             }
         }

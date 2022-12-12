@@ -25,7 +25,6 @@ import net.minecraft.world.phys.shapes.CollisionContext;
 import net.minecraft.world.phys.shapes.VoxelShape;
 
 import javax.annotation.Nullable;
-import java.util.Random;
 
 public abstract class AbstractSecretButton extends HorizontalDirectionalBlock {
     public static final BooleanProperty PRESSED = BooleanProperty.create("pressed");
@@ -49,16 +48,16 @@ public abstract class AbstractSecretButton extends HorizontalDirectionalBlock {
     public VoxelShape getShape(BlockState state, BlockGetter worldIn, BlockPos pos, CollisionContext context) {
         if (state.getValue(PRESSED)) {
             switch (state.getValue(FACING)) {
-                case NORTH: {
+                case NORTH -> {
                     return NORTH_SHAPE;
                 }
-                case EAST: {
+                case EAST -> {
                     return EAST_SHAPE;
                 }
-                case SOUTH: {
+                case SOUTH -> {
                     return SOUTH_SHAPE;
                 }
-                case WEST: {
+                case WEST -> {
                     return WEST_SHAPE;
                 }
             }

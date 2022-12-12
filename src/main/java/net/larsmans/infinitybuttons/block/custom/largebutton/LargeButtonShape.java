@@ -28,24 +28,25 @@ public abstract class LargeButtonShape extends AbstractButton {
     public static VoxelShape outlineShape(BlockState state) {
         Direction direction = state.getValue(FACING);
         boolean flag = state.getValue(PRESSED);
-        switch(state.getValue(FACE)) {
-            case FLOOR:
+        switch (state.getValue(FACE)) {
+            case FLOOR -> {
                 return flag ? FLOOR_PRESSED_SHAPE : FLOOR_SHAPE;
-            case WALL:
-                switch(direction) {
-                    case EAST:
+            }
+            case WALL -> {
+                switch (direction) {
+                    case EAST -> {
                         return flag ? EAST_PRESSED_SHAPE : EAST_SHAPE;
-                    case WEST:
+                    }
+                    case WEST -> {
                         return flag ? WEST_PRESSED_SHAPE : WEST_SHAPE;
-                    case SOUTH:
+                    }
+                    case SOUTH -> {
                         return flag ? SOUTH_PRESSED_SHAPE : SOUTH_SHAPE;
-                    case NORTH:
-                    default:
-                        return flag ? NORTH_PRESSED_SHAPE : NORTH_SHAPE;
+                    }
                 }
-            case CEILING:
-            default:
-                return flag ? CEILING_PRESSED_SHAPE : CEILING_SHAPE;
+                return flag ? NORTH_PRESSED_SHAPE : NORTH_SHAPE;
+            }
         }
+        return flag ? CEILING_PRESSED_SHAPE : CEILING_SHAPE;
     }
 }

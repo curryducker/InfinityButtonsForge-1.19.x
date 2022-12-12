@@ -14,14 +14,4 @@ public class InfinityButtonsItemGroup {
             return new ItemStack(InfinityButtonsBlocks.OAK_LARGE_BUTTON.get());
         }
     };
-
-    public static final CreativeModeTab INFINITYBUTTONSCOMPAT = new CreativeModeTab("infinityButtonsCompatTab")
-    {
-        @Override
-        public ItemStack makeIcon()
-        {
-            return new ItemStack(InfinityButtonsBlocks.RED_EMERGENCY_BUTTON.get());
-        }
-    };
-
 }

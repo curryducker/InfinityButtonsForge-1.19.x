@@ -1,7 +1,6 @@
 package net.larsmans.infinitybuttons.block.custom.secretbutton.compat;
 
 import net.larsmans.infinitybuttons.block.custom.secretbutton.BigBrickSecretButton;
-import net.larsmans.infinitybuttons.item.InfinityButtonsItems;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.storage.loot.LootContext;

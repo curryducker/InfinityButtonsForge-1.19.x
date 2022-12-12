@@ -62,32 +62,31 @@ public abstract class AbstractButton extends FaceAttachedHorizontalDirectionalBl
         Direction direction = state.getValue(FACING);
         boolean flag = state.getValue(PRESSED);
         switch((AttachFace)state.getValue(FACE)) {
-            case FLOOR:
+            case FLOOR -> {
                 if (direction.getAxis() == Direction.Axis.X) {
                     return flag ? FLOOR_X_PRESSED_SHAPE : FLOOR_X_SHAPE;
                 }
-
                 return flag ? FLOOR_Z_PRESSED_SHAPE : FLOOR_Z_SHAPE;
-            case WALL:
-                switch(direction) {
-                    case EAST:
+            }
+            case WALL -> {
+                switch (direction) {
+                    case EAST -> {
                         return flag ? EAST_PRESSED_SHAPE : EAST_SHAPE;
-                    case WEST:
+                    }
+                    case WEST -> {
                         return flag ? WEST_PRESSED_SHAPE : WEST_SHAPE;
-                    case SOUTH:
+                    }
+                    case SOUTH -> {
                         return flag ? SOUTH_PRESSED_SHAPE : SOUTH_SHAPE;
-                    case NORTH:
-                    default:
-                        return flag ? NORTH_PRESSED_SHAPE : NORTH_SHAPE;
+                    }
                 }
-            case CEILING:
-            default:
-                if (direction.getAxis() == Direction.Axis.X) {
-                    return flag ? CEILING_X_PRESSED_SHAPE : CEILING_X_SHAPE;
-                } else {
-                    return flag ? CEILING_Z_PRESSED_SHAPE : CEILING_Z_SHAPE;
-                }
+                return flag ? NORTH_PRESSED_SHAPE : NORTH_SHAPE;
+            }
         }
+        if (direction.getAxis() == Direction.Axis.X) {
+            return flag ? CEILING_X_PRESSED_SHAPE : CEILING_X_SHAPE;
+        }
+        return flag ? CEILING_Z_PRESSED_SHAPE : CEILING_Z_SHAPE;
     }
 
     public InteractionResult use(BlockState state, Level worldIn, BlockPos pos, Player player, InteractionHand handIn, BlockHitResult hit) {
