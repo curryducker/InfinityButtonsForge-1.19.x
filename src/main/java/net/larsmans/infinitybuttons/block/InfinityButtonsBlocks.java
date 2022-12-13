@@ -3,6 +3,8 @@ package net.larsmans.infinitybuttons.block;
 import net.larsmans.infinitybuttons.InfinityButtons;
 import net.larsmans.infinitybuttons.block.custom.Doorbell;
 import net.larsmans.infinitybuttons.block.custom.DoorbellButton;
+import net.larsmans.infinitybuttons.block.custom.LampButton;
+import net.larsmans.infinitybuttons.block.custom.LampLever;
 import net.larsmans.infinitybuttons.block.custom.button.*;
 import net.larsmans.infinitybuttons.block.custom.emergencybutton.EmergencyButton;
 import net.larsmans.infinitybuttons.block.custom.emergencybutton.SafeEmergencyButton;
@@ -18,6 +20,7 @@ import net.minecraft.world.item.Item;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.SoundType;
 import net.minecraft.world.level.block.state.BlockBehaviour;
+import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.material.Material;
 import net.minecraft.world.level.material.MaterialColor;
 import net.minecraftforge.eventbus.api.IEventBus;
@@ -279,6 +282,12 @@ public class InfinityButtonsBlocks {
     public static final RegistryObject<Block> DOORBELL_BUTTON = registerBlock("doorbell_button",
             () -> new DoorbellButton(BlockBehaviour.Properties.of(Material.DECORATION).strength(0.5f).noCollission().sound(SoundType.WOOD)));
 
+    public static final RegistryObject<Block> LAMP_BUTTON = registerBlock("lamp_button",
+            () -> new LampButton(BlockBehaviour.Properties.of(Material.DECORATION).strength(0.3f).sound(SoundType.GLASS).lightLevel(InfinityButtonsBlocks::getPressLight)));
+
+    public static final RegistryObject<Block> LAMP_LEVER = registerBlock("lamp_lever",
+            () -> new LampLever(BlockBehaviour.Properties.of(Material.DECORATION).strength(0.3f).sound(SoundType.GLASS).lightLevel(InfinityButtonsBlocks::getPressLight)));
+
     /**
      * Torches
      */
@@ -419,6 +428,10 @@ public class InfinityButtonsBlocks {
 
     private static <T extends Block>RegistryObject<T> registerTorchBlock(String name, Supplier<T> block) {
         return BLOCKS.register(name, block);
+    }
+
+    private static int getPressLight(BlockState state) {
+        return state.getValue(LampButton.PRESSED) ? 15 : 0;
     }
 
     public static void register(IEventBus eventBus) {

@@ -100,6 +100,9 @@
     "infinitybuttons:cracked_nether_brick_secret_button",
     "infinitybuttons:red_nether_brick_secret_button",
     "infinitybuttons:dark_prismarine_secret_button",
+
+    "infinitybuttons:lamp_button",
+    "infinitybuttons:lamp_lever",
     {
       "id": "infinitybuttons:permafrost_brick_secret_button",
       "required": false
