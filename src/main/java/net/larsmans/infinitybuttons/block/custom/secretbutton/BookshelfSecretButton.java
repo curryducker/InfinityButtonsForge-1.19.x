@@ -1,9 +1,12 @@
 package net.larsmans.infinitybuttons.block.custom.secretbutton;
 
+import net.minecraft.core.BlockPos;
 import net.minecraft.sounds.SoundEvent;
 import net.minecraft.sounds.SoundEvents;
+import net.minecraft.world.level.LevelReader;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.state.BlockBehaviour;
+import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.phys.shapes.VoxelShape;
 
 public class BookshelfSecretButton extends AbstractSecretButton {
@@ -25,5 +28,10 @@ public class BookshelfSecretButton extends AbstractSecretButton {
     protected SoundEvent getSoundEvent(boolean isOn) {
         // Credits to anne for suggesting this immensely satisfying sound
         return SoundEvents.BAMBOO_PLACE;
+    }
+
+    @Override
+    public float getEnchantPowerBonus(BlockState state, LevelReader level, BlockPos pos) {
+        return 1;
     }
 }
