@@ -2,7 +2,7 @@
   "type": "minecraft:stonecutting",
   "count": 8,
   "ingredient": {
-    "item": "minecraft:dripstone"
+    "item": "minecraft:dripstone_block"
   },
   "result": "infinitybuttons:dripstone_button"
 }
