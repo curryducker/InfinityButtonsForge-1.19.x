@@ -39,11 +39,13 @@ public class InfinityButtonsBlocks {
      * Buttons
      */
 
+    public static final RegistryObject<Block> DEEPSLATE_BUTTON = registerStoneButton("deepslate");
     public static final RegistryObject<Block> GRANITE_BUTTON = registerStoneButton("granite");
     public static final RegistryObject<Block> DIORITE_BUTTON = registerStoneButton("diorite");
     public static final RegistryObject<Block> ANDESITE_BUTTON = registerStoneButton("andesite");
     public static final RegistryObject<Block> CALCITE_BUTTON = registerStoneButton("calcite");
     public static final RegistryObject<Block> TUFF_BUTTON = registerStoneButton("tuff");
+    public static final RegistryObject<Block> DRIPSTONE_BUTTON = registerStoneButton("dripstone");
 
     public static final RegistryObject<Block> COPPER_BUTTON = registerCopperButton("copper");
     public static final RegistryObject<Block> EXPOSED_COPPER_BUTTON = registerCopperButton("exposed_copper");
@@ -104,11 +106,13 @@ public class InfinityButtonsBlocks {
     public static final RegistryObject<Block> WARPED_LARGE_BUTTON = registerWoodenLargeButton("warped");
 
     public static final RegistryObject<Block> STONE_LARGE_BUTTON = registerStoneLargeButton("stone");
+    public static final RegistryObject<Block> DEEPSLATE_LARGE_BUTTON = registerStoneLargeButton("deepslate");
     public static final RegistryObject<Block> GRANITE_LARGE_BUTTON = registerStoneLargeButton("granite");
     public static final RegistryObject<Block> DIORITE_LARGE_BUTTON = registerStoneLargeButton("diorite");
     public static final RegistryObject<Block> ANDESITE_LARGE_BUTTON = registerStoneLargeButton("andesite");
     public static final RegistryObject<Block> CALCITE_LARGE_BUTTON = registerStoneLargeButton("calcite");
     public static final RegistryObject<Block> TUFF_LARGE_BUTTON = registerStoneLargeButton("tuff");
+    public static final RegistryObject<Block> DRIPSTONE_LARGE_BUTTON = registerStoneLargeButton("dripstone");
     public static final RegistryObject<Block> POLISHED_BLACKSTONE_LARGE_BUTTON = registerStoneLargeButton("polished_blackstone");
 
     public static final RegistryObject<Block> COPPER_LARGE_BUTTON = registerCopperLargeButton("copper");

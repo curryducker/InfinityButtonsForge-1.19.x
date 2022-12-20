@@ -1,11 +1,13 @@
 {
   "replace": false,
   "values": [
+    "infinitybuttons:deepslate_button",
     "infinitybuttons:granite_button",
     "infinitybuttons:diorite_button",
     "infinitybuttons:andesite_button",
     "infinitybuttons:calcite_button",
     "infinitybuttons:tuff_button",
+    "infinitybuttons:dripstone_button",
     "infinitybuttons:copper_button",
     "infinitybuttons:exposed_copper_button",
     "infinitybuttons:weathered_copper_button",
@@ -23,11 +25,13 @@
     "infinitybuttons:dark_prismarine_button",
 
     "infinitybuttons:stone_large_button",
+    "infinitybuttons:deepslate_large_button",
     "infinitybuttons:granite_large_button",
     "infinitybuttons:diorite_large_button",
     "infinitybuttons:andesite_large_button",
     "infinitybuttons:calcite_large_button",
     "infinitybuttons:tuff_large_button",
+    "infinitybuttons:dripstone_large_button",
     "infinitybuttons:polished_blackstone_large_button",
     "infinitybuttons:copper_large_button",
     "infinitybuttons:exposed_copper_large_button",

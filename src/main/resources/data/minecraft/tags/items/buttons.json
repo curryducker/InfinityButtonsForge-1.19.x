@@ -1,11 +1,13 @@
 {
   "replace": false,
   "values": [
+    "infinitybuttons:deepslate_button",
     "infinitybuttons:granite_button",
     "infinitybuttons:diorite_button",
     "infinitybuttons:andesite_button",
     "infinitybuttons:calcite_button",
     "infinitybuttons:tuff_button",
+    "infinitybuttons:dripstone_button",
     "infinitybuttons:copper_button",
     "infinitybuttons:exposed_copper_button",
     "infinitybuttons:weathered_copper_button",

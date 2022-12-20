@@ -1,0 +1,28 @@
+{
+  "parent": "minecraft:recipes/root",
+  "criteria": {
+    "has_planks": {
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "minecraft:dripstone"
+            ]
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    }
+  },
+  "requirements": [
+    [
+      "has_planks"
+    ]
+  ],
+  "rewards": {
+    "recipes": [
+      "infinitybuttons:dripstone_button",
+      "infinitybuttons:dripstone_large_button"
+    ]
+  }
+}
