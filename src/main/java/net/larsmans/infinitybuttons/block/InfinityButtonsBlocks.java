@@ -233,15 +233,15 @@ public class InfinityButtonsBlocks {
     public static final RegistryObject<Block> CRACKED_DEEPSLATE_TILE_SECRET_BUTTON = registerBlock("cracked_deepslate_tile_secret_button",
             () -> new DeepslateTileSecretButton(BlockBehaviour.Properties.of(Material.STONE, MaterialColor.COLOR_GRAY).strength(3.5f, 6.0f).noOcclusion().sound(SoundType.DEEPSLATE_TILES).requiresCorrectToolForDrops()));
 
-    public static final RegistryObject<Block> OAK_PLANK_SECRET_BUTTON = registerPlankSecretButton("oak", Material.WOOD, MaterialColor.WOOD);
-    public static final RegistryObject<Block> SPRUCE_PLANK_SECRET_BUTTON = registerPlankSecretButton("spruce", Material.WOOD, MaterialColor.PODZOL);
-    public static final RegistryObject<Block> BIRCH_PLANK_SECRET_BUTTON = registerPlankSecretButton("birch", Material.WOOD, MaterialColor.SAND);
-    public static final RegistryObject<Block> JUNGLE_PLANK_SECRET_BUTTON = registerPlankSecretButton("jungle", Material.WOOD, MaterialColor.DIRT);
-    public static final RegistryObject<Block> ACACIA_PLANK_SECRET_BUTTON = registerPlankSecretButton("acacia", Material.WOOD, MaterialColor.COLOR_ORANGE);
-    public static final RegistryObject<Block> DARK_OAK_PLANK_SECRET_BUTTON = registerPlankSecretButton("dark_oak", Material.WOOD, MaterialColor.COLOR_BROWN);
-    public static final RegistryObject<Block> MANGROVE_PLANK_SECRET_BUTTON = registerPlankSecretButton("mangrove", Material.WOOD, MaterialColor.COLOR_RED);
-    public static final RegistryObject<Block> CRIMSON_PLANK_SECRET_BUTTON = registerPlankSecretButton("crimson", Material.NETHER_WOOD, MaterialColor.CRIMSON_STEM);
-    public static final RegistryObject<Block> WARPED_PLANK_SECRET_BUTTON = registerPlankSecretButton("warped", Material.NETHER_WOOD, MaterialColor.WARPED_STEM);
+    public static final RegistryObject<Block> OAK_PLANK_SECRET_BUTTON = registerPlankSecretButton("oak", MaterialColor.WOOD);
+    public static final RegistryObject<Block> SPRUCE_PLANK_SECRET_BUTTON = registerPlankSecretButton("spruce", MaterialColor.PODZOL);
+    public static final RegistryObject<Block> BIRCH_PLANK_SECRET_BUTTON = registerPlankSecretButton("birch", MaterialColor.SAND);
+    public static final RegistryObject<Block> JUNGLE_PLANK_SECRET_BUTTON = registerPlankSecretButton("jungle", MaterialColor.DIRT);
+    public static final RegistryObject<Block> ACACIA_PLANK_SECRET_BUTTON = registerPlankSecretButton("acacia", MaterialColor.COLOR_ORANGE);
+    public static final RegistryObject<Block> DARK_OAK_PLANK_SECRET_BUTTON = registerPlankSecretButton("dark_oak", MaterialColor.COLOR_BROWN);
+    public static final RegistryObject<Block> MANGROVE_PLANK_SECRET_BUTTON = registerPlankSecretButton("mangrove", MaterialColor.COLOR_RED);
+    public static final RegistryObject<Block> CRIMSON_PLANK_SECRET_BUTTON = registerNetherPlankSecretButton("crimson", MaterialColor.CRIMSON_STEM);
+    public static final RegistryObject<Block> WARPED_PLANK_SECRET_BUTTON = registerNetherPlankSecretButton("warped", MaterialColor.WARPED_STEM);
 
     public static final RegistryObject<Block> MUD_BRICK_SECRET_BUTTON = registerBlock("mud_brick_secret_button",
             () -> new MudBrickSecretButton(BlockBehaviour.Properties.of(Material.STONE, MaterialColor.TERRACOTTA_LIGHT_GRAY).strength(1.5f, 3.0f).noOcclusion().sound(SoundType.MUD_BRICKS).requiresCorrectToolForDrops()));
@@ -404,8 +404,12 @@ public class InfinityButtonsBlocks {
         return registerSafeEmergencyButtonBlock(color + "_safe_emergency_button", () -> new SafeEmergencyButton(BlockBehaviour.Properties.of(Material.DECORATION).strength(0.5f).noOcclusion().sound(SoundType.METAL)));
     }
 
-    private static RegistryObject<Block> registerPlankSecretButton(String wood, Material material, MaterialColor materialColor) {
-        return registerBlock(wood + "_plank_secret_button", () -> new PlankSecretButton(BlockBehaviour.Properties.of(material, materialColor).strength(2.0f, 3.0f).noOcclusion().sound(SoundType.WOOD)));
+    private static RegistryObject<Block> registerPlankSecretButton(String wood, MaterialColor materialColor) {
+        return registerBlock(wood + "_plank_secret_button", () -> new PlankSecretButton(BlockBehaviour.Properties.of(Material.WOOD, materialColor).strength(2.0f, 3.0f).noOcclusion().sound(SoundType.WOOD)));
+    }
+
+    private static RegistryObject<Block> registerNetherPlankSecretButton(String wood, MaterialColor materialColor) {
+        return registerBlock(wood + "_plank_secret_button", () -> new PlankSecretButton(BlockBehaviour.Properties.of(Material.NETHER_WOOD, materialColor).strength(2.0f, 3.0f).noOcclusion().sound(SoundType.WOOD)));
     }
 
     private static <T extends Block> RegistryObject<T> registerBlock(String name, Supplier<T> block) {
