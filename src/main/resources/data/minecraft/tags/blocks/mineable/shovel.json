@@ -5,6 +5,11 @@
     "infinitybuttons:red_sand_button",
     "infinitybuttons:gravel_button",
 
+    "infinitybuttons:white_concrete_powder_button",
+    "infinitybuttons:light_gray_concrete_powder_button",
+    "infinitybuttons:gray_concrete_powder_button",
+    "infinitybuttons:black_concrete_powder_button",
+    "infinitybuttons:brown_concrete_powder_button",
     "infinitybuttons:red_concrete_powder_button",
     "infinitybuttons:orange_concrete_powder_button",
     "infinitybuttons:yellow_concrete_powder_button",
@@ -16,16 +21,16 @@
     "infinitybuttons:purple_concrete_powder_button",
     "infinitybuttons:magenta_concrete_powder_button",
     "infinitybuttons:pink_concrete_powder_button",
-    "infinitybuttons:brown_concrete_powder_button",
-    "infinitybuttons:white_concrete_powder_button",
-    "infinitybuttons:light_gray_concrete_powder_button",
-    "infinitybuttons:gray_concrete_powder_button",
-    "infinitybuttons:black_concrete_powder_button",
 
     "infinitybuttons:sand_large_button",
     "infinitybuttons:red_sand_large_button",
     "infinitybuttons:gravel_large_button",
 
+    "infinitybuttons:white_concrete_powder_large_button",
+    "infinitybuttons:light_gray_concrete_powder_large_button",
+    "infinitybuttons:gray_concrete_powder_large_button",
+    "infinitybuttons:black_concrete_powder_large_button",
+    "infinitybuttons:brown_concrete_powder_large_button",
     "infinitybuttons:red_concrete_powder_large_button",
     "infinitybuttons:orange_concrete_powder_large_button",
     "infinitybuttons:yellow_concrete_powder_large_button",
@@ -36,11 +41,6 @@
     "infinitybuttons:blue_concrete_powder_large_button",
     "infinitybuttons:purple_concrete_powder_large_button",
     "infinitybuttons:magenta_concrete_powder_large_button",
-    "infinitybuttons:pink_concrete_powder_large_button",
-    "infinitybuttons:brown_concrete_powder_large_button",
-    "infinitybuttons:white_concrete_powder_large_button",
-    "infinitybuttons:light_gray_concrete_powder_large_button",
-    "infinitybuttons:gray_concrete_powder_large_button",
-    "infinitybuttons:black_concrete_powder_large_button"
+    "infinitybuttons:pink_concrete_powder_large_button"
   ]
 }
