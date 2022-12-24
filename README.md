@@ -10,5 +10,6 @@ This is the source code for the **Forge 1.19.2** version of [Infinity Buttons](h
   - [1.19.3 **Forge** Source Code](https://github.com/curryducker/InfinityButtonsForge-1.19.3)
 - [Original **Fabric** Source Code (1.19.2)](https://github.com/LarsMans64/InfinityButtons)
   - [1.18.2 **Fabric** Source Code](https://github.com/LarsMans64/InfinityButtons1.18.2)
+  - [1.19.3 **Fabric** Source Code](https://github.com/LarsMans64/InfinityButtons1.19.3)
 
 To report issues or make suggestions, please go to [the main issues page](https://github.com/LarsMans64/InfinityButtons/issues)
