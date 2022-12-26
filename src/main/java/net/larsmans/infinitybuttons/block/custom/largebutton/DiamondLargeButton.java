@@ -29,7 +29,7 @@ public class DiamondLargeButton extends DiamondButton {
     @Override
     @OnlyIn(Dist.CLIENT)
     public void animateTick(BlockState stateIn, Level worldIn, BlockPos pos, RandomSource rand) {
-        if (config.diamond_particles) {
+        if (config.diamondParticles) {
             if (rand.nextInt(3) == 0) {
                 switch (stateIn.getValue(FACE)) {
                     case FLOOR -> worldIn.addParticle(ParticleTypes.SCRAPE,
