@@ -70,7 +70,7 @@ public abstract class AbstractSecretButton extends HorizontalDirectionalBlock {
     }
 
     public InteractionResult use(BlockState state, Level worldIn, BlockPos pos, Player player, InteractionHand handIn, BlockHitResult hit) {
-        if (hit.getDirection() == state.getValue(FACING)) {
+        if (!state.getValue(PRESSED) && hit.getDirection() == state.getValue(FACING)) {
             this.powerBlock(state, worldIn, pos);
             this.playSound(player, worldIn, pos, true);
             return InteractionResult.sidedSuccess(worldIn.isClientSide);
