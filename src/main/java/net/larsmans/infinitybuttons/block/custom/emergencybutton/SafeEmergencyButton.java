@@ -201,9 +201,9 @@ public class SafeEmergencyButton extends FaceAttachedHorizontalDirectionalBlock 
                     this.powerBlock(state, worldIn, pos);
                     this.playClickSound(player, worldIn, pos, true);
                     if (config.alarmSound) {
-                        worldIn.playSound(player, pos, InfinityButtonsSounds.ALARM.get(), SoundSource.BLOCKS, 2f, 0.6f);
+                        worldIn.playSound(player, pos, InfinityButtonsSounds.ALARM.get(), SoundSource.BLOCKS, 1, 1);
                     }
-                    worldIn.gameEvent((Entity) player, GameEvent.BLOCK_ACTIVATE, pos);
+                    worldIn.gameEvent(player, GameEvent.BLOCK_ACTIVATE, pos);
                 }
             }
             case CLOSED -> {
@@ -236,7 +236,7 @@ public class SafeEmergencyButton extends FaceAttachedHorizontalDirectionalBlock 
     }
 
     protected void playClickSound(@javax.annotation.Nullable Player playerIn, LevelAccessor worldIn, BlockPos pos, boolean pressed) {
-        worldIn.playSound(pressed ? playerIn : null, pos, SoundEvents.BONE_BLOCK_BREAK, SoundSource.BLOCKS, 0.75f, pressed ? 0.6f : 0.5f);
+        worldIn.playSound(pressed ? playerIn : null, pos, SoundEvents.BONE_BLOCK_BREAK, SoundSource.BLOCKS, 1, pressed ? 0.6f : 0.5f);
     }
 
     protected void playToggleSound(@javax.annotation.Nullable Player playerIn, LevelAccessor world, BlockPos pos, boolean pressed) {
