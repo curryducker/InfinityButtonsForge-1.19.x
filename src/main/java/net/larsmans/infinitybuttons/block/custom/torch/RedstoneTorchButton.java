@@ -14,7 +14,6 @@ import net.minecraft.world.level.BlockGetter;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.TorchBlock;
-import net.minecraft.world.level.block.state.BlockBehaviour;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.block.state.StateDefinition;
 import net.minecraft.world.level.block.state.properties.BlockStateProperties;
@@ -26,11 +25,12 @@ import net.minecraftforge.api.distmarker.OnlyIn;
 public class RedstoneTorchButton extends TorchBlock {
     public static final BooleanProperty LIT = BlockStateProperties.LIT;
 
-    public RedstoneTorchButton(BlockBehaviour.Properties properties) {
+    public RedstoneTorchButton(Properties properties) {
         super(properties, DustParticleOptions.REDSTONE);
-        this.registerDefaultState((BlockState)((BlockState)this.stateDefinition.any()).setValue(LIT, false));
+        this.registerDefaultState(this.stateDefinition.any().setValue(LIT, false));
     }
 
+    @Override
     public InteractionResult use(BlockState state, Level worldIn, BlockPos pos, Player player, InteractionHand handIn, BlockHitResult hit) {
         if (state.getValue(LIT)) {
             return InteractionResult.CONSUME;
@@ -40,17 +40,18 @@ public class RedstoneTorchButton extends TorchBlock {
         return InteractionResult.sidedSuccess(worldIn.isClientSide);
     }
 
+    @Override
     public void tick(BlockState state, ServerLevel worldIn, BlockPos pos, RandomSource rand) {
         if (state.getValue(LIT)) {
-            worldIn.setBlock(pos, (BlockState)state.setValue(LIT, false), 3);
+            worldIn.setBlock(pos, state.setValue(LIT, false), 3);
             this.updateNeighbors(state, worldIn, pos);
-            this.playSound((Player)null, worldIn, pos, false);
+            this.playSound(null, worldIn, pos, false);
 
         }
     }
 
     public void powerBlock(BlockState state, Level worldIn, BlockPos pos) {
-        worldIn.setBlock(pos, (BlockState)state.setValue(LIT, true), 3);
+        worldIn.setBlock(pos, state.setValue(LIT, true), 3);
         this.updateNeighbors(state, worldIn, pos);
         worldIn.scheduleTick(pos, this, 60);
     }
@@ -63,26 +64,24 @@ public class RedstoneTorchButton extends TorchBlock {
         worldIn.updateNeighborsAt(pos, this);
     }
 
+    @Override
     public void onPlace(BlockState state, Level worldIn, BlockPos pos, BlockState oldState, boolean isMoving) {
         for(Direction direction : Direction.values()) {
             worldIn.updateNeighborsAt(pos.relative(direction), this);
         }
     }
 
+    @Override
     public int getDirectSignal(BlockState blockState, BlockGetter blockAccess, BlockPos pos, Direction side) {
-        if (side == Direction.DOWN) {
-            return blockState.getSignal(blockAccess, pos, side);
-        }
-        return 0;
+        return (side == Direction.DOWN) ? blockState.getSignal(blockAccess, pos, side) : 0;
     }
 
+    @Override
     public int getSignal(BlockState blockState, BlockGetter blockAccess, BlockPos pos, Direction side) {
-        if (blockState.getValue(LIT) && Direction.UP != side) {
-            return 15;
-        }
-        return 0;
+        return (blockState.getValue(LIT) && Direction.UP != side) ? 15 : 0;
     }
 
+    @Override
     public boolean isSignalSource(BlockState state) {
         return true;
     }
@@ -97,6 +96,7 @@ public class RedstoneTorchButton extends TorchBlock {
         }
     }
 
+    @Override
     protected void createBlockStateDefinition(StateDefinition.Builder<Block, BlockState> pBuilder) {
         pBuilder.add(LIT);
     }

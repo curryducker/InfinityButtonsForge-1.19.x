@@ -2,8 +2,8 @@ package net.larsmans.infinitybuttons.block.custom.emergencybutton;
 
 import me.shedaniel.autoconfig.AutoConfig;
 import net.larsmans.infinitybuttons.InfinityButtonsConfig;
+import net.larsmans.infinitybuttons.block.InfinityButtonsUtil;
 import net.larsmans.infinitybuttons.sounds.InfinityButtonsSounds;
-import net.minecraft.client.gui.screens.Screen;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
 import net.minecraft.network.chat.Component;
@@ -13,7 +13,6 @@ import net.minecraft.sounds.SoundSource;
 import net.minecraft.util.RandomSource;
 import net.minecraft.world.InteractionHand;
 import net.minecraft.world.InteractionResult;
-import net.minecraft.world.entity.Entity;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.TooltipFlag;
@@ -262,10 +261,7 @@ public class SafeEmergencyButton extends FaceAttachedHorizontalDirectionalBlock 
 
     @Override
     public int getDirectSignal(BlockState blockState, BlockGetter blockAccess, BlockPos pos, Direction side) {
-        if (blockState.getValue(STATE) == SEBStateEnum.PRESSED && EmergencyButton.getConnectedDirection(blockState) == side) {
-            return 15;
-        }
-        return 0;
+        return (blockState.getValue(STATE) == SEBStateEnum.PRESSED && EmergencyButton.getConnectedDirection(blockState) == side) ? 15 : 0;
     }
 
     @Override
@@ -291,13 +287,7 @@ public class SafeEmergencyButton extends FaceAttachedHorizontalDirectionalBlock 
     @Override
     @OnlyIn(Dist.CLIENT)
     public void appendHoverText(ItemStack pStack, @org.jetbrains.annotations.Nullable BlockGetter pLevel, List<Component> pTooltip, TooltipFlag pFlag) {
-        if (config.tooltips) {
-            if(Screen.hasShiftDown()) {
-                pTooltip.add(Component.translatable("infinitybuttons.tooltip.safe_emergency_button"));
-            } else {
-                pTooltip.add(Component.translatable("infinitybuttons.tooltip.hold_shift"));
-            }
-        }
+        InfinityButtonsUtil.tooltip(pTooltip, "safe_emergency_button");
         super.appendHoverText(pStack, pLevel, pTooltip, pFlag);
     }
 }

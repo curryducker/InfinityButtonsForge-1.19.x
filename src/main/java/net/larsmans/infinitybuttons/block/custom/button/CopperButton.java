@@ -6,13 +6,12 @@ import net.minecraft.sounds.SoundEvents;
 import net.minecraft.sounds.SoundSource;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.level.LevelAccessor;
-import net.minecraft.world.level.block.state.BlockBehaviour;
 
 import javax.annotation.Nullable;
 
 public class CopperButton extends AbstractButton {
-    public CopperButton(BlockBehaviour.Properties properties) {
-        super(false, properties);
+    public CopperButton(Properties properties, boolean large) {
+        super(false, large, properties);
     }
 
     @Override

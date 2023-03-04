@@ -1,8 +1,6 @@
 package net.larsmans.infinitybuttons.block.custom.button;
 
-import me.shedaniel.autoconfig.AutoConfig;
-import net.larsmans.infinitybuttons.InfinityButtonsConfig;
-import net.minecraft.client.gui.screens.Screen;
+import net.larsmans.infinitybuttons.block.InfinityButtonsUtil;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
 import net.minecraft.network.chat.Component;
@@ -17,7 +15,6 @@ import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.level.block.FaceAttachedHorizontalDirectionalBlock;
 import net.minecraft.world.level.block.SimpleWaterloggedBlock;
-import net.minecraft.world.level.block.state.BlockBehaviour;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.block.state.StateDefinition;
 import net.minecraft.world.level.block.state.properties.AttachFace;
@@ -32,12 +29,11 @@ import javax.annotation.Nullable;
 import java.util.List;
 
 public class PrismarineButton extends AbstractButton implements SimpleWaterloggedBlock {
-    InfinityButtonsConfig config = AutoConfig.getConfigHolder(InfinityButtonsConfig.class).getConfig();
 
     public static final BooleanProperty WATERLOGGED = BlockStateProperties.WATERLOGGED;
 
-    public PrismarineButton(BlockBehaviour.Properties properties) {
-        super(true, properties);
+    public PrismarineButton(Properties properties, boolean large) {
+        super(true, large, properties);
         this.registerDefaultState(this.stateDefinition.any().setValue(FACING, Direction.NORTH).setValue(PRESSED, false).setValue(FACE, AttachFace.FLOOR).setValue(WATERLOGGED, false));
     }
 
@@ -82,22 +78,13 @@ public class PrismarineButton extends AbstractButton implements SimpleWaterlogge
 
     @Override
     public FluidState getFluidState(BlockState state) {
-        if (state.getValue(WATERLOGGED)) {
-            return Fluids.WATER.getSource(false);
-        }
-        return super.getFluidState(state);
+        return (state.getValue(WATERLOGGED)) ? Fluids.WATER.getSource(false) : super.getFluidState(state);
     }
 
     @Override
     @OnlyIn(Dist.CLIENT)
     public void appendHoverText(ItemStack pStack, @org.jetbrains.annotations.Nullable BlockGetter pLevel, List<Component> pTooltip, TooltipFlag pFlag) {
-        if (config.tooltips) {
-            if(Screen.hasShiftDown()) {
-                pTooltip.add(Component.translatable("infinitybuttons.tooltip.prismarine_button"));
-            } else {
-                pTooltip.add(Component.translatable("infinitybuttons.tooltip.hold_shift"));
-            }
-        }
+        InfinityButtonsUtil.tooltip(pTooltip, "prismarine_button");
         super.appendHoverText(pStack, pLevel, pTooltip, pFlag);
     }
 }

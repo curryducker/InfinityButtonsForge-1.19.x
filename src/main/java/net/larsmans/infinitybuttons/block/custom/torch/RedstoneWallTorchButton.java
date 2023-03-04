@@ -9,7 +9,6 @@ import net.minecraft.world.level.Level;
 import net.minecraft.world.level.LevelAccessor;
 import net.minecraft.world.level.LevelReader;
 import net.minecraft.world.level.block.*;
-import net.minecraft.world.level.block.state.BlockBehaviour;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.block.state.StateDefinition;
 import net.minecraft.world.level.block.state.properties.DirectionProperty;
@@ -23,9 +22,9 @@ import javax.annotation.Nullable;
 public class RedstoneWallTorchButton extends RedstoneTorchButton {
     public static final DirectionProperty FACING = HorizontalDirectionalBlock.FACING;
 
-    public RedstoneWallTorchButton(BlockBehaviour.Properties properties) {
+    public RedstoneWallTorchButton(Properties properties) {
         super(properties);
-        this.registerDefaultState((BlockState)((BlockState)((BlockState)this.stateDefinition.any()).setValue(LIT, false)).setValue(FACING, Direction.NORTH));
+        this.registerDefaultState(this.stateDefinition.any().setValue(LIT, false).setValue(FACING, Direction.NORTH));
     }
 
     @Override
@@ -47,7 +46,7 @@ public class RedstoneWallTorchButton extends RedstoneTorchButton {
     @Nullable
     public BlockState getStateForPlacement(BlockPlaceContext context) {
         BlockState blockState = Blocks.WALL_TORCH.getStateForPlacement(context);
-        return blockState == null ? null : (BlockState)this.defaultBlockState().setValue(FACING, blockState.getValue(FACING));
+        return blockState == null ? null : this.defaultBlockState().setValue(FACING, blockState.getValue(FACING));
     }
 
     @Override
@@ -65,10 +64,7 @@ public class RedstoneWallTorchButton extends RedstoneTorchButton {
 
     @Override
     public int getSignal(BlockState blockState, BlockGetter blockAccess, BlockPos pos, Direction side) {
-        if (blockState.getValue(LIT) && blockState.getValue(FACING) != side) {
-            return 15;
-        }
-        return 0;
+        return (blockState.getValue(LIT) && blockState.getValue(FACING) != side) ? 15 : 0;
     }
 
     @Override

@@ -5,12 +5,11 @@ import net.minecraft.sounds.SoundEvent;
 import net.minecraft.sounds.SoundEvents;
 import net.minecraft.world.level.LevelReader;
 import net.minecraft.world.level.block.Block;
-import net.minecraft.world.level.block.state.BlockBehaviour;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.phys.shapes.VoxelShape;
 
 public class BookshelfSecretButton extends AbstractSecretButton {
-    public BookshelfSecretButton(BlockBehaviour.Properties properties) {
+    public BookshelfSecretButton(Properties properties) {
         super(
                 properties,
                 FULL,

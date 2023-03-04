@@ -3,12 +3,11 @@ package net.larsmans.infinitybuttons.block.custom.secretbutton;
 import net.larsmans.infinitybuttons.sounds.InfinityButtonsSounds;
 import net.minecraft.sounds.SoundEvent;
 import net.minecraft.world.level.block.Block;
-import net.minecraft.world.level.block.state.BlockBehaviour;
 import net.minecraft.world.phys.shapes.Shapes;
 import net.minecraft.world.phys.shapes.VoxelShape;
 
 public class PlankSecretButton extends AbstractSecretButton {
-    public PlankSecretButton(BlockBehaviour.Properties properties) {
+    public PlankSecretButton(Properties properties) {
         super(
                 properties,
                 Shapes.or(BOTTOM, TOP,

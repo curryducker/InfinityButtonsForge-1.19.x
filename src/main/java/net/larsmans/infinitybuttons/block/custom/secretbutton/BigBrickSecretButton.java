@@ -3,12 +3,11 @@ package net.larsmans.infinitybuttons.block.custom.secretbutton;
 import net.larsmans.infinitybuttons.sounds.InfinityButtonsSounds;
 import net.minecraft.sounds.SoundEvent;
 import net.minecraft.world.level.block.Block;
-import net.minecraft.world.level.block.state.BlockBehaviour;
 import net.minecraft.world.phys.shapes.Shapes;
 import net.minecraft.world.phys.shapes.VoxelShape;
 
 public class BigBrickSecretButton extends AbstractSecretButton {
-    public BigBrickSecretButton(BlockBehaviour.Properties properties) {
+    public BigBrickSecretButton(Properties properties) {
         super(
                 properties,
                 Shapes.or(BASE,

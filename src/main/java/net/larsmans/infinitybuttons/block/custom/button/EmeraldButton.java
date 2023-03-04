@@ -1,25 +1,21 @@
 package net.larsmans.infinitybuttons.block.custom.button;
 
-import me.shedaniel.autoconfig.AutoConfig;
-import net.larsmans.infinitybuttons.InfinityButtonsConfig;
-import net.minecraft.client.gui.screens.Screen;
+import net.larsmans.infinitybuttons.block.InfinityButtonsUtil;
 import net.minecraft.network.chat.Component;
 import net.minecraft.sounds.SoundEvent;
 import net.minecraft.sounds.SoundEvents;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.TooltipFlag;
 import net.minecraft.world.level.BlockGetter;
-import net.minecraft.world.level.block.state.BlockBehaviour;
 import net.minecraftforge.api.distmarker.Dist;
 import net.minecraftforge.api.distmarker.OnlyIn;
 
 import java.util.List;
 
 public class EmeraldButton extends AbstractButton {
-    InfinityButtonsConfig config = AutoConfig.getConfigHolder(InfinityButtonsConfig.class).getConfig();
 
-    public EmeraldButton(BlockBehaviour.Properties properties) {
-        super(false, properties);
+    public EmeraldButton(Properties properties, boolean large) {
+        super(false, large, properties);
     }
 
     @Override
@@ -35,14 +31,7 @@ public class EmeraldButton extends AbstractButton {
     @Override
     @OnlyIn(Dist.CLIENT)
     public void appendHoverText(ItemStack pStack, @org.jetbrains.annotations.Nullable BlockGetter pLevel, List<Component> pTooltip, TooltipFlag pFlag) {
-        if (config.tooltips) {
-            if(Screen.hasShiftDown()) {
-                pTooltip.add(Component.translatable("infinitybuttons.tooltip.emerald_button1"));
-                pTooltip.add(Component.translatable("infinitybuttons.tooltip.emerald_button2"));
-            } else {
-                pTooltip.add(Component.translatable("infinitybuttons.tooltip.hold_shift"));
-            }
-        }
+        InfinityButtonsUtil.tooltip(pTooltip, "emerald_button1", "emerald_button2");
         super.appendHoverText(pStack, pLevel, pTooltip, pFlag);
     }
 }

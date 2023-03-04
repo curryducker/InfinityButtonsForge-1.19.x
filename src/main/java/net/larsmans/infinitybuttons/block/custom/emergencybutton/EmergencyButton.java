@@ -14,9 +14,7 @@ import net.minecraft.world.level.BlockGetter;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.LevelAccessor;
 import net.minecraft.world.level.block.Block;
-import net.minecraft.world.level.block.state.BlockBehaviour;
 import net.minecraft.world.level.block.state.BlockState;
-import net.minecraft.world.level.block.state.properties.AttachFace;
 import net.minecraft.world.level.gameevent.GameEvent;
 import net.minecraft.world.phys.BlockHitResult;
 import net.minecraft.world.phys.shapes.CollisionContext;
@@ -58,9 +56,8 @@ public class EmergencyButton extends AbstractButton {
     private static final VoxelShape CEILING_PRESSED_SHAPE = Shapes.or(
             Block.box(5, 13, 5, 11, 15, 11), STONE_UP).optimize();
 
-    public EmergencyButton(BlockBehaviour.Properties properties) {
-        super(false, properties);
-        this.registerDefaultState(this.stateDefinition.any().setValue(FACING, Direction.NORTH).setValue(PRESSED, false).setValue(FACE, AttachFace.FLOOR));
+    public EmergencyButton(Properties properties) {
+        super(false, false, properties);
     }
 
     @Override

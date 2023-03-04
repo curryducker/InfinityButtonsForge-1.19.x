@@ -1,8 +1,6 @@
 package net.larsmans.infinitybuttons.block.custom.button;
 
-import me.shedaniel.autoconfig.AutoConfig;
-import net.larsmans.infinitybuttons.InfinityButtonsConfig;
-import net.minecraft.client.gui.screens.Screen;
+import net.larsmans.infinitybuttons.block.InfinityButtonsUtil;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.particles.ParticleTypes;
 import net.minecraft.network.chat.Component;
@@ -20,10 +18,12 @@ import net.minecraftforge.api.distmarker.OnlyIn;
 import java.util.List;
 
 public class DiamondButton extends AbstractButton{
-    InfinityButtonsConfig config = AutoConfig.getConfigHolder(InfinityButtonsConfig.class).getConfig();
 
-    public DiamondButton(Properties properties) {
-        super(false, properties);
+    private final boolean large;
+
+    public DiamondButton(Properties properties, boolean large) {
+        super(false, large, properties);
+        this.large = large;
     }
 
     @Override
@@ -38,62 +38,102 @@ public class DiamondButton extends AbstractButton{
 
     @Override
     @OnlyIn(Dist.CLIENT)
-    public void animateTick(BlockState stateIn, Level worldIn, BlockPos pos, RandomSource rand) {
-        if (config.diamondParticles) {
-            if (rand.nextInt(3) == 0) {
-                switch (stateIn.getValue(FACE)) {
-                    case FLOOR -> {
-                        switch (stateIn.getValue(FACING)) {
-                            case NORTH, SOUTH -> worldIn.addParticle(ParticleTypes.SCRAPE,
-                                    (double) pos.getX() + 0.25 + (double)rand.nextFloat() * 0.5,
-                                    (double) pos.getY() + 0.125 + (double) rand.nextFloat() * 0.0625,
-                                    (double) pos.getZ() + 0.3125 + (double)rand.nextFloat() * 0.375,
+    public void animateTick(BlockState state, Level world, BlockPos pos, RandomSource random) {
+        if (config.diamondParticles && random.nextInt(3) == 0) {
+            if (large) {
+                switch (state.getValue(FACE)) {
+                    case FLOOR -> world.addParticle(ParticleTypes.SCRAPE,
+                            (double) pos.getX() + 0.1875 + (double) random.nextFloat() * 0.625,
+                            (double) pos.getY() + 0.125 + (double) random.nextFloat() * 0.0625,
+                            (double) pos.getZ() + 0.1875 + (double) random.nextFloat() * 0.625,
+                            0, 0, 0);
+                    case WALL -> {
+                        switch (state.getValue(FACING)) {
+                            case NORTH -> world.addParticle(ParticleTypes.SCRAPE,
+                                    (double) pos.getX() + 0.1875 + (double) random.nextFloat() * 0.625,
+                                    (double) pos.getY() + 0.1875 + (double) random.nextFloat() * 0.625,
+                                    (double) pos.getZ() + 0.8125 + (double) random.nextFloat() * 0.0625,
                                     0, 0, 0);
-                            case EAST, WEST -> worldIn.addParticle(ParticleTypes.SCRAPE,
-                                    (double) pos.getX() + 0.3125 + (double)rand.nextFloat() * 0.375,
-                                    (double) pos.getY() + 0.125 + (double) rand.nextFloat() * 0.0625,
-                                    (double) pos.getZ() + 0.25 + (double)rand.nextFloat() * 0.5,
+
+                            case EAST -> world.addParticle(ParticleTypes.SCRAPE,
+                                    (double) pos.getX() + 0.125 + (double) random.nextFloat() * 0.0625,
+                                    (double) pos.getY() + 0.1875 + (double) random.nextFloat() * 0.625,
+                                    (double) pos.getZ() + 0.1875 + (double) random.nextFloat() * 0.625,
+                                    0, 0, 0);
+
+                            case SOUTH -> world.addParticle(ParticleTypes.SCRAPE,
+                                    (double) pos.getX() + 0.1875 + (double) random.nextFloat() * 0.625,
+                                    (double) pos.getY() + 0.1875 + (double) random.nextFloat() * 0.625,
+                                    (double) pos.getZ() + 0.125 + (double) random.nextFloat() * 0.0625,
+                                    0, 0, 0);
+
+                            case WEST -> world.addParticle(ParticleTypes.SCRAPE,
+                                    (double) pos.getX() + 0.8125 + (double) random.nextFloat() * 0.0625,
+                                    (double) pos.getY() + 0.1875 + (double) random.nextFloat() * 0.625,
+                                    (double) pos.getZ() + 0.1875 + (double) random.nextFloat() * 0.625,
+                                    0, 0, 0);
+                        }
+                    }
+                    case CEILING -> world.addParticle(ParticleTypes.SCRAPE,
+                            (double) pos.getX() + 0.1875 + (double) random.nextFloat() * 0.625,
+                            (double) pos.getY() + 0.8125 + (double) random.nextFloat() * 0.0625,
+                            (double) pos.getZ() + 0.1875 + (double) random.nextFloat() * 0.625,
+                            0, 0, 0);
+                }
+            } else {
+                switch (state.getValue(FACE)) {
+                    case FLOOR -> {
+                        switch (state.getValue(FACING)) {
+                            case NORTH, SOUTH -> world.addParticle(ParticleTypes.SCRAPE,
+                                    (double) pos.getX() + 0.25 + (double) random.nextFloat() * 0.5,
+                                    (double) pos.getY() + 0.125 + (double) random.nextFloat() * 0.0625,
+                                    (double) pos.getZ() + 0.3125 + (double) random.nextFloat() * 0.375,
+                                    0, 0, 0);
+                            case EAST, WEST -> world.addParticle(ParticleTypes.SCRAPE,
+                                    (double) pos.getX() + 0.3125 + (double) random.nextFloat() * 0.375,
+                                    (double) pos.getY() + 0.125 + (double) random.nextFloat() * 0.0625,
+                                    (double) pos.getZ() + 0.25 + (double) random.nextFloat() * 0.5,
                                     0, 0, 0);
                         }
                     }
                     case WALL -> {
-                        switch (stateIn.getValue(FACING)) {
-                            case NORTH -> worldIn.addParticle(ParticleTypes.SCRAPE,
-                                    (double)pos.getX() + 0.25 + (double)rand.nextFloat() * 0.5,
-                                    (double)pos.getY() + 0.3125 + (double)rand.nextFloat() * 0.375,
-                                    (double)pos.getZ() + 0.8125 + (double)rand.nextFloat() * 0.0625,
+                        switch (state.getValue(FACING)) {
+                            case NORTH -> world.addParticle(ParticleTypes.SCRAPE,
+                                    (double) pos.getX() + 0.25 + (double) random.nextFloat() * 0.5,
+                                    (double) pos.getY() + 0.3125 + (double) random.nextFloat() * 0.375,
+                                    (double) pos.getZ() + 0.8125 + (double) random.nextFloat() * 0.0625,
                                     0, 0, 0);
 
-                            case EAST -> worldIn.addParticle(ParticleTypes.SCRAPE,
-                                    (double)pos.getX() + 0.125 + (double)rand.nextFloat() * 0.0625,
-                                    (double)pos.getY() + 0.3125 + (double)rand.nextFloat() * 0.375,
-                                    (double)pos.getZ() + 0.25 + (double)rand.nextFloat() * 0.5,
+                            case EAST -> world.addParticle(ParticleTypes.SCRAPE,
+                                    (double) pos.getX() + 0.125 + (double) random.nextFloat() * 0.0625,
+                                    (double) pos.getY() + 0.3125 + (double) random.nextFloat() * 0.375,
+                                    (double) pos.getZ() + 0.25 + (double) random.nextFloat() * 0.5,
                                     0, 0, 0);
 
-                            case SOUTH -> worldIn.addParticle(ParticleTypes.SCRAPE,
-                                    (double)pos.getX() + 0.25 + (double)rand.nextFloat() * 0.5,
-                                    (double)pos.getY() + 0.3125 + (double)rand.nextFloat() * 0.375,
-                                    (double)pos.getZ() + 0.125 + (double)rand.nextFloat() * 0.0625,
+                            case SOUTH -> world.addParticle(ParticleTypes.SCRAPE,
+                                    (double) pos.getX() + 0.25 + (double) random.nextFloat() * 0.5,
+                                    (double) pos.getY() + 0.3125 + (double) random.nextFloat() * 0.375,
+                                    (double) pos.getZ() + 0.125 + (double) random.nextFloat() * 0.0625,
                                     0, 0, 0);
 
-                            case WEST -> worldIn.addParticle(ParticleTypes.SCRAPE,
-                                    (double)pos.getX() + 0.8125 + (double)rand.nextFloat() * 0.0625,
-                                    (double)pos.getY() + 0.3125 + (double)rand.nextFloat() * 0.375,
-                                    (double)pos.getZ() + 0.25 + (double)rand.nextFloat() * 0.5,
+                            case WEST -> world.addParticle(ParticleTypes.SCRAPE,
+                                    (double) pos.getX() + 0.8125 + (double) random.nextFloat() * 0.0625,
+                                    (double) pos.getY() + 0.3125 + (double) random.nextFloat() * 0.375,
+                                    (double) pos.getZ() + 0.25 + (double) random.nextFloat() * 0.5,
                                     0, 0, 0);
                         }
                     }
                     case CEILING -> {
-                        switch (stateIn.getValue(FACING)) {
-                            case NORTH, SOUTH -> worldIn.addParticle(ParticleTypes.SCRAPE,
-                                    (double) pos.getX() + 0.25 + (double) rand.nextFloat() * 0.5,
-                                    (double) pos.getY() + 0.8125 + (double) rand.nextFloat() * 0.0625,
-                                    (double) pos.getZ() + 0.3125 + (double) rand.nextFloat() * 0.375,
+                        switch (state.getValue(FACING)) {
+                            case NORTH, SOUTH -> world.addParticle(ParticleTypes.SCRAPE,
+                                    (double) pos.getX() + 0.25 + (double) random.nextFloat() * 0.5,
+                                    (double) pos.getY() + 0.8125 + (double) random.nextFloat() * 0.0625,
+                                    (double) pos.getZ() + 0.3125 + (double) random.nextFloat() * 0.375,
                                     0, 0, 0);
-                            case EAST, WEST -> worldIn.addParticle(ParticleTypes.SCRAPE,
-                                    (double) pos.getX() + 0.3125 + (double) rand.nextFloat() * 0.375,
-                                    (double) pos.getY() + 0.8125 + (double) rand.nextFloat() * 0.0625,
-                                    (double) pos.getZ() + 0.25 + (double) rand.nextFloat() * 0.5,
+                            case EAST, WEST -> world.addParticle(ParticleTypes.SCRAPE,
+                                    (double) pos.getX() + 0.3125 + (double) random.nextFloat() * 0.375,
+                                    (double) pos.getY() + 0.8125 + (double) random.nextFloat() * 0.0625,
+                                    (double) pos.getZ() + 0.25 + (double) random.nextFloat() * 0.5,
                                     0, 0, 0);
                         }
                     }
@@ -105,13 +145,7 @@ public class DiamondButton extends AbstractButton{
     @Override
     @OnlyIn(Dist.CLIENT)
     public void appendHoverText(ItemStack pStack, @org.jetbrains.annotations.Nullable BlockGetter pLevel, List<Component> pTooltip, TooltipFlag pFlag) {
-        if (config.tooltips) {
-            if(Screen.hasShiftDown()) {
-                pTooltip.add(Component.translatable("infinitybuttons.tooltip.diamond_button"));
-            } else {
-                pTooltip.add(Component.translatable("infinitybuttons.tooltip.hold_shift"));
-            }
-        }
+        InfinityButtonsUtil.tooltip(pTooltip, "diamond_button");
         super.appendHoverText(pStack, pLevel, pTooltip, pFlag);
     }
 }
