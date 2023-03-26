@@ -187,6 +187,15 @@
   "block.infinitybuttons.lamp_lever": "Lamp Lever",
   "block.infinitybuttons.hoglin_mount_button": "Hoglin Mount Button",
 
+  "block.infinitybuttons.small_console_button": "Small Console Button",
+  "block.infinitybuttons.small_console_lever": "Small Console Lever",
+  "block.infinitybuttons.console_button": "Console Button",
+  "block.infinitybuttons.console_lever": "Console Lever",
+  "block.infinitybuttons.large_console_button": "Large Console Button",
+  "block.infinitybuttons.large_console_lever": "Large Console Lever",
+  "block.infinitybuttons.big_console_button": "Big Console Button",
+  "block.infinitybuttons.big_console_lever": "Big Console Lever",
+
   "block.infinitybuttons.permafrost_brick_secret_button": "Permafrost Brick Secret Button",
   "block.infinitybuttons.blue_nether_brick_secret_button": "Blue Nether Brick Secret Button",
   "block.infinitybuttons.polished_granite_brick_secret_button": "Polished Granite Brick Secret Button",

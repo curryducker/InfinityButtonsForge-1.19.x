@@ -17,7 +17,7 @@ import net.minecraftforge.api.distmarker.OnlyIn;
 
 import java.util.List;
 
-public class DiamondButton extends AbstractButton{
+public class DiamondButton extends AbstractSmallButton{
 
     private final boolean large;
 

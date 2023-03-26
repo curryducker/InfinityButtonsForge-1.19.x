@@ -4,8 +4,11 @@ import net.larsmans.infinitybuttons.InfinityButtons;
 import net.larsmans.infinitybuttons.block.custom.Doorbell;
 import net.larsmans.infinitybuttons.block.custom.DoorbellButton;
 import net.larsmans.infinitybuttons.block.custom.LampButton;
-import net.larsmans.infinitybuttons.block.custom.LampLever;
+import net.larsmans.infinitybuttons.block.custom.button.AbstractLeverableButton;
 import net.larsmans.infinitybuttons.block.custom.button.*;
+import net.larsmans.infinitybuttons.block.custom.consolebutton.ConsoleButton;
+import net.larsmans.infinitybuttons.block.custom.consolebutton.LargeConsoleButton;
+import net.larsmans.infinitybuttons.block.custom.consolebutton.SmallConsoleButton;
 import net.larsmans.infinitybuttons.block.custom.emergencybutton.EmergencyButton;
 import net.larsmans.infinitybuttons.block.custom.emergencybutton.SafeEmergencyButton;
 import net.larsmans.infinitybuttons.block.custom.secretbutton.*;
@@ -286,10 +289,31 @@ public class InfinityButtonsBlocks {
             () -> new DoorbellButton(doorbellProperties()));
 
     public static final RegistryObject<Block> LAMP_BUTTON = registerBlock("lamp_button",
-            () -> new LampButton(lampProperties()));
+            () -> new LampButton(lampProperties(), false));
 
     public static final RegistryObject<Block> LAMP_LEVER = registerBlock("lamp_lever",
-            () -> new LampLever(lampProperties()));
+            () -> new LampButton(lampProperties(), true));
+
+    /**
+     * Console Buttons
+     */
+
+    public static final RegistryObject<Block> SMALL_CONSOLE_BUTTON = registerBlock("small_console_button",
+            () -> new SmallConsoleButton(consoleButtonProperties(), false));
+    public static final RegistryObject<Block> SMALL_CONSOLE_LEVER = registerBlock("small_console_lever",
+            () -> new SmallConsoleButton(consoleButtonProperties(), true));
+    public static final RegistryObject<Block> CONSOLE_BUTTON = registerBlock("console_button",
+            () -> new ConsoleButton(consoleButtonProperties(), false));
+    public static final RegistryObject<Block> CONSOLE_LEVER = registerBlock("console_lever",
+            () -> new ConsoleButton(consoleButtonProperties(), true));
+    public static final RegistryObject<Block> LARGE_CONSOLE_BUTTON = registerBlock("large_console_button",
+            () -> new LargeConsoleButton(consoleButtonProperties(), false));
+    public static final RegistryObject<Block> LARGE_CONSOLE_LEVER = registerBlock("large_console_lever",
+            () -> new LargeConsoleButton(consoleButtonProperties(), true));
+    public static final RegistryObject<Block> BIG_CONSOLE_BUTTON = registerBlock("big_console_button",
+            () -> new LargeConsoleButton(consoleButtonProperties(), false));
+    public static final RegistryObject<Block> BIG_CONSOLE_LEVER = registerBlock("big_console_lever",
+            () -> new LargeConsoleButton(consoleButtonProperties(), true));
 
     /**
      * Torches
@@ -345,6 +369,10 @@ public class InfinityButtonsBlocks {
 
     private static int getPressLight(BlockState state) {
         return state.getValue(LampButton.PRESSED) ? 15 : 0;
+    }
+
+    public static BlockBehaviour.Properties consoleButtonProperties() {
+        return BlockBehaviour.Properties.of(Material.METAL).strength(0.5f).sound(SoundType.METAL);
     }
 
     private static BlockBehaviour.Properties torchProperties(int light) {

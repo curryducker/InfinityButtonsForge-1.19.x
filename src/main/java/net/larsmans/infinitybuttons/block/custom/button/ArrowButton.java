@@ -19,7 +19,7 @@ import net.minecraftforge.api.distmarker.OnlyIn;
 
 import java.util.List;
 
-public class ArrowButton extends AbstractButton {
+public class ArrowButton extends AbstractSmallButton {
 
     public ArrowButton(Properties properties, boolean large) {
         super(true, large, properties);

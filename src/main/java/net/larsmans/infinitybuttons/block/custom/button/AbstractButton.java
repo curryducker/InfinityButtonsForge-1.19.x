@@ -25,8 +25,6 @@ import net.minecraft.world.level.block.state.properties.AttachFace;
 import net.minecraft.world.level.block.state.properties.BooleanProperty;
 import net.minecraft.world.level.gameevent.GameEvent;
 import net.minecraft.world.phys.BlockHitResult;
-import net.minecraft.world.phys.shapes.CollisionContext;
-import net.minecraft.world.phys.shapes.VoxelShape;
 
 import javax.annotation.Nullable;
 import java.util.List;
@@ -36,69 +34,15 @@ public abstract class AbstractButton extends FaceAttachedHorizontalDirectionalBl
 
     public static final BooleanProperty PRESSED = BooleanProperty.create("pressed");
 
-    protected static final VoxelShape CEILING_X_SHAPE = Block.box(6.0, 14.0, 5.0, 10.0, 16.0, 11.0);
-    protected static final VoxelShape CEILING_Z_SHAPE = Block.box(5.0, 14.0, 6.0, 11.0, 16.0, 10.0);
-    protected static final VoxelShape FLOOR_X_SHAPE = Block.box(6.0, 0.0, 5.0, 10.0, 2.0, 11.0);
-    protected static final VoxelShape FLOOR_Z_SHAPE = Block.box(5.0, 0.0, 6.0, 11.0, 2.0, 10.0);
-    protected static final VoxelShape NORTH_SHAPE = Block.box(5.0, 6.0, 14.0, 11.0, 10.0, 16.0);
-    protected static final VoxelShape SOUTH_SHAPE = Block.box(5.0, 6.0, 0.0, 11.0, 10.0, 2.0);
-    protected static final VoxelShape WEST_SHAPE = Block.box(14.0, 6.0, 5.0, 16.0, 10.0, 11.0);
-    protected static final VoxelShape EAST_SHAPE = Block.box(0.0, 6.0, 5.0, 2.0, 10.0, 11.0);
-    protected static final VoxelShape CEILING_X_PRESSED_SHAPE = Block.box(6.0, 15.0, 5.0, 10.0, 16.0, 11.0);
-    protected static final VoxelShape CEILING_Z_PRESSED_SHAPE = Block.box(5.0, 15.0, 6.0, 11.0, 16.0, 10.0);
-    protected static final VoxelShape FLOOR_X_PRESSED_SHAPE = Block.box(6.0, 0.0, 5.0, 10.0, 1.0, 11.0);
-    protected static final VoxelShape FLOOR_Z_PRESSED_SHAPE = Block.box(5.0, 0.0, 6.0, 11.0, 1.0, 10.0);
-    protected static final VoxelShape NORTH_PRESSED_SHAPE = Block.box(5.0, 6.0, 15.0, 11.0, 10.0, 16.0);
-    protected static final VoxelShape SOUTH_PRESSED_SHAPE = Block.box(5.0, 6.0, 0.0, 11.0, 10.0, 1.0);
-    protected static final VoxelShape WEST_PRESSED_SHAPE = Block.box(15.0, 6.0, 5.0, 16.0, 10.0, 11.0);
-    protected static final VoxelShape EAST_PRESSED_SHAPE = Block.box(0.0, 6.0, 5.0, 1.0, 10.0, 11.0);
-
     private final boolean projectile;
-    private final boolean large;
 
-    protected AbstractButton(boolean projectile, boolean large, BlockBehaviour.Properties properties) {
+    protected AbstractButton(boolean projectile, BlockBehaviour.Properties properties) {
         super(properties);
         this.registerDefaultState(this.stateDefinition.any().setValue(FACING, Direction.NORTH).setValue(PRESSED, false).setValue(FACE, AttachFace.FLOOR));
         this.projectile = projectile;
-        this.large = large;
     }
 
     public abstract int getPressDuration();
-
-    @Override
-    public VoxelShape getShape(BlockState state, BlockGetter worldIn, BlockPos pos, CollisionContext context) {
-        if (large) {
-            return LargeButtonShape.outlineShape(state);
-        }
-        Direction direction = state.getValue(FACING);
-        boolean flag = state.getValue(PRESSED);
-        switch(state.getValue(FACE)) {
-            case FLOOR -> {
-                if (direction.getAxis() == Direction.Axis.X) {
-                    return flag ? FLOOR_X_PRESSED_SHAPE : FLOOR_X_SHAPE;
-                }
-                return flag ? FLOOR_Z_PRESSED_SHAPE : FLOOR_Z_SHAPE;
-            }
-            case WALL -> {
-                switch (direction) {
-                    case EAST -> {
-                        return flag ? EAST_PRESSED_SHAPE : EAST_SHAPE;
-                    }
-                    case WEST -> {
-                        return flag ? WEST_PRESSED_SHAPE : WEST_SHAPE;
-                    }
-                    case SOUTH -> {
-                        return flag ? SOUTH_PRESSED_SHAPE : SOUTH_SHAPE;
-                    }
-                }
-                return flag ? NORTH_PRESSED_SHAPE : NORTH_SHAPE;
-            }
-        }
-        if (direction.getAxis() == Direction.Axis.X) {
-            return flag ? CEILING_X_PRESSED_SHAPE : CEILING_X_SHAPE;
-        }
-        return flag ? CEILING_Z_PRESSED_SHAPE : CEILING_Z_SHAPE;
-    }
 
     @Override
     public InteractionResult use(BlockState state, Level worldIn, BlockPos pos, Player player, InteractionHand handIn, BlockHitResult hit) {
@@ -107,6 +51,7 @@ public abstract class AbstractButton extends FaceAttachedHorizontalDirectionalBl
         } else {
             this.powerBlock(state, worldIn, pos);
             this.playSound(player, worldIn, pos, true);
+            worldIn.gameEvent(player, GameEvent.BLOCK_ACTIVATE, pos);
             return InteractionResult.sidedSuccess(worldIn.isClientSide);
         }
     }

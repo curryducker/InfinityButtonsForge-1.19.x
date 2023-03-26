@@ -57,7 +57,7 @@ public class EmergencyButton extends AbstractButton {
             Block.box(5, 13, 5, 11, 15, 11), STONE_UP).optimize();
 
     public EmergencyButton(Properties properties) {
-        super(false, false, properties);
+        super(false, properties);
     }
 
     @Override

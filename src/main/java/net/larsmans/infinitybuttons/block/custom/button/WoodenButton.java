@@ -3,7 +3,7 @@ package net.larsmans.infinitybuttons.block.custom.button;
 import net.minecraft.sounds.SoundEvent;
 import net.minecraft.sounds.SoundEvents;
 
-public class WoodenButton extends AbstractButton{
+public class WoodenButton extends AbstractSmallButton{
     public WoodenButton(Properties properties, boolean large) {
         super(true, large, properties);
     }

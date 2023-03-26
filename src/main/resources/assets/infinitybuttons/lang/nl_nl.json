@@ -218,6 +218,15 @@
   "block.infinitybuttons.propelplant_torch_button": "Propelplantfakkelknop",
   "block.infinitybuttons.propelplant_torch_lever": "Propelplantfakkelhendel",
 
+  "block.infinitybuttons.small_console_button": "Kleine consoleknop",
+  "block.infinitybuttons.small_console_lever": "Kleine consolehendel",
+  "block.infinitybuttons.console_button": "Consoleknop",
+  "block.infinitybuttons.console_lever": "Consolehendel",
+  "block.infinitybuttons.large_console_button": "Grote consoleknop",
+  "block.infinitybuttons.large_console_lever": "Grote consolehendel",
+  "block.infinitybuttons.big_console_button": "Joekel van een consoleknop",
+  "block.infinitybuttons.big_console_lever": "Joekel van een consolehendel",
+
   "infinitybuttons.subtitle.alarm": "Alarm gaat af",
   "infinitybuttons.subtitle.stone_scrape": "Steen verschuift",
   "infinitybuttons.subtitle.wood_scrape": "Hout verschuift",

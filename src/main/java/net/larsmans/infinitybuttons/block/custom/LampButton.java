@@ -1,6 +1,6 @@
 package net.larsmans.infinitybuttons.block.custom;
 
-import net.larsmans.infinitybuttons.block.custom.button.AbstractButton;
+import net.larsmans.infinitybuttons.block.custom.button.AbstractLeverableButton;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
 import net.minecraft.sounds.SoundEvent;
@@ -12,7 +12,7 @@ import net.minecraft.world.phys.shapes.CollisionContext;
 import net.minecraft.world.phys.shapes.Shapes;
 import net.minecraft.world.phys.shapes.VoxelShape;
 
-public class LampButton extends AbstractButton {
+public class LampButton extends AbstractLeverableButton {
 
     private static final VoxelShape FLOOR_SHAPE = Shapes.or(
             Block.box(3, 0, 3, 13, 1, 13),
@@ -33,8 +33,8 @@ public class LampButton extends AbstractButton {
             Block.box(15, 3, 3, 16, 13, 13),
             Block.box(8, 4, 4, 15, 12, 12));
 
-    public LampButton(Properties properties) {
-        super(false, false, properties);
+    public LampButton(Properties properties, boolean lever) {
+        super(lever, properties);
     }
 
     @Override
