@@ -1,6 +1,6 @@
 package net.larsmans.infinitybuttons.block.custom.button;
 
-import net.larsmans.infinitybuttons.block.InfinityButtonsUtil;
+import net.larsmans.infinitybuttons.InfinityButtonsUtil;
 import net.minecraft.core.BlockPos;
 import net.minecraft.network.chat.Component;
 import net.minecraft.server.level.ServerLevel;

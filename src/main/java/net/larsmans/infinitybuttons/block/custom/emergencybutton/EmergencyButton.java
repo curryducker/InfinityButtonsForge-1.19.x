@@ -1,5 +1,6 @@
 package net.larsmans.infinitybuttons.block.custom.emergencybutton;
 
+import net.larsmans.infinitybuttons.InfinityButtonsUtil;
 import net.larsmans.infinitybuttons.block.custom.button.AbstractButton;
 import net.larsmans.infinitybuttons.sounds.InfinityButtonsSounds;
 import net.minecraft.core.BlockPos;
@@ -99,7 +100,7 @@ public class EmergencyButton extends AbstractButton {
         this.powerBlock(state, worldIn, pos);
         this.playSound(player, worldIn, pos, true);
         if (config.alarmSound) {
-            worldIn.playSound(player, pos, InfinityButtonsSounds.ALARM.get(), SoundSource.BLOCKS, 1, 1);
+            emergencySound(worldIn, pos, player);
         }
         worldIn.gameEvent(player, GameEvent.BLOCK_ACTIVATE, pos);
         return InteractionResult.sidedSuccess(worldIn.isClientSide);
@@ -113,5 +114,13 @@ public class EmergencyButton extends AbstractButton {
     @Override
     protected SoundEvent getSoundEvent(boolean pressed) {
         return SoundEvents.BONE_BLOCK_BREAK;
+    }
+
+    public static void emergencySound(Level level, BlockPos pos, Player player) {
+        if (config.globalAlarmSound) {
+            InfinityButtonsUtil.playGlobalSound(level, pos, InfinityButtonsSounds.ALARM.get(), SoundSource.BLOCKS);
+        } else {
+            level.playSound(player, pos, InfinityButtonsSounds.ALARM.get(), SoundSource.BLOCKS, 16, 1);
+        }
     }
 }

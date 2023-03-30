@@ -2,8 +2,7 @@ package net.larsmans.infinitybuttons.block.custom.emergencybutton;
 
 import me.shedaniel.autoconfig.AutoConfig;
 import net.larsmans.infinitybuttons.InfinityButtonsConfig;
-import net.larsmans.infinitybuttons.block.InfinityButtonsUtil;
-import net.larsmans.infinitybuttons.sounds.InfinityButtonsSounds;
+import net.larsmans.infinitybuttons.InfinityButtonsUtil;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
 import net.minecraft.network.chat.Component;
@@ -200,7 +199,7 @@ public class SafeEmergencyButton extends FaceAttachedHorizontalDirectionalBlock 
                     this.powerBlock(state, worldIn, pos);
                     this.playClickSound(player, worldIn, pos, true);
                     if (config.alarmSound) {
-                        worldIn.playSound(player, pos, InfinityButtonsSounds.ALARM.get(), SoundSource.BLOCKS, 1, 1);
+                        EmergencyButton.emergencySound(worldIn, pos, player);
                     }
                     worldIn.gameEvent(player, GameEvent.BLOCK_ACTIVATE, pos);
                 }
