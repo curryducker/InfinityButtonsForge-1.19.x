@@ -2,15 +2,9 @@ package net.larsmans.infinitybuttons.block.custom.button;
 
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
-import net.minecraft.world.InteractionHand;
-import net.minecraft.world.InteractionResult;
-import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.level.BlockGetter;
-import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.state.BlockState;
-import net.minecraft.world.level.block.state.properties.AttachFace;
-import net.minecraft.world.phys.BlockHitResult;
 import net.minecraft.world.phys.shapes.CollisionContext;
 import net.minecraft.world.phys.shapes.VoxelShape;
 
@@ -33,17 +27,12 @@ public abstract class AbstractSmallButton extends AbstractButton{
     protected static final VoxelShape WEST_PRESSED_SHAPE = Block.box(15, 6, 5, 16, 10, 11);
     protected static final VoxelShape EAST_PRESSED_SHAPE = Block.box(0, 6, 5, 1, 10, 11);
 
-    private final boolean projectile;
     private final boolean large;
 
     protected AbstractSmallButton(boolean projectile, boolean large, Properties properties) {
         super(projectile, properties);
-        this.registerDefaultState(this.stateDefinition.any().setValue(FACING, Direction.NORTH).setValue(PRESSED, false).setValue(FACE, AttachFace.FLOOR));
-        this.projectile = projectile;
         this.large = large;
     }
-    
-    public abstract int getPressDuration();
 
     @Override
     public VoxelShape getShape(BlockState state, BlockGetter worldIn, BlockPos pos, CollisionContext context) {
@@ -78,16 +67,5 @@ public abstract class AbstractSmallButton extends AbstractButton{
             return flag ? CEILING_X_PRESSED_SHAPE : CEILING_X_SHAPE;
         }
         return flag ? CEILING_Z_PRESSED_SHAPE : CEILING_Z_SHAPE;
-    }
-
-    @Override
-    public InteractionResult use(BlockState state, Level worldIn, BlockPos pos, Player player, InteractionHand handIn, BlockHitResult hit) {
-        if (state.getValue(PRESSED)) {
-            return InteractionResult.CONSUME;
-        } else {
-            this.powerBlock(state, worldIn, pos);
-            this.playSound(player, worldIn, pos, true);
-            return InteractionResult.sidedSuccess(worldIn.isClientSide);
-        }
     }
 }

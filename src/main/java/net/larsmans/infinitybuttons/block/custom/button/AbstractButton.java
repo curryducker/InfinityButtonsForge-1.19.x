@@ -34,7 +34,7 @@ public abstract class AbstractButton extends FaceAttachedHorizontalDirectionalBl
 
     public static final BooleanProperty PRESSED = BooleanProperty.create("pressed");
 
-    private final boolean projectile;
+    protected final boolean projectile;
 
     protected AbstractButton(boolean projectile, BlockBehaviour.Properties properties) {
         super(properties);
