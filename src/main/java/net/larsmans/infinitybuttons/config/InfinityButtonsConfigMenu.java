@@ -1,4 +1,4 @@
-package net.larsmans.infinitybuttons;
+package net.larsmans.infinitybuttons.config;
 
 import me.shedaniel.autoconfig.AutoConfig;
 import net.minecraftforge.api.distmarker.Dist;

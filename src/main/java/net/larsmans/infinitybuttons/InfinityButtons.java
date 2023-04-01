@@ -8,6 +8,8 @@ import net.larsmans.infinitybuttons.compat.NethersDelightBlocks;
 import net.larsmans.infinitybuttons.compat.NethersDelightItems;
 import net.larsmans.infinitybuttons.compat.QuarkBlocks;
 import net.larsmans.infinitybuttons.compat.WoodworksBlocks;
+import net.larsmans.infinitybuttons.config.InfinityButtonsConfig;
+import net.larsmans.infinitybuttons.config.InfinityButtonsConfigMenu;
 import net.larsmans.infinitybuttons.item.InfinityButtonsItems;
 import net.larsmans.infinitybuttons.sounds.InfinityButtonsSounds;
 import net.minecraft.client.Minecraft;

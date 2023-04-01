@@ -1,6 +1,7 @@
 package net.larsmans.infinitybuttons;
 
 import me.shedaniel.autoconfig.AutoConfig;
+import net.larsmans.infinitybuttons.config.InfinityButtonsConfig;
 import net.minecraft.client.Camera;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.gui.screens.Screen;

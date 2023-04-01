@@ -1,8 +1,9 @@
 package net.larsmans.infinitybuttons.block.custom.emergencybutton;
 
 import me.shedaniel.autoconfig.AutoConfig;
-import net.larsmans.infinitybuttons.InfinityButtonsConfig;
 import net.larsmans.infinitybuttons.InfinityButtonsUtil;
+import net.larsmans.infinitybuttons.config.AlarmEnum;
+import net.larsmans.infinitybuttons.config.InfinityButtonsConfig;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
 import net.minecraft.network.chat.Component;
@@ -198,7 +199,7 @@ public class SafeEmergencyButton extends FaceAttachedHorizontalDirectionalBlock 
                 } else {
                     this.powerBlock(state, worldIn, pos);
                     this.playClickSound(player, worldIn, pos, true);
-                    if (config.alarmSound) {
+                    if (config.alarmSoundType != AlarmEnum.OFF) {
                         EmergencyButton.emergencySound(worldIn, pos, player);
                     }
                     worldIn.gameEvent(player, GameEvent.BLOCK_ACTIVATE, pos);
