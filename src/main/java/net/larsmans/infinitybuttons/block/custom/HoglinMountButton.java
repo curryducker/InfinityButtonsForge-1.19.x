@@ -1,9 +1,15 @@
 package net.larsmans.infinitybuttons.block.custom;
 
 import net.larsmans.infinitybuttons.block.custom.button.AbstractWallButton;
+import net.larsmans.infinitybuttons.compat.NethersDelightItems;
 import net.minecraft.sounds.SoundEvent;
 import net.minecraft.sounds.SoundEvents;
+import net.minecraft.world.item.ItemStack;
+import net.minecraft.world.level.block.state.BlockState;
+import net.minecraft.world.level.storage.loot.LootContext;
 import net.minecraft.world.phys.shapes.VoxelShape;
+
+import java.util.List;
 
 public class HoglinMountButton extends AbstractWallButton {
 
@@ -24,5 +30,10 @@ public class HoglinMountButton extends AbstractWallButton {
     @Override
     protected SoundEvent getSoundEvent(boolean pressed) {
         return pressed ? SoundEvents.STONE_BUTTON_CLICK_ON : SoundEvents.STONE_BUTTON_CLICK_OFF;
+    }
+
+    @Override
+    public List<ItemStack> getDrops(BlockState state, LootContext.Builder builder) {
+        return List.of(new ItemStack(this));
     }
 }
