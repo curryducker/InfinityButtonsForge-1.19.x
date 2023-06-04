@@ -11,6 +11,10 @@ import net.minecraft.sounds.SoundEvents;
 import net.minecraft.sounds.SoundSource;
 import net.minecraft.world.InteractionHand;
 import net.minecraft.world.InteractionResult;
+import net.minecraft.world.entity.EntityType;
+import net.minecraft.world.entity.LivingEntity;
+import net.minecraft.world.entity.ai.memory.MemoryModuleType;
+import net.minecraft.world.entity.npc.Villager;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.level.BlockGetter;
 import net.minecraft.world.level.Level;
@@ -18,11 +22,14 @@ import net.minecraft.world.level.LevelAccessor;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.gameevent.GameEvent;
+import net.minecraft.world.phys.AABB;
 import net.minecraft.world.phys.BlockHitResult;
 import net.minecraft.world.phys.shapes.CollisionContext;
 import net.minecraft.world.phys.shapes.Shapes;
 import net.minecraft.world.phys.shapes.VoxelShape;
 import org.jetbrains.annotations.Nullable;
+
+import java.util.List;
 
 public class EmergencyButton extends AbstractButton {
     
@@ -102,6 +109,14 @@ public class EmergencyButton extends AbstractButton {
         this.playSound(player, worldIn, pos, true);
         if (config.alarmSoundType != AlarmEnum.OFF) {
             emergencySound(worldIn, pos, player);
+        }
+        if (!worldIn.isClientSide) {
+            List<LivingEntity> villagers = worldIn.getEntitiesOfClass(LivingEntity.class, new AABB(pos).inflate(config.alarmSoundRange), entity -> entity.getType() == EntityType.VILLAGER);
+            for (LivingEntity villager : villagers) {
+                if (villager instanceof Villager villagerEntity && config.alarmVillagerPanic) {
+                    villagerEntity.getBrain().setMemory(MemoryModuleType.HEARD_BELL_TIME, worldIn.getGameTime());
+                }
+            }
         }
         worldIn.gameEvent(player, GameEvent.BLOCK_ACTIVATE, pos);
         return InteractionResult.sidedSuccess(worldIn.isClientSide);

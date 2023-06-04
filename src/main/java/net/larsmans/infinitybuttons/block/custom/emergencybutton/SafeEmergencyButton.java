@@ -13,6 +13,10 @@ import net.minecraft.sounds.SoundSource;
 import net.minecraft.util.RandomSource;
 import net.minecraft.world.InteractionHand;
 import net.minecraft.world.InteractionResult;
+import net.minecraft.world.entity.EntityType;
+import net.minecraft.world.entity.LivingEntity;
+import net.minecraft.world.entity.ai.memory.MemoryModuleType;
+import net.minecraft.world.entity.npc.Villager;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.TooltipFlag;
@@ -26,6 +30,7 @@ import net.minecraft.world.level.block.state.StateDefinition;
 import net.minecraft.world.level.block.state.properties.AttachFace;
 import net.minecraft.world.level.block.state.properties.EnumProperty;
 import net.minecraft.world.level.gameevent.GameEvent;
+import net.minecraft.world.phys.AABB;
 import net.minecraft.world.phys.BlockHitResult;
 import net.minecraft.world.phys.shapes.CollisionContext;
 import net.minecraft.world.phys.shapes.Shapes;
@@ -201,6 +206,14 @@ public class SafeEmergencyButton extends FaceAttachedHorizontalDirectionalBlock 
                     this.playClickSound(player, worldIn, pos, true);
                     if (config.alarmSoundType != AlarmEnum.OFF) {
                         EmergencyButton.emergencySound(worldIn, pos, player);
+                    }
+                    if (!worldIn.isClientSide) {
+                        List<LivingEntity> villagers = worldIn.getEntitiesOfClass(LivingEntity.class, new AABB(pos).inflate(config.alarmSoundRange), entity -> entity.getType() == EntityType.VILLAGER);
+                        for (LivingEntity villager : villagers) {
+                            if (villager instanceof Villager villagerEntity && config.alarmVillagerPanic) {
+                                villagerEntity.getBrain().setMemory(MemoryModuleType.HEARD_BELL_TIME, worldIn.getGameTime());
+                            }
+                        }
                     }
                     worldIn.gameEvent(player, GameEvent.BLOCK_ACTIVATE, pos);
                 }
