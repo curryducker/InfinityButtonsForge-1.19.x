@@ -7,7 +7,7 @@ import net.minecraft.world.phys.shapes.Shapes;
 import net.minecraft.world.phys.shapes.VoxelShape;
 
 public class ChiseledNetherBrickSecretButton extends AbstractSecretButton {
-    public ChiseledNetherBrickSecretButton(Properties properties) {
+    public ChiseledNetherBrickSecretButton(Properties properties, Block jadeBlock) {
         super(
                 properties,
                 Shapes.or(BOTTOM, TOP,
@@ -30,7 +30,8 @@ public class ChiseledNetherBrickSecretButton extends AbstractSecretButton {
                         Block.box(3, 3, 3, 16, 13, 13),
                         Block.box(0, 3, 13, 16, 13, 16)
                 ),
-                Block.box(0, 0, 0, 16, 16, 16)
+                Block.box(0, 0, 0, 16, 16, 16),
+                jadeBlock
         );
     }
 

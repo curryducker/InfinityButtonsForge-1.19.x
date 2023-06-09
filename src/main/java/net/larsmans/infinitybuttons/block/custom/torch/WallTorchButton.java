@@ -26,8 +26,8 @@ import java.util.Map;
 public class WallTorchButton extends TorchButton{
     private static final Map<Direction, VoxelShape> BOUNDING_SHAPES = Maps.newEnumMap(ImmutableMap.of(Direction.NORTH, Block.box(5.5, 3.0, 11.0, 10.5, 13.0, 16.0), Direction.SOUTH, Block.box(5.5, 3.0, 0.0, 10.5, 13.0, 5.0), Direction.WEST, Block.box(11.0, 3.0, 5.5, 16.0, 13.0, 10.5), Direction.EAST, Block.box(0.0, 3.0, 5.5, 5.0, 13.0, 10.5)));
 
-    public WallTorchButton(Properties properties, ParticleOptions particleData) {
-        super(properties, particleData);
+    public WallTorchButton(Properties properties, ParticleOptions particleData, Block jadeBlock) {
+        super(properties, particleData, jadeBlock);
     }
 
     @Override

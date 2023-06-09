@@ -1,0 +1,21 @@
+{
+  "type": "woodworks:sawmill",
+  "ingredient": {
+    "item": "upgrade_aquatic:river_planks"
+  },
+  "result": "upgrade_aquatic:river_button",
+  "count": 6,
+  "conditions": [
+    {
+      "type": "forge:mod_loaded",
+      "modid": "upgrade_aquatic"
+    }, {
+      "type": "forge:mod_loaded",
+      "modid": "woodworks"
+    },
+    {
+      "type": "woodworks:config",
+      "value": "sawmill"
+    }
+  ]
+}

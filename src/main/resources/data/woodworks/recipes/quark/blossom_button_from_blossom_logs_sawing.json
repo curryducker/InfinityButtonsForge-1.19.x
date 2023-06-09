@@ -1,0 +1,25 @@
+{
+  "type": "woodworks:sawmill",
+  "ingredient": {
+    "tag": "quark:blossom_logs"
+  },
+  "result": "quark:blossom_button",
+  "count": 24,
+  "conditions": [
+    {
+      "type": "forge:mod_loaded",
+      "modid": "quark"
+    }, {
+      "type": "forge:mod_loaded",
+      "modid": "woodworks"
+    },
+    {
+      "type": "woodworks:config",
+      "value": "sawmill"
+    },
+    {
+      "type": "quark:flag",
+      "flag": "blossom_trees"
+    }
+  ]
+}

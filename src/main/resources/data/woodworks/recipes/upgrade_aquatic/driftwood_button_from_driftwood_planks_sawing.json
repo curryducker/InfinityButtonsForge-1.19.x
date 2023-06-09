@@ -1,0 +1,21 @@
+{
+  "type": "woodworks:sawmill",
+  "ingredient": {
+    "item": "upgrade_aquatic:driftwood_planks"
+  },
+  "result": "upgrade_aquatic:driftwood_button",
+  "count": 6,
+  "conditions": [
+    {
+      "type": "forge:mod_loaded",
+      "modid": "upgrade_aquatic"
+    }, {
+      "type": "forge:mod_loaded",
+      "modid": "woodworks"
+    },
+    {
+      "type": "woodworks:config",
+      "value": "sawmill"
+    }
+  ]
+}

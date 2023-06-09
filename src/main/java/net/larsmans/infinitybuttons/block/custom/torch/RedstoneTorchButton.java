@@ -24,10 +24,12 @@ import net.minecraftforge.api.distmarker.OnlyIn;
 
 public class RedstoneTorchButton extends TorchBlock {
     public static final BooleanProperty LIT = BlockStateProperties.LIT;
+    public final Block jadeBlock;
 
-    public RedstoneTorchButton(Properties properties) {
+    public RedstoneTorchButton(Properties properties, Block jadeBlock) {
         super(properties, DustParticleOptions.REDSTONE);
         this.registerDefaultState(this.stateDefinition.any().setValue(LIT, false));
+        this.jadeBlock = jadeBlock;
     }
 
     @Override

@@ -24,10 +24,12 @@ public class TorchButton extends AbstractHorizontalButton {
 
     protected static final VoxelShape BOUNDING_SHAPE = Block.box(6.0, 0.0, 6.0, 10.0, 10.0, 10.0);
     protected final ParticleOptions particle;
+    public final Block jadeBlock;
 
-    public TorchButton(Properties properties, ParticleOptions particle) {
+    public TorchButton(Properties properties, ParticleOptions particle, Block jadeBlock) {
         super(properties, BOUNDING_SHAPE, BOUNDING_SHAPE, BOUNDING_SHAPE, BOUNDING_SHAPE, BOUNDING_SHAPE, BOUNDING_SHAPE, BOUNDING_SHAPE, BOUNDING_SHAPE);
         this.particle = particle;
+        this.jadeBlock = jadeBlock;
     }
 
     @Override

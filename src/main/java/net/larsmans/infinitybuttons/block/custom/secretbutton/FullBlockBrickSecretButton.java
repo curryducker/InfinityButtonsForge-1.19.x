@@ -6,14 +6,15 @@ import net.minecraft.world.level.block.Block;
 import net.minecraft.world.phys.shapes.VoxelShape;
 
 public class FullBlockBrickSecretButton extends AbstractSecretButton {
-    public FullBlockBrickSecretButton(Properties properties) {
+    public FullBlockBrickSecretButton(Properties properties, Block jadeBlock) {
         super(
                 properties,
                 FULL,
                 FULL,
                 FULL,
                 FULL,
-                FULL
+                FULL,
+                jadeBlock
         );
     }
 

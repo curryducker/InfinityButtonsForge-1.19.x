@@ -34,14 +34,16 @@ public abstract class AbstractSecretButton extends AbstractHorizontalButton {
     public final VoxelShape SOUTH_SHAPE;
     public final VoxelShape WEST_SHAPE;
     public final VoxelShape OFF_SHAPE;
+    public final Block jadeBlock;
 
-    public AbstractSecretButton(Properties properties, VoxelShape north_shape, VoxelShape east_shape, VoxelShape south_shape, VoxelShape west_shape, VoxelShape off_shape) {
+    public AbstractSecretButton(Properties properties, VoxelShape north_shape, VoxelShape east_shape, VoxelShape south_shape, VoxelShape west_shape, VoxelShape off_shape, Block jadeBlock) {
         super(properties, off_shape, off_shape, off_shape, off_shape, north_shape, east_shape, south_shape, west_shape);
         NORTH_SHAPE = north_shape;
         EAST_SHAPE = east_shape;
         SOUTH_SHAPE = south_shape;
         WEST_SHAPE = west_shape;
         OFF_SHAPE = off_shape;
+        this.jadeBlock = jadeBlock;
     }
 
     @Override

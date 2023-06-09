@@ -7,7 +7,7 @@ import net.minecraft.world.phys.shapes.Shapes;
 import net.minecraft.world.phys.shapes.VoxelShape;
 
 public class BigBrickSecretButton extends AbstractSecretButton {
-    public BigBrickSecretButton(Properties properties) {
+    public BigBrickSecretButton(Properties properties, Block jadeBlock) {
         super(
                 properties,
                 Shapes.or(BASE,
@@ -22,7 +22,8 @@ public class BigBrickSecretButton extends AbstractSecretButton {
                 Shapes.or(BASE,
                         Block.box(3, 8, 0, 19, 16, 16)
                 ),
-                Block.box(0, 0, 0, 16, 16, 16)
+                Block.box(0, 0, 0, 16, 16, 16),
+                jadeBlock
         );
     }
 

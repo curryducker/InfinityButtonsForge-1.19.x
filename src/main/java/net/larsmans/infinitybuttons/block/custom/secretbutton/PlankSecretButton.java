@@ -7,7 +7,7 @@ import net.minecraft.world.phys.shapes.Shapes;
 import net.minecraft.world.phys.shapes.VoxelShape;
 
 public class PlankSecretButton extends AbstractSecretButton {
-    public PlankSecretButton(Properties properties) {
+    public PlankSecretButton(Properties properties, Block jadeBlock) {
         super(
                 properties,
                 Shapes.or(BOTTOM, TOP,
@@ -19,7 +19,8 @@ public class PlankSecretButton extends AbstractSecretButton {
                 Shapes.or(BOTTOM, TOP,
                         Block.box(3, 4, 0, 16, 9, 16)),
 
-                Block.box(0, 0, 0, 16, 16, 16)
+                Block.box(0, 0, 0, 16, 16, 16),
+                jadeBlock
         );
     }
 

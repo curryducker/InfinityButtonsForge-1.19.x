@@ -1,0 +1,21 @@
+{
+  "type": "woodworks:sawmill",
+  "ingredient": {
+    "item": "autumnity:maple_planks"
+  },
+  "result": "autumnity:maple_button",
+  "count": 6,
+  "conditions": [
+    {
+      "type": "forge:mod_loaded",
+      "modid": "autumnity"
+    }, {
+      "type": "forge:mod_loaded",
+      "modid": "woodworks"
+    },
+    {
+      "type": "woodworks:config",
+      "value": "sawmill"
+    }
+  ]
+}

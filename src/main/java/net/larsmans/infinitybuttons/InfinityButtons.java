@@ -4,10 +4,7 @@ import com.mojang.logging.LogUtils;
 import me.shedaniel.autoconfig.AutoConfig;
 import me.shedaniel.autoconfig.serializer.Toml4jConfigSerializer;
 import net.larsmans.infinitybuttons.block.InfinityButtonsBlocks;
-import net.larsmans.infinitybuttons.compat.NethersDelightBlocks;
-import net.larsmans.infinitybuttons.compat.NethersDelightItems;
-import net.larsmans.infinitybuttons.compat.QuarkBlocks;
-import net.larsmans.infinitybuttons.compat.WoodworksBlocks;
+import net.larsmans.infinitybuttons.compat.*;
 import net.larsmans.infinitybuttons.config.InfinityButtonsConfig;
 import net.larsmans.infinitybuttons.config.InfinityButtonsConfigMenu;
 import net.larsmans.infinitybuttons.item.InfinityButtonsItems;
@@ -49,6 +46,30 @@ public class InfinityButtons
         }
         if (ModList.get().isLoaded("woodworks")){
             WoodworksBlocks.registerCompatBlocks();
+        }
+        if (ModList.get().isLoaded("clayworks")){
+            ClayworksBlocks.registerCompatBlocks();
+        }
+        if (ModList.get().isLoaded("environmental")){
+            EnvironmentalBlocks.registerCompatBlocks();
+        }
+        if (ModList.get().isLoaded("autumnity")){
+            AutumnityBlocks.registerCompatBlocks();
+        }
+        if (ModList.get().isLoaded("atmospheric")){
+            AtmosphericBlocks.registerCompatBlocks();
+        }
+        if (ModList.get().isLoaded("upgrade_aquatic")){
+            UpgradeAquaticBlocks.registerCompatBlocks();
+        }
+        if (ModList.get().isLoaded("buzzier_bees")){
+            BuzzierBeesBlocks.registerCompatBlocks();
+        }
+        if (ModList.get().isLoaded("neapolitan")){
+            NeapolitanBlocks.registerCompatBlocks();
+        }
+        if (ModList.get().isLoaded("savage_and_ravage")){
+            SavageAndRavageBlocks.registerCompatBlocks();
         }
 
         AutoConfig.register(InfinityButtonsConfig.class, Toml4jConfigSerializer::new);

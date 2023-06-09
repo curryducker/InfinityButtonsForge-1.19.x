@@ -7,7 +7,7 @@ import net.minecraft.world.phys.shapes.Shapes;
 import net.minecraft.world.phys.shapes.VoxelShape;
 
 public class DeepslateTileSecretButton extends AbstractSecretButton {
-    public DeepslateTileSecretButton(Properties properties) {
+    public DeepslateTileSecretButton(Properties properties, Block jadeBlock) {
         super(
                 properties,
                 Shapes.or(BASE,
@@ -26,7 +26,8 @@ public class DeepslateTileSecretButton extends AbstractSecretButton {
                         Block.box(0, 10, 0, 16, 16, 3),
                         Block.box(3, 10, 3, 19, 16, 16)
                 ),
-                Block.box(0, 0, 0, 16, 16, 16)
+                Block.box(0, 0, 0, 16, 16, 16),
+                jadeBlock
         );
     }
 

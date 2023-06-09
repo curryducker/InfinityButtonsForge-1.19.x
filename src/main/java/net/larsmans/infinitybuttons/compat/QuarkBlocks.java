@@ -3,11 +3,12 @@ package net.larsmans.infinitybuttons.compat;
 import net.larsmans.infinitybuttons.InfinityButtons;
 import net.larsmans.infinitybuttons.block.InfinityButtonsBlocks;
 import net.larsmans.infinitybuttons.block.custom.secretbutton.compat.BigCompatSecretButton;
-import net.larsmans.infinitybuttons.block.custom.secretbutton.compat.ChiseledCompatSecretButton;
+import net.larsmans.infinitybuttons.block.custom.secretbutton.compat.ChiseledStonepatBrickSecretButton;
 import net.larsmans.infinitybuttons.block.custom.secretbutton.compat.CompatBookshelfSecretButton;
 import net.larsmans.infinitybuttons.block.custom.secretbutton.compat.FullCompatBrickSecretButton;
 import net.larsmans.infinitybuttons.item.InfinityButtonsItemGroup;
 import net.larsmans.infinitybuttons.item.InfinityButtonsItems;
+import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.item.BlockItem;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.level.block.Block;
@@ -15,6 +16,7 @@ import net.minecraft.world.level.block.SoundType;
 import net.minecraft.world.level.block.state.BlockBehaviour;
 import net.minecraft.world.level.material.Material;
 import net.minecraft.world.level.material.MaterialColor;
+import net.minecraftforge.registries.ForgeRegistries;
 import net.minecraftforge.registries.RegistryObject;
 
 import java.util.function.Supplier;
@@ -33,10 +35,10 @@ public class QuarkBlocks {
     public static final RegistryObject<Block> BLOSSOM_BOOKSHELF_SECRET_BUTTON = registerBookshelf("blossom");
 
     public static final RegistryObject<Block> PERMAFROST_BRICK_SECRET_BUTTON = registerBlock("permafrost_brick_secret_button",
-            () -> new BigCompatSecretButton(BlockBehaviour.Properties.of(Material.STONE, MaterialColor.COLOR_LIGHT_BLUE).strength(1.5f, 10.0f).noOcclusion().sound(SoundType.STONE).requiresCorrectToolForDrops()));
+            () -> new BigCompatSecretButton(BlockBehaviour.Properties.of(Material.STONE, MaterialColor.COLOR_LIGHT_BLUE).strength(1.5f, 10.0f).noOcclusion().sound(SoundType.STONE).requiresCorrectToolForDrops(), byName("permafrost_bricks")));
 
     public static final RegistryObject<Block> BLUE_NETHER_BRICK_SECRET_BUTTON = registerBlock("blue_nether_brick_secret_button",
-            () -> new FullCompatBrickSecretButton(BlockBehaviour.Properties.of(Material.STONE, MaterialColor.NETHER).strength(2.0f, 6.0f).noOcclusion().sound(SoundType.NETHER_BRICKS).requiresCorrectToolForDrops()));
+            () -> new FullCompatBrickSecretButton(BlockBehaviour.Properties.of(Material.STONE, MaterialColor.NETHER).strength(2.0f, 6.0f).noOcclusion().sound(SoundType.NETHER_BRICKS).requiresCorrectToolForDrops(), byName("blue_nether_bricks")));
 
     public static final RegistryObject<Block> POLISHED_GRANITE_BRICK_SECRET_BUTTON = registerPolishedButton("granite", MaterialColor.DIRT);
     public static final RegistryObject<Block> POLISHED_DIORITE_BRICK_SECRET_BUTTON = registerPolishedButton("diorite", MaterialColor.QUARTZ);
@@ -62,16 +64,20 @@ public class QuarkBlocks {
      * Methods
      */
 
+    private static Block byName(String block) {
+        return ForgeRegistries.BLOCKS.getValue(new ResourceLocation("quark", block));
+    }
+
     private static RegistryObject<Block> registerChiseledPolishedButton(String type, MaterialColor materialColor) {
-        return registerBlock("chiseled_polished_" + type + "_brick_secret_button", () -> new ChiseledCompatSecretButton(BlockBehaviour.Properties.of(Material.STONE, materialColor).strength(1.5f, 6.0f).noOcclusion().sound(SoundType.STONE).requiresCorrectToolForDrops()));
+        return registerBlock("chiseled_polished_" + type + "_brick_secret_button", () -> new ChiseledStonepatBrickSecretButton(BlockBehaviour.Properties.of(Material.STONE, materialColor).strength(1.5f, 6.0f).noOcclusion().sound(SoundType.STONE).requiresCorrectToolForDrops(), byName("chiseled_" + type + "_bricks")));
     }
 
     private static RegistryObject<Block> registerPolishedButton(String type, MaterialColor materialColor) {
-        return registerBlock("polished_" + type + "_brick_secret_button", () -> new BigCompatSecretButton(BlockBehaviour.Properties.of(Material.STONE, materialColor).strength(1.5f, 6.0f).noOcclusion().sound(SoundType.STONE).requiresCorrectToolForDrops()));
+        return registerBlock("polished_" + type + "_brick_secret_button", () -> new BigCompatSecretButton(BlockBehaviour.Properties.of(Material.STONE, materialColor).strength(1.5f, 6.0f).noOcclusion().sound(SoundType.STONE).requiresCorrectToolForDrops(), byName(type + "_bricks")));
     }
 
     private static RegistryObject<Block> registerBookshelf(String wood) {
-        return registerBlock(wood + "_bookshelf_secret_button", () -> new CompatBookshelfSecretButton(BlockBehaviour.Properties.of(Material.WOOD).strength(1.5f).noOcclusion().sound(SoundType.WOOD)));
+        return registerBlock(wood + "_bookshelf_secret_button", () -> new CompatBookshelfSecretButton(BlockBehaviour.Properties.of(Material.WOOD).strength(1.5f).noOcclusion().sound(SoundType.WOOD), byName(wood + "_bookshelf")));
     }
 
     private static <T extends Block> RegistryObject<T> registerBlock(String name, Supplier<T> block) {

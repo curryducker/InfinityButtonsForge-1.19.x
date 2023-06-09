@@ -22,8 +22,8 @@ import javax.annotation.Nullable;
 public class RedstoneWallTorchButton extends RedstoneTorchButton {
     public static final DirectionProperty FACING = HorizontalDirectionalBlock.FACING;
 
-    public RedstoneWallTorchButton(Properties properties) {
-        super(properties);
+    public RedstoneWallTorchButton(Properties properties, Block jadeBlock) {
+        super(properties, jadeBlock);
         this.registerDefaultState(this.stateDefinition.any().setValue(LIT, false).setValue(FACING, Direction.NORTH));
     }
 

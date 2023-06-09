@@ -7,7 +7,7 @@ import net.minecraft.world.phys.shapes.Shapes;
 import net.minecraft.world.phys.shapes.VoxelShape;
 
 public class MudBrickSecretButton extends AbstractSecretButton{
-    public MudBrickSecretButton(Properties properties) {
+    public MudBrickSecretButton(Properties properties, Block jadeBlock) {
         super (
                 properties,
                 Shapes.or(BASE,
@@ -30,7 +30,8 @@ public class MudBrickSecretButton extends AbstractSecretButton{
                         Block.box(3, 0, 3, 16, 9, 13),
                         Block.box(0, 0, 13, 16, 9, 16)
                 ),
-                Block.box(0, 0, 0, 16, 16, 16)
+                Block.box(0, 0, 0, 16, 16, 16),
+                jadeBlock
         );
     }
 

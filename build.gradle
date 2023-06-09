@@ -121,6 +121,11 @@ repositories {
     // Put repositories for dependencies here
     // ForgeGradle automatically adds the Forge maven and Maven Central for you
     maven { url "https://maven.shedaniel.me/" }
+    maven {
+        name "blamejared"
+        url "https://maven.blamejared.com/"
+    }
+    maven { url "https://www.cursemaven.com" }
     // If you have mod jar dependencies in ./libs, you can declare them as a repository like so:
     // flatDir {
     //     dir 'libs'
@@ -132,7 +137,23 @@ dependencies {
     // that the dep is a ForgeGradle 'patcher' dependency, and its patches will be applied.
     // The userdev artifact is a special name and will get all sorts of transformations applied to it.
     minecraft 'net.minecraftforge:forge:1.19.2-43.1.1'
+
     api fg.deobf("me.shedaniel.cloth:cloth-config-forge:8.2.88")
+
+    compileOnly fg.deobf("vazkii.autoreglib:AutoRegLib:1.8.2-55.124")
+    compileOnly fg.deobf("vazkii.quark:Quark:3.4-402.2917")
+    compileOnly fg.deobf("curse.maven:atmospheric-362393:4415516")
+    compileOnly fg.deobf("curse.maven:autumnity-365045:4415512")
+    compileOnly fg.deobf("curse.maven:buzzier-bees-355458:3912010")
+    compileOnly fg.deobf("curse.maven:clayworks-592162:4396960")
+    compileOnly fg.deobf("curse.maven:environmental-388992:4415514")
+    compileOnly fg.deobf("curse.maven:neapolitan-382016:4023083")
+    compileOnly fg.deobf("curse.maven:nethers-delight-496394:3971576")
+    compileOnly fg.deobf("curse.maven:savage-and-ravage-381736:4429231")
+    compileOnly fg.deobf("curse.maven:upgrade-aquatic-326895:4415517")
+    compileOnly fg.deobf("curse.maven:woodworks-543610:4396958")
+
+    implementation fg.deobf("curse.maven:jade-324717:4433884")
 
     // Real mod deobf dependency examples - these get remapped to your current mappings
     // compileOnly fg.deobf("mezz.jei:jei-${mc_version}:${jei_version}:api") // Adds JEI API as a compile dependency
