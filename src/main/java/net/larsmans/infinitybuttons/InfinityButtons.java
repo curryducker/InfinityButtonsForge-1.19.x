@@ -71,6 +71,9 @@ public class InfinityButtons
         if (ModList.get().isLoaded("savage_and_ravage")){
             SavageAndRavageBlocks.registerCompatBlocks();
         }
+        if (ModList.get().isLoaded("create")){
+            CreateBlocks.registerCompatBlocks();
+        }
 
         AutoConfig.register(InfinityButtonsConfig.class, Toml4jConfigSerializer::new);
         DistExecutor.safeRunWhenOn(Dist.CLIENT, () -> InfinityButtonsConfigMenu::registerConfigMenu);

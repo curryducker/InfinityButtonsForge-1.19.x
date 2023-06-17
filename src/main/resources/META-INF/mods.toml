@@ -101,6 +101,12 @@ A mod which adds new exciting buttons!
     ordering="AFTER"
     side="BOTH"
 [[dependencies.infinitybuttons]]
+    modId="create"
+    mandatory=false
+    versionRange="[0.5.1.b,)"
+    ordering="AFTER"
+    side="BOTH"
+[[dependencies.infinitybuttons]]
     modId="environmental"
     mandatory=false
     versionRange="[3.0.0,)"

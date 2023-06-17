@@ -66,6 +66,7 @@
     "infinitybuttons:cracked_deepslate_tile_secret_button",
     "infinitybuttons:mud_brick_secret_button",
     "infinitybuttons:end_stone_brick_secret_button",
+    "infinitybuttons:purpur_block_secret_button",
     "infinitybuttons:quartz_brick_secret_button",
     "infinitybuttons:dark_prismarine_secret_button",
     "infinitybuttons:polished_blackstone_brick_secret_button",
@@ -353,6 +354,127 @@
     },
     {
       "id": "infinitybuttons:chiseled_polished_shale_brick_secret_button",
+      "required": false
+    },
+
+    {
+      "id": "rose_quartz_tile_secret_button",
+      "required": false
+    },
+    {
+      "id": "small_rose_quartz_tile_secret_button",
+      "required": false
+    },
+    {
+      "id": "cut_granite_brick_secret_button",
+      "required": false
+    },
+    {
+      "id": "small_granite_brick_secret_button",
+      "required": false
+    },
+    {
+      "id": "cut_diorite_brick_secret_button",
+      "required": false
+    },
+    {
+      "id": "small_diorite_brick_secret_button",
+      "required": false
+    },
+    {
+      "id": "cut_andesite_brick_secret_button",
+      "required": false
+    },
+    {
+      "id": "small_andesite_brick_secret_button",
+      "required": false
+    },
+    {
+      "id": "cut_calcite_brick_secret_button",
+      "required": false
+    },
+    {
+      "id": "small_calcite_brick_secret_button",
+      "required": false
+    },
+    {
+      "id": "cut_dripstone_brick_secret_button",
+      "required": false
+    },
+    {
+      "id": "small_dripstone_brick_secret_button",
+      "required": false
+    },
+    {
+      "id": "cut_deepslate_brick_secret_button",
+      "required": false
+    },
+    {
+      "id": "small_deepslate_brick_secret_button",
+      "required": false
+    },
+    {
+      "id": "cut_tuff_brick_secret_button",
+      "required": false
+    },
+    {
+      "id": "small_tuff_brick_secret_button",
+      "required": false
+    },
+    {
+      "id": "cut_asurine_brick_secret_button",
+      "required": false
+    },
+    {
+      "id": "small_asurine_brick_secret_button",
+      "required": false
+    },
+    {
+      "id": "cut_crimsite_brick_secret_button",
+      "required": false
+    },
+    {
+      "id": "small_crimsite_brick_secret_button",
+      "required": false
+    },
+    {
+      "id": "cut_limestone_brick_secret_button",
+      "required": false
+    },
+    {
+      "id": "small_limestone_brick_secret_button",
+      "required": false
+    },
+    {
+      "id": "cut_ochrum_brick_secret_button",
+      "required": false
+    },
+    {
+      "id": "small_ochrum_brick_secret_button",
+      "required": false
+    },
+    {
+      "id": "cut_scoria_brick_secret_button",
+      "required": false
+    },
+    {
+      "id": "small_scoria_brick_secret_button",
+      "required": false
+    },
+    {
+      "id": "cut_scorchia_brick_secret_button",
+      "required": false
+    },
+    {
+      "id": "small_scorchia_brick_secret_button",
+      "required": false
+    },
+    {
+      "id": "cut_veridium_brick_secret_button",
+      "required": false
+    },
+    {
+      "id": "small_veridium_brick_secret_button",
       "required": false
     }
   ]
