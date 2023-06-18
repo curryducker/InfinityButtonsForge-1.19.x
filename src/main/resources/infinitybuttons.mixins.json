@@ -4,7 +4,8 @@
   "compatibilityLevel": "JAVA_17",
   "refmap": "infinitybuttons.refmap.json",
   "mixins": [
-    "ServerPlayerGameModeMixin"
+    "ServerPlayerGameModeMixin",
+    "ChainBlockMixin"
   ],
   "client": [
     "MultiPlayerGameModeMixin"

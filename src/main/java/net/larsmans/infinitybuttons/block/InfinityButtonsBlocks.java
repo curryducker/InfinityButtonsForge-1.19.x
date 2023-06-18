@@ -4,6 +4,7 @@ import net.larsmans.infinitybuttons.InfinityButtons;
 import net.larsmans.infinitybuttons.block.custom.Doorbell;
 import net.larsmans.infinitybuttons.block.custom.DoorbellButton;
 import net.larsmans.infinitybuttons.block.custom.LampButton;
+import net.larsmans.infinitybuttons.block.custom.LanternButton;
 import net.larsmans.infinitybuttons.block.custom.button.AbstractLeverableButton;
 import net.larsmans.infinitybuttons.block.custom.button.*;
 import net.larsmans.infinitybuttons.block.custom.consolebutton.ConsoleButton;
@@ -300,7 +301,19 @@ public class InfinityButtonsBlocks {
             () -> new LampButton(lampProperties(), true));
 
     public static final RegistryObject<Block> LETTER_BUTTON = registerBlock("letter_button",
-            () -> new LetterButton(BlockBehaviour.Properties.of(Material.WOOD).strength(0.5f).noCollission().sound(SoundType.WOOD)));
+            () -> new LetterButton(BlockBehaviour.Properties.of(Material.WOOD).strength(0.5f).noOcclusion().noCollission().sound(SoundType.WOOD)));
+
+    public static final RegistryObject<Block> LANTERN_BUTTON = registerBlock("lantern_button",
+            () -> new LanternButton(lanternProperties(15), false));
+
+    public static final RegistryObject<Block> LANTERN_LEVER = registerBlock("lantern_lever",
+            () -> new LanternButton(lanternProperties(15), true));
+
+    public static final RegistryObject<Block> SOUL_LANTERN_BUTTON = registerBlock("soul_lantern_button",
+            () -> new LanternButton(lanternProperties(10), false));
+
+    public static final RegistryObject<Block> SOUL_LANTERN_LEVER = registerBlock("soul_lantern_lever",
+            () -> new LanternButton(lanternProperties(10), true));
 
     /**
      * Console Buttons
@@ -377,6 +390,10 @@ public class InfinityButtonsBlocks {
 
     private static BlockBehaviour.Properties lampProperties() {
         return BlockBehaviour.Properties.of(Material.DECORATION).strength(0.3f).sound(SoundType.GLASS).lightLevel(InfinityButtonsBlocks::getPressLight);
+    }
+
+    private static BlockBehaviour.Properties lanternProperties(int light) {
+        return BlockBehaviour.Properties.of(Material.METAL).strength(3.5f).noOcclusion().sound(SoundType.LANTERN).requiresCorrectToolForDrops().lightLevel((p_50876_) -> light);
     }
 
     private static int getPressLight(BlockState state) {
