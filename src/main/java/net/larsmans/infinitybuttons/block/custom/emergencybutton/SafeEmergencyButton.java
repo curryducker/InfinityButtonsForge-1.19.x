@@ -207,10 +207,10 @@ public class SafeEmergencyButton extends FaceAttachedHorizontalDirectionalBlock 
                     if (config.alarmSoundType != AlarmEnum.OFF) {
                         EmergencyButton.emergencySound(worldIn, pos, player);
                     }
-                    if (!worldIn.isClientSide) {
+                    if (!worldIn.isClientSide && config.alarmVillagerPanic) {
                         List<LivingEntity> villagers = worldIn.getEntitiesOfClass(LivingEntity.class, new AABB(pos).inflate(config.alarmSoundRange), entity -> entity.getType() == EntityType.VILLAGER);
                         for (LivingEntity villager : villagers) {
-                            if (villager instanceof Villager villagerEntity && config.alarmVillagerPanic) {
+                            if (villager instanceof Villager villagerEntity) {
                                 villagerEntity.getBrain().setMemory(MemoryModuleType.HEARD_BELL_TIME, worldIn.getGameTime());
                             }
                         }
@@ -223,7 +223,7 @@ public class SafeEmergencyButton extends FaceAttachedHorizontalDirectionalBlock 
                     this.openCase(state, worldIn, pos);
                     this.playToggleSound(player, worldIn, pos, true);
                 } else {
-                    player.displayClientMessage(Component.translatable("infinitybuttons.actionbar.closed_safety_button"), true);
+                    player.displayClientMessage(InfinityButtonsUtil.SAFE_EMERGENCY_BUTTON_ACTIONBAR_TEXT, true);
                     return InteractionResult.CONSUME;
                 }
             }

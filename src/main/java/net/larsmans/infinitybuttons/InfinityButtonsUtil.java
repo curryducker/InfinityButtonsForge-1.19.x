@@ -2,11 +2,13 @@ package net.larsmans.infinitybuttons;
 
 import me.shedaniel.autoconfig.AutoConfig;
 import net.larsmans.infinitybuttons.config.InfinityButtonsConfig;
+import net.minecraft.ChatFormatting;
 import net.minecraft.client.Camera;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.gui.screens.Screen;
 import net.minecraft.core.BlockPos;
 import net.minecraft.network.chat.Component;
+import net.minecraft.network.chat.MutableComponent;
 import net.minecraft.sounds.SoundEvent;
 import net.minecraft.sounds.SoundSource;
 import net.minecraft.world.level.Level;
@@ -22,13 +24,16 @@ public class InfinityButtonsUtil {
     public static final BooleanProperty PRESSED = BooleanProperty.create("pressed");
     public static final DirectionProperty FACING = BlockStateProperties.HORIZONTAL_FACING;
 
+    public static final MutableComponent HOLD_SHIFT_TEXT = Component.translatable("infinitybuttons.tooltip.hold_shift").withStyle(ChatFormatting.GRAY);
+    public static final MutableComponent SAFE_EMERGENCY_BUTTON_ACTIONBAR_TEXT = Component.translatable("infinitybuttons.actionbar.closed_safety_button");
+
     @OnlyIn(Dist.CLIENT)
     public static void tooltip(List<Component> tooltip, String name) {
         if (AutoConfig.getConfigHolder(InfinityButtonsConfig.class).getConfig().tooltips) {
             if (Screen.hasShiftDown()) {
-                tooltip.add(Component.translatable("infinitybuttons.tooltip." + name));
+                tooltip.add(Component.translatable("infinitybuttons.tooltip." + name).withStyle(ChatFormatting.GRAY));
             } else {
-                tooltip.add(Component.translatable("infinitybuttons.tooltip.hold_shift"));
+                tooltip.add(HOLD_SHIFT_TEXT);
             }
         }
     }
@@ -37,10 +42,10 @@ public class InfinityButtonsUtil {
     public static void tooltip(List<Component> tooltip, String name1, String name2) {
         if (AutoConfig.getConfigHolder(InfinityButtonsConfig.class).getConfig().tooltips) {
             if (Screen.hasShiftDown()) {
-                tooltip.add(Component.translatable("infinitybuttons.tooltip." + name1));
-                tooltip.add(Component.translatable("infinitybuttons.tooltip." + name2));
+                tooltip.add(Component.translatable("infinitybuttons.tooltip." + name1).withStyle(ChatFormatting.GRAY));
+                tooltip.add(Component.translatable("infinitybuttons.tooltip." + name2).withStyle(ChatFormatting.GRAY));
             } else {
-                tooltip.add(Component.translatable("infinitybuttons.tooltip.hold_shift"));
+                tooltip.add(HOLD_SHIFT_TEXT);
             }
         }
     }
