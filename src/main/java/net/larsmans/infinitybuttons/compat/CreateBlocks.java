@@ -73,31 +73,31 @@ public class CreateBlocks {
      */
 
     private static RegistryObject<Block> registerCutMineral(String type, Block properties, MaterialColor color) {
-        return registerCut(type, BlockBehaviour.Properties.copy(properties).destroyTime(1.25F).color(color));
+        return registerCut(type, BlockBehaviour.Properties.copy(properties).destroyTime(1.25F).color(color).noOcclusion());
     }
 
     private static RegistryObject<Block> registerSmallMineral(String type, Block properties, MaterialColor color) {
-        return registerSmall(type, BlockBehaviour.Properties.copy(properties).destroyTime(1.25F).color(color));
+        return registerSmall(type, BlockBehaviour.Properties.copy(properties).destroyTime(1.25F).color(color).noOcclusion());
     }
 
     private static RegistryObject<Block> registerCut(String type, Block properties) {
         return registerBlock("cut_" + type + "_brick_secret_button",
-                () -> new BigCompatSecretButton(BlockBehaviour.Properties.copy(properties), byName("cut_" + type + "_bricks")));
+                () -> new BigCompatSecretButton(BlockBehaviour.Properties.copy(properties).noOcclusion(), byName("cut_" + type + "_bricks")));
     }
 
     private static RegistryObject<Block> registerCut(String type, BlockBehaviour.Properties properties) {
         return registerBlock("cut_" + type + "_brick_secret_button",
-                () -> new BigCompatSecretButton(properties, byName("cut_" + type + "_bricks")));
+                () -> new BigCompatSecretButton(properties.noOcclusion(), byName("cut_" + type + "_bricks")));
     }
 
     private static RegistryObject<Block> registerSmall(String type, Block properties) {
         return registerBlock("small_" + type + "_brick_secret_button",
-                () -> new FullCompatBrickSecretButton(BlockBehaviour.Properties.copy(properties), byName("small_" + type + "_bricks")));
+                () -> new FullCompatBrickSecretButton(BlockBehaviour.Properties.copy(properties).noOcclusion(), byName("small_" + type + "_bricks")));
     }
 
     private static RegistryObject<Block> registerSmall(String type, BlockBehaviour.Properties properties) {
         return registerBlock("small_" + type + "_brick_secret_button",
-                () -> new FullCompatBrickSecretButton(properties, byName("small_" + type + "_bricks")));
+                () -> new FullCompatBrickSecretButton(properties.noOcclusion(), byName("small_" + type + "_bricks")));
     }
 
     private static Block byName(String block) {
