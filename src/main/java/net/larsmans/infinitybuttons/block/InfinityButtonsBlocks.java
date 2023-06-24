@@ -24,6 +24,7 @@ import net.minecraft.world.item.BlockItem;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.SoundType;
+import net.minecraft.world.level.block.WeatheringCopper;
 import net.minecraft.world.level.block.state.BlockBehaviour;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.material.Material;
@@ -52,10 +53,15 @@ public class InfinityButtonsBlocks {
     public static final RegistryObject<Block> TUFF_BUTTON = registerStoneButton("tuff");
     public static final RegistryObject<Block> DRIPSTONE_BUTTON = registerStoneButton("dripstone");
 
-    public static final RegistryObject<Block> COPPER_BUTTON = registerCopperButton("copper");
-    public static final RegistryObject<Block> EXPOSED_COPPER_BUTTON = registerCopperButton("exposed_copper");
-    public static final RegistryObject<Block> WEATHERED_COPPER_BUTTON = registerCopperButton("weathered_copper");
-    public static final RegistryObject<Block> OXIDIZED_COPPER_BUTTON = registerCopperButton("oxidized_copper");
+    public static final RegistryObject<Block> COPPER_BUTTON = registerCopperButton("copper", WeatheringCopper.WeatherState.UNAFFECTED);
+    public static final RegistryObject<Block> EXPOSED_COPPER_BUTTON = registerCopperButton("exposed_copper", WeatheringCopper.WeatherState.EXPOSED);
+    public static final RegistryObject<Block> WEATHERED_COPPER_BUTTON = registerCopperButton("weathered_copper", WeatheringCopper.WeatherState.WEATHERED);
+    public static final RegistryObject<Block> OXIDIZED_COPPER_BUTTON = registerCopperButton("oxidized_copper", WeatheringCopper.WeatherState.OXIDIZED);
+
+    public static final RegistryObject<Block> WAXED_COPPER_BUTTON = registerWaxedCopperButton("copper");
+    public static final RegistryObject<Block> WAXED_EXPOSED_COPPER_BUTTON = registerWaxedCopperButton("exposed_copper");
+    public static final RegistryObject<Block> WAXED_WEATHERED_COPPER_BUTTON = registerWaxedCopperButton("weathered_copper");
+    public static final RegistryObject<Block> WAXED_OXIDIZED_COPPER_BUTTON = registerWaxedCopperButton("oxidized_copper");
 
     public static final RegistryObject<Block> STICKY_COPPER_BUTTON = registerStickyCopperButton("copper");
     public static final RegistryObject<Block> STICKY_EXPOSED_COPPER_BUTTON = registerStickyCopperButton("exposed_copper");
@@ -120,10 +126,15 @@ public class InfinityButtonsBlocks {
     public static final RegistryObject<Block> DRIPSTONE_LARGE_BUTTON = registerStoneLargeButton("dripstone");
     public static final RegistryObject<Block> POLISHED_BLACKSTONE_LARGE_BUTTON = registerStoneLargeButton("polished_blackstone");
 
-    public static final RegistryObject<Block> COPPER_LARGE_BUTTON = registerCopperLargeButton("copper");
-    public static final RegistryObject<Block> EXPOSED_COPPER_LARGE_BUTTON = registerCopperLargeButton("exposed_copper");
-    public static final RegistryObject<Block> WEATHERED_COPPER_LARGE_BUTTON = registerCopperLargeButton("weathered_copper");
-    public static final RegistryObject<Block> OXIDIZED_COPPER_LARGE_BUTTON = registerCopperLargeButton("oxidized_copper");
+    public static final RegistryObject<Block> COPPER_LARGE_BUTTON = registerCopperLargeButton("copper", WeatheringCopper.WeatherState.UNAFFECTED);
+    public static final RegistryObject<Block> EXPOSED_COPPER_LARGE_BUTTON = registerCopperLargeButton("exposed_copper", WeatheringCopper.WeatherState.EXPOSED);
+    public static final RegistryObject<Block> WEATHERED_COPPER_LARGE_BUTTON = registerCopperLargeButton("weathered_copper", WeatheringCopper.WeatherState.WEATHERED);
+    public static final RegistryObject<Block> OXIDIZED_COPPER_LARGE_BUTTON = registerCopperLargeButton("oxidized_copper", WeatheringCopper.WeatherState.OXIDIZED);
+
+    public static final RegistryObject<Block> WAXED_COPPER_LARGE_BUTTON = registerWaxedCopperLargeButton("copper");
+    public static final RegistryObject<Block> WAXED_EXPOSED_COPPER_LARGE_BUTTON = registerWaxedCopperLargeButton("exposed_copper");
+    public static final RegistryObject<Block> WAXED_WEATHERED_COPPER_LARGE_BUTTON = registerWaxedCopperLargeButton("weathered_copper");
+    public static final RegistryObject<Block> WAXED_OXIDIZED_COPPER_LARGE_BUTTON = registerWaxedCopperLargeButton("oxidized_copper");
 
     public static final RegistryObject<Block> STICKY_COPPER_LARGE_BUTTON = registerStickyCopperLargeButton("copper");
     public static final RegistryObject<Block> STICKY_EXPOSED_COPPER_LARGE_BUTTON = registerStickyCopperLargeButton("exposed_copper");
@@ -412,8 +423,12 @@ public class InfinityButtonsBlocks {
         return registerBlock(type + "_button", () -> new StoneButton(BlockBehaviour.Properties.of(Material.DECORATION).strength(0.5f).noCollission().sound(SoundType.STONE), false));
     }
 
-    private static RegistryObject<Block> registerCopperButton(String type) {
-        return registerBlock(type + "_button", () -> new CopperButton(BlockBehaviour.Properties.of(Material.DECORATION).strength(0.5f).noCollission().sound(SoundType.COPPER), false));
+    private static RegistryObject<Block> registerCopperButton(String type, WeatheringCopper.WeatherState state) {
+        return registerBlock(type + "_button", () -> new CopperButton(BlockBehaviour.Properties.of(Material.DECORATION).strength(0.5f).noCollission().sound(SoundType.COPPER), false, state));
+    }
+
+    private static RegistryObject<Block> registerWaxedCopperButton(String type) {
+        return registerBlock("waxed_" + type + "_button", () -> new WaxedCopperButton(BlockBehaviour.Properties.of(Material.DECORATION).strength(0.5f).noCollission().sound(SoundType.COPPER), false));
     }
 
     private static RegistryObject<Block> registerStickyCopperButton(String type) {
@@ -444,8 +459,12 @@ public class InfinityButtonsBlocks {
         return registerBlock(type + "_large_button", () -> new StoneButton(BlockBehaviour.Properties.of(Material.DECORATION).strength(0.5f).noCollission().sound(SoundType.STONE), true));
     }
 
-    private static RegistryObject<Block> registerCopperLargeButton(String type) {
-        return registerBlock(type + "_large_button", () -> new CopperButton(BlockBehaviour.Properties.of(Material.DECORATION).strength(0.5f).noCollission().sound(SoundType.COPPER), true));
+    private static RegistryObject<Block> registerCopperLargeButton(String type, WeatheringCopper.WeatherState state) {
+        return registerBlock(type + "_large_button", () -> new CopperButton(BlockBehaviour.Properties.of(Material.DECORATION).strength(0.5f).noCollission().sound(SoundType.COPPER), true, state));
+    }
+
+    private static RegistryObject<Block> registerWaxedCopperLargeButton(String type) {
+        return registerBlock("waxed_" + type + "_large_button", () -> new WaxedCopperButton(BlockBehaviour.Properties.of(Material.DECORATION).strength(0.5f).noCollission().sound(SoundType.COPPER), true));
     }
 
     private static RegistryObject<Block> registerStickyCopperLargeButton(String type) {
