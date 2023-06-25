@@ -2,12 +2,14 @@ package net.larsmans.infinitybuttons.block.custom.emergencybutton;
 
 import me.shedaniel.autoconfig.AutoConfig;
 import net.larsmans.infinitybuttons.InfinityButtonsUtil;
+import net.larsmans.infinitybuttons.advancement.InfinityButtonsTriggers;
 import net.larsmans.infinitybuttons.config.AlarmEnum;
 import net.larsmans.infinitybuttons.config.InfinityButtonsConfig;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
 import net.minecraft.network.chat.Component;
 import net.minecraft.server.level.ServerLevel;
+import net.minecraft.server.level.ServerPlayer;
 import net.minecraft.sounds.SoundEvents;
 import net.minecraft.sounds.SoundSource;
 import net.minecraft.util.RandomSource;
@@ -206,6 +208,9 @@ public class SafeEmergencyButton extends FaceAttachedHorizontalDirectionalBlock 
                     this.playClickSound(player, worldIn, pos, true);
                     if (config.alarmSoundType != AlarmEnum.OFF) {
                         EmergencyButton.emergencySound(worldIn, pos, player);
+                    }
+                    if (player instanceof ServerPlayer) {
+                        InfinityButtonsTriggers.EMERGENCY_TRIGGER.trigger((ServerPlayer) player);
                     }
                     if (!worldIn.isClientSide && config.alarmVillagerPanic) {
                         List<LivingEntity> villagers = worldIn.getEntitiesOfClass(LivingEntity.class, new AABB(pos).inflate(config.alarmSoundRange), entity -> entity.getType() == EntityType.VILLAGER);

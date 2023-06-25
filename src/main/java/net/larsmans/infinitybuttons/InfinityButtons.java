@@ -3,6 +3,7 @@ package net.larsmans.infinitybuttons;
 import com.mojang.logging.LogUtils;
 import me.shedaniel.autoconfig.AutoConfig;
 import me.shedaniel.autoconfig.serializer.Toml4jConfigSerializer;
+import net.larsmans.infinitybuttons.advancement.InfinityButtonsTriggers;
 import net.larsmans.infinitybuttons.block.InfinityButtonsBlocks;
 import net.larsmans.infinitybuttons.compat.*;
 import net.larsmans.infinitybuttons.config.InfinityButtonsConfig;
@@ -36,6 +37,7 @@ public class InfinityButtons
         InfinityButtonsItems.register(eventBus);
         InfinityButtonsBlocks.register(eventBus);
         InfinityButtonsSounds.register(eventBus);
+        InfinityButtonsTriggers.register();
 
         if (ModList.get().isLoaded("nethersdelight")) {
             NethersDelightItems.registerCompatItems();
