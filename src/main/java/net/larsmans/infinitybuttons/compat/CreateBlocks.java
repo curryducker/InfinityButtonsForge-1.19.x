@@ -73,11 +73,11 @@ public class CreateBlocks {
      */
 
     private static RegistryObject<Block> registerCutMineral(String type, Block properties, MaterialColor color) {
-        return registerCut(type, BlockBehaviour.Properties.copy(properties).destroyTime(1.25F).color(color).noOcclusion());
+        return registerCut(type, BlockBehaviour.Properties.copy(properties).destroyTime(1.25F).color(color));
     }
 
     private static RegistryObject<Block> registerSmallMineral(String type, Block properties, MaterialColor color) {
-        return registerSmall(type, BlockBehaviour.Properties.copy(properties).destroyTime(1.25F).color(color).noOcclusion());
+        return registerSmall(type, BlockBehaviour.Properties.copy(properties).destroyTime(1.25F).color(color));
     }
 
     private static RegistryObject<Block> registerCut(String type, Block properties) {
