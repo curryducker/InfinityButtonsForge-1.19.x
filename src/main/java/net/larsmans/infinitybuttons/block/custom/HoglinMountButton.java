@@ -1,7 +1,6 @@
 package net.larsmans.infinitybuttons.block.custom;
 
 import net.larsmans.infinitybuttons.block.custom.button.AbstractWallButton;
-import net.larsmans.infinitybuttons.compat.NethersDelightItems;
 import net.minecraft.sounds.SoundEvent;
 import net.minecraft.sounds.SoundEvents;
 import net.minecraft.world.item.ItemStack;

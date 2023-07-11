@@ -1,11 +1,11 @@
 package net.larsmans.infinitybuttons.block;
 
 import net.larsmans.infinitybuttons.InfinityButtons;
+import net.larsmans.infinitybuttons.InfinityButtonsUtil;
 import net.larsmans.infinitybuttons.block.custom.Doorbell;
 import net.larsmans.infinitybuttons.block.custom.DoorbellButton;
 import net.larsmans.infinitybuttons.block.custom.LampButton;
 import net.larsmans.infinitybuttons.block.custom.LanternButton;
-import net.larsmans.infinitybuttons.block.custom.button.AbstractLeverableButton;
 import net.larsmans.infinitybuttons.block.custom.button.*;
 import net.larsmans.infinitybuttons.block.custom.consolebutton.ConsoleButton;
 import net.larsmans.infinitybuttons.block.custom.consolebutton.LargeConsoleButton;
@@ -516,13 +516,15 @@ public class InfinityButtonsBlocks {
     }
 
     private static <T extends Block> void registerBlockItem(String name, RegistryObject<T> block) {
-        InfinityButtonsItems.ITEMS.register(name, () -> new BlockItem(block.get(),
+        RegistryObject<Item> register = InfinityButtonsItems.ITEMS.register(name, () -> new BlockItem(block.get(),
                 new Item.Properties().tab(InfinityButtonsItemGroup.INFINITYBUTTONS)));
+        InfinityButtonsUtil.REGISTRY_FOR_TAB.add(register);
     }
 
     private static <T extends Block> void registerSafeEmergencyButtonItem(String name, RegistryObject<T> block) {
-        InfinityButtonsItems.ITEMS.register(name, () -> new SafeEmergencyButtonItem(block.get(),
+        RegistryObject<Item> register = InfinityButtonsItems.ITEMS.register(name, () -> new SafeEmergencyButtonItem(block.get(),
                 new Item.Properties().tab(InfinityButtonsItemGroup.INFINITYBUTTONS)));
+        InfinityButtonsUtil.REGISTRY_FOR_TAB.add(register);
     }
 
     private static <T extends Block>RegistryObject<T> registerTorchBlock(String name, Supplier<T> block) {
