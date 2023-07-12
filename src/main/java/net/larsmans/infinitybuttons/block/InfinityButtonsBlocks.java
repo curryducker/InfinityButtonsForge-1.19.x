@@ -72,10 +72,10 @@ public class InfinityButtonsBlocks {
     public static final RegistryObject<Block> GOLD_BUTTON = registerArrowButton("gold");
 
     public static final RegistryObject<Block> EMERALD_BUTTON = registerBlock("emerald_button",
-            () -> new EmeraldButton(BlockBehaviour.Properties.of(Material.DECORATION).strength(0.5f).noCollission().sound(SoundType.METAL), false));
+            () -> new EmeraldButton(BlockBehaviour.Properties.of(Material.DECORATION).strength(0.5f).noCollission().sound(SoundType.METAL).requiresCorrectToolForDrops(), false));
 
     public static final RegistryObject<Block> DIAMOND_BUTTON = registerBlock("diamond_button",
-            () -> new DiamondButton(BlockBehaviour.Properties.of(Material.DECORATION).strength(0.5f).noCollission().sound(SoundType.METAL), false));
+            () -> new DiamondButton(BlockBehaviour.Properties.of(Material.DECORATION).strength(0.5f).noCollission().sound(SoundType.METAL).requiresCorrectToolForDrops(), false));
 
     public static final RegistryObject<Block> PRISMARINE_BUTTON = registerPrismarineButton("prismarine");
     public static final RegistryObject<Block> PRISMARINE_BRICK_BUTTON = registerPrismarineButton("prismarine_brick");
@@ -145,10 +145,10 @@ public class InfinityButtonsBlocks {
     public static final RegistryObject<Block> GOLD_LARGE_BUTTON = registerArrowLargeButton("gold");
 
     public static final RegistryObject<Block> EMERALD_LARGE_BUTTON = registerBlock("emerald_large_button",
-            () -> new EmeraldButton(BlockBehaviour.Properties.of(Material.DECORATION).strength(0.5f).noCollission().sound(SoundType.METAL), true));
+            () -> new EmeraldButton(BlockBehaviour.Properties.of(Material.DECORATION).strength(0.5f).noCollission().sound(SoundType.METAL).requiresCorrectToolForDrops(), true));
 
     public static final RegistryObject<Block> DIAMOND_LARGE_BUTTON = registerBlock("diamond_large_button",
-            () -> new DiamondButton(BlockBehaviour.Properties.of(Material.DECORATION).strength(0.5f).noCollission().sound(SoundType.METAL), true));
+            () -> new DiamondButton(BlockBehaviour.Properties.of(Material.DECORATION).strength(0.5f).noCollission().sound(SoundType.METAL).requiresCorrectToolForDrops(), true));
 
     public static final RegistryObject<Block> PRISMARINE_LARGE_BUTTON = registerPrismarineLargeButton("prismarine");
     public static final RegistryObject<Block> PRISMARINE_BRICK_LARGE_BUTTON = registerPrismarineLargeButton("prismarine_brick");
@@ -424,19 +424,19 @@ public class InfinityButtonsBlocks {
     }
 
     private static RegistryObject<Block> registerCopperButton(String type, WeatheringCopper.WeatherState state) {
-        return registerBlock(type + "_button", () -> new CopperButton(BlockBehaviour.Properties.of(Material.DECORATION).strength(0.5f).noCollission().sound(SoundType.COPPER), false, state));
+        return registerBlock(type + "_button", () -> new CopperButton(BlockBehaviour.Properties.of(Material.DECORATION).strength(0.5f).noCollission().sound(SoundType.COPPER).requiresCorrectToolForDrops(), false, state));
     }
 
     private static RegistryObject<Block> registerWaxedCopperButton(String type) {
-        return registerBlock("waxed_" + type + "_button", () -> new WaxedCopperButton(BlockBehaviour.Properties.of(Material.DECORATION).strength(0.5f).noCollission().sound(SoundType.COPPER), false));
+        return registerBlock("waxed_" + type + "_button", () -> new WaxedCopperButton(BlockBehaviour.Properties.of(Material.DECORATION).strength(0.5f).noCollission().sound(SoundType.COPPER).requiresCorrectToolForDrops(), false));
     }
 
     private static RegistryObject<Block> registerStickyCopperButton(String type) {
-        return registerBlock("sticky_" + type + "_button", () -> new StickyCopperButton(BlockBehaviour.Properties.of(Material.DECORATION).strength(0.5f).noCollission().sound(SoundType.COPPER), false));
+        return registerBlock("sticky_" + type + "_button", () -> new StickyCopperButton(BlockBehaviour.Properties.of(Material.DECORATION).strength(0.5f).noCollission().sound(SoundType.COPPER).requiresCorrectToolForDrops(), false));
     }
 
     private static RegistryObject<Block> registerArrowButton(String type) {
-        return registerBlock(type + "_button", () -> new ArrowButton(BlockBehaviour.Properties.of(Material.DECORATION).strength(0.5f).noCollission().sound(SoundType.METAL), false));
+        return registerBlock(type + "_button", () -> new ArrowButton(BlockBehaviour.Properties.of(Material.DECORATION).strength(0.5f).noCollission().sound(SoundType.METAL).requiresCorrectToolForDrops(), false));
     }
 
     private static RegistryObject<Block> registerPrismarineButton(String type) {
@@ -460,19 +460,19 @@ public class InfinityButtonsBlocks {
     }
 
     private static RegistryObject<Block> registerCopperLargeButton(String type, WeatheringCopper.WeatherState state) {
-        return registerBlock(type + "_large_button", () -> new CopperButton(BlockBehaviour.Properties.of(Material.DECORATION).strength(0.5f).noCollission().sound(SoundType.COPPER), true, state));
+        return registerBlock(type + "_large_button", () -> new CopperButton(BlockBehaviour.Properties.of(Material.DECORATION).strength(0.5f).noCollission().sound(SoundType.COPPER).requiresCorrectToolForDrops(), true, state));
     }
 
     private static RegistryObject<Block> registerWaxedCopperLargeButton(String type) {
-        return registerBlock("waxed_" + type + "_large_button", () -> new WaxedCopperButton(BlockBehaviour.Properties.of(Material.DECORATION).strength(0.5f).noCollission().sound(SoundType.COPPER), true));
+        return registerBlock("waxed_" + type + "_large_button", () -> new WaxedCopperButton(BlockBehaviour.Properties.of(Material.DECORATION).strength(0.5f).noCollission().sound(SoundType.COPPER).requiresCorrectToolForDrops(), true));
     }
 
     private static RegistryObject<Block> registerStickyCopperLargeButton(String type) {
-        return registerBlock("sticky_" + type + "_large_button", () -> new StickyCopperButton(BlockBehaviour.Properties.of(Material.DECORATION).strength(0.5f).noCollission().sound(SoundType.COPPER), true));
+        return registerBlock("sticky_" + type + "_large_button", () -> new StickyCopperButton(BlockBehaviour.Properties.of(Material.DECORATION).strength(0.5f).noCollission().sound(SoundType.COPPER).requiresCorrectToolForDrops(), true));
     }
 
     private static RegistryObject<Block> registerArrowLargeButton(String type) {
-        return registerBlock(type + "_large_button", () -> new ArrowButton(BlockBehaviour.Properties.of(Material.DECORATION).strength(0.5f).noCollission().sound(SoundType.METAL), true));
+        return registerBlock(type + "_large_button", () -> new ArrowButton(BlockBehaviour.Properties.of(Material.DECORATION).strength(0.5f).noCollission().sound(SoundType.METAL).requiresCorrectToolForDrops(), true));
     }
 
     private static RegistryObject<Block> registerPrismarineLargeButton(String type) {
