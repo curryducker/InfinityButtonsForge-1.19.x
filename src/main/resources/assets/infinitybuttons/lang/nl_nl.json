@@ -381,6 +381,21 @@
   "text.autoconfig.infinitybuttons.option.diamondParticles.@Tooltip": "Of er deeltjes om diamanten knoppen komen",
   "text.autoconfig.infinitybuttons.title": "Infinity Buttons Configuratie",
 
+  "tag.item.infinitybuttons.bookshelf_secret_buttons": "Boekenkast verborgen knoppen",
+  "tag.item.infinitybuttons.concrete_powder_buttons": "Cementknoppen",
+  "tag.item.infinitybuttons.concrete_powder_large_buttons": "Grote cementknoppen",
+  "tag.item.infinitybuttons.console_buttons": "Consoleknoppen",
+  "tag.item.infinitybuttons.copper_buttons": "Koperen knoppen",
+  "tag.item.infinitybuttons.copper_large_buttons": "Koperen grote knoppen",
+  "tag.item.infinitybuttons.emergency_buttons": "Noodknoppen",
+  "tag.item.infinitybuttons.lantern_buttons": "Lantaarnknoppen",
+  "tag.item.infinitybuttons.large_buttons": "Grote knoppen",
+  "tag.item.infinitybuttons.safe_emergency_buttons": "Veiligheidsknoppen",
+  "tag.item.infinitybuttons.secret_buttons": "Verborgen knoppen",
+  "tag.item.infinitybuttons.torch_buttons": "Toortsknoppen",
+  "tag.item.infinitybuttons.wooden_large_buttons": "Houten grote knoppen",
+  "tag.item.infinitybuttons.wooden_secret_buttons": "Houten verborgen knoppen",
+
   "config.jade.plugin_infinitybuttons.hide_secret_buttons": "Verberg verborgen knoppen",
   "config.jade.plugin_infinitybuttons.hide_torch_buttons": "Verberg fakkelknoppen"
 }

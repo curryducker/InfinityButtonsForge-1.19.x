@@ -381,6 +381,21 @@
   "text.autoconfig.infinitybuttons.option.diamondParticles.@Tooltip": "钻石按钮四周是否会有粒子效果",
   "text.autoconfig.infinitybuttons.title": "无限按钮 Config",
 
+  "tag.item.infinitybuttons.bookshelf_secret_buttons": "Bookshelf Secret Buttons",
+  "tag.item.infinitybuttons.concrete_powder_buttons": "Concrete Powder Buttons",
+  "tag.item.infinitybuttons.concrete_powder_large_buttons": "Concrete Powder Large Buttons",
+  "tag.item.infinitybuttons.console_buttons": "Console Buttons",
+  "tag.item.infinitybuttons.copper_buttons": "Copper Buttons",
+  "tag.item.infinitybuttons.copper_large_buttons": "Copper Large Buttons",
+  "tag.item.infinitybuttons.emergency_buttons": "Emergency Buttons",
+  "tag.item.infinitybuttons.lantern_buttons": "Lantern Buttons",
+  "tag.item.infinitybuttons.large_buttons": "Large Buttons",
+  "tag.item.infinitybuttons.safe_emergency_buttons": "Safe Emergency Buttons",
+  "tag.item.infinitybuttons.secret_buttons": "Secret Buttons",
+  "tag.item.infinitybuttons.torch_buttons": "Torch Buttons",
+  "tag.item.infinitybuttons.wooden_large_buttons": "Wooden Large Buttons",
+  "tag.item.infinitybuttons.wooden_secret_buttons": "Wooden Secret Buttons",
+
   "config.jade.plugin_infinitybuttons.hide_secret_buttons": "Hide Secret Buttons",
   "config.jade.plugin_infinitybuttons.hide_torch_buttons": "Hide Torch Buttons"
 }
