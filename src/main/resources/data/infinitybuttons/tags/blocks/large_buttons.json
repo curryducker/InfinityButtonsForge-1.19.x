@@ -2,6 +2,8 @@
   "replace": false,
   "values": [
     "#infinitybuttons:wooden_large_buttons",
+    "#infinitybuttons:copper_large_buttons",
+    "#infinitybuttons:concrete_powder_large_buttons",
 
     "infinitybuttons:stone_large_button",
     "infinitybuttons:deepslate_large_button",
@@ -12,18 +14,6 @@
     "infinitybuttons:tuff_large_button",
     "infinitybuttons:dripstone_large_button",
     "infinitybuttons:polished_blackstone_large_button",
-    "infinitybuttons:copper_large_button",
-    "infinitybuttons:exposed_copper_large_button",
-    "infinitybuttons:weathered_copper_large_button",
-    "infinitybuttons:oxidized_copper_large_button",
-    "infinitybuttons:waxed_copper_large_button",
-    "infinitybuttons:waxed_exposed_copper_large_button",
-    "infinitybuttons:waxed_weathered_copper_large_button",
-    "infinitybuttons:waxed_oxidized_copper_large_button",
-    "infinitybuttons:sticky_copper_large_button",
-    "infinitybuttons:sticky_exposed_copper_large_button",
-    "infinitybuttons:sticky_weathered_copper_large_button",
-    "infinitybuttons:sticky_oxidized_copper_large_button",
     "infinitybuttons:iron_large_button",
     "infinitybuttons:gold_large_button",
     "infinitybuttons:emerald_large_button",
@@ -33,8 +23,6 @@
     "infinitybuttons:dark_prismarine_large_button",
     "infinitybuttons:sand_large_button",
     "infinitybuttons:red_sand_large_button",
-    "infinitybuttons:gravel_large_button",
-
-    "#infinitybuttons:concrete_powder_large_buttons"
+    "infinitybuttons:gravel_large_button"
   ]
 }
