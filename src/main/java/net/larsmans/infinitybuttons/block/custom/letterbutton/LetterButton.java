@@ -50,7 +50,7 @@ public class LetterButton extends AbstractSmallButton {
     }
 
     public int getEnumId(BlockState state) {
-        return state.getValue(CHARACTER).getId();
+        return state.getValue(CHARACTER).ordinal();
     }
 
     public void setState(BlockState state, Level worldIn, BlockPos pos, LetterButtonEnum buttonEnum) {

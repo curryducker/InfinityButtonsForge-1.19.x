@@ -3,6 +3,7 @@ package net.larsmans.infinitybuttons.block.custom.letterbutton.gui;
 import com.mojang.blaze3d.vertex.PoseStack;
 import net.minecraft.client.gui.components.ImageButton;
 import net.minecraft.resources.ResourceLocation;
+import org.jetbrains.annotations.NotNull;
 
 import java.awt.*;
 
@@ -19,7 +20,7 @@ public class ImageLetterButton extends ImageButton {
     }
 
     @Override
-    public void renderButton(PoseStack pPoseStack, int pMouseX, int pMouseY, float pPartialTick) {
+    public void renderButton(@NotNull PoseStack pPoseStack, int pMouseX, int pMouseY, float pPartialTick) {
         int COLOR;
         super.renderButton(pPoseStack, pMouseX, pMouseY, pPartialTick);
         if (isHovered || isSelected()) {

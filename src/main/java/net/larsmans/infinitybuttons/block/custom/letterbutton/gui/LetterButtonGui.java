@@ -12,6 +12,7 @@ import net.minecraft.network.chat.Component;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.state.BlockState;
+import org.jetbrains.annotations.NotNull;
 
 public class LetterButtonGui extends Screen {
 
@@ -63,7 +64,7 @@ public class LetterButtonGui extends Screen {
     }
 
     @Override
-    public void render(PoseStack matrices, int mouseX, int mouseY, float delta) {
+    public void render(@NotNull PoseStack matrices, int mouseX, int mouseY, float delta) {
         renderBackground(matrices);
         super.render(matrices, mouseX, mouseY, delta);
     }
@@ -76,7 +77,7 @@ public class LetterButtonGui extends Screen {
     @Override
     public void onClose() {
         for (LetterButtonEnum buttonEnum : LetterButtonEnum.values()) {
-            if (selectedButton == buttonEnum.getId()) {
+            if (selectedButton == buttonEnum.ordinal()) {
                 letterButton.setState(state, world, pos, buttonEnum);
                 IBPacketHandler.sendToServer(new LetterButtonStatePacket(pos, buttonEnum));
             }
