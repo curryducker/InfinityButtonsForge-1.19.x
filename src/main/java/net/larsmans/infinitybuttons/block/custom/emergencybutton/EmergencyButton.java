@@ -31,6 +31,7 @@ import net.minecraft.world.phys.shapes.Shapes;
 import net.minecraft.world.phys.shapes.VoxelShape;
 import org.jetbrains.annotations.Nullable;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class EmergencyButton extends AbstractButton {
@@ -116,7 +117,20 @@ public class EmergencyButton extends AbstractButton {
             InfinityButtonsTriggers.EMERGENCY_TRIGGER.trigger((ServerPlayer) player);
         }
         if (!worldIn.isClientSide && config.alarmVillagerPanic) {
-            List<LivingEntity> villagers = worldIn.getEntitiesOfClass(LivingEntity.class, new AABB(pos).inflate(config.alarmSoundRange), entity -> entity.getType() == EntityType.VILLAGER);
+            List<LivingEntity> villagers = new ArrayList<>();
+            if (config.alarmSoundType == AlarmEnum.GLOBAL) {
+                villagers = new ArrayList<>();
+                List<LivingEntity> villagersDup = worldIn.getEntitiesOfClass(LivingEntity.class, new AABB(pos).inflate(512), entity -> entity.getType() == EntityType.VILLAGER);
+                for (Player player1 : worldIn.players())
+                    villagersDup.addAll(worldIn.getEntitiesOfClass(LivingEntity.class, new AABB(player1.getOnPos()).inflate(512), entity -> entity.getType() == EntityType.VILLAGER));
+                for (LivingEntity villager : villagersDup)
+                    if (!villagers.contains(villager))
+                        villagers.add(villager);
+
+            }
+            if (config.alarmSoundType == AlarmEnum.RANGE) {
+                villagers = worldIn.getEntitiesOfClass(LivingEntity.class, new AABB(pos).inflate(config.alarmSoundRange), entity -> entity.getType() == EntityType.VILLAGER);
+            }
             for (LivingEntity villager : villagers) {
                 if (villager instanceof Villager villagerEntity) {
                     villagerEntity.getBrain().setMemory(MemoryModuleType.HEARD_BELL_TIME, worldIn.getGameTime());
