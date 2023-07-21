@@ -8,8 +8,7 @@ import net.minecraft.world.entity.EquipmentSlot;
 import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.entity.Mob;
 import net.minecraft.world.entity.item.ItemEntity;
-import net.minecraft.world.entity.monster.Skeleton;
-import net.minecraft.world.entity.monster.Zombie;
+import net.minecraft.world.entity.monster.*;
 import net.minecraft.world.item.ItemStack;
 import net.minecraftforge.event.entity.living.LivingDropsEvent;
 import net.minecraftforge.event.entity.living.LivingSpawnEvent;
@@ -24,7 +23,7 @@ public class MobSpawnEvent {
         InfinityButtonsUtil.buildSafety();
         Mob entity = event.getEntity();
 
-        if (entity instanceof Skeleton || entity instanceof Zombie) {
+        if (entity instanceof AbstractSkeleton && !(entity instanceof WitherSkeleton) || entity instanceof Zombie && !(entity instanceof ZombifiedPiglin || entity instanceof Drowned)) {
             RandomSource random = event.getLevel().getRandom();
             double chance = 0.001;
 
