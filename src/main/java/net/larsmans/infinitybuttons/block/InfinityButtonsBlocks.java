@@ -312,7 +312,7 @@ public class InfinityButtonsBlocks {
             () -> new LampButton(lampProperties(), true));
 
     public static final RegistryObject<Block> LETTER_BUTTON = registerBlock("letter_button",
-            () -> new LetterButton(BlockBehaviour.Properties.of(Material.WOOD).strength(0.5f).noOcclusion().noCollission().sound(SoundType.WOOD), false));
+            () -> new LetterButton(BlockBehaviour.Properties.of(Material.DECORATION).strength(0.5f).noOcclusion().noCollission().sound(SoundType.WOOD), false));
 
     public static final RegistryObject<Block> LETTER_LEVER = registerBlock("letter_lever",
             () -> new LetterButton(BlockBehaviour.Properties.copy(LETTER_BUTTON.get()), true));

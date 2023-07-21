@@ -1,7 +1,6 @@
 package net.larsmans.infinitybuttons.mixin;
 
 import net.larsmans.infinitybuttons.InfinityButtonsUtil;
-import net.larsmans.infinitybuttons.block.custom.emergencybutton.SafeEmergencyButton;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.multiplayer.MultiPlayerGameMode;
 import net.minecraft.client.player.LocalPlayer;
