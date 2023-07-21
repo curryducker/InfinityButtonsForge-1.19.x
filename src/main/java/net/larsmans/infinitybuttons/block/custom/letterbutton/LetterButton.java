@@ -13,6 +13,7 @@ import net.minecraft.sounds.SoundEvent;
 import net.minecraft.sounds.SoundEvents;
 import net.minecraft.world.InteractionHand;
 import net.minecraft.world.InteractionResult;
+import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.TooltipFlag;
@@ -53,12 +54,23 @@ public class LetterButton extends AbstractLeverableButton {
             if (gameMode == GameType.ADVENTURE) {
                 return super.use(state, worldIn, pos, player, handIn, hit);
             }
-            if (worldIn.isClientSide) {
-                Minecraft.getInstance().setScreen(new LetterButtonGui(this, state, worldIn, pos));
-            }
+            openScreen(state, worldIn, pos);
             return InteractionResult.sidedSuccess(worldIn.isClientSide);
         } else {
             return super.use(state, worldIn, pos, player, handIn, hit);
+        }
+    }
+
+    @Override
+    public void setPlacedBy(Level pLevel, BlockPos pPos, BlockState pState, @Nullable LivingEntity pPlacer, ItemStack pStack) {
+        super.setPlacedBy(pLevel, pPos, pState, pPlacer, pStack);
+        openScreen(pState, pLevel, pPos);
+
+    }
+
+    public void openScreen(BlockState state, Level worldIn, BlockPos pos) {
+        if (worldIn.isClientSide) {
+            Minecraft.getInstance().setScreen(new LetterButtonGui(this, state, worldIn, pos));
         }
     }
 

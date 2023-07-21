@@ -1,5 +1,6 @@
 package net.larsmans.infinitybuttons.network.packets;
 
+import net.larsmans.infinitybuttons.block.custom.letterbutton.LetterButton;
 import net.larsmans.infinitybuttons.block.custom.letterbutton.LetterButtonEnum;
 import net.minecraft.core.BlockPos;
 import net.minecraft.network.FriendlyByteBuf;
@@ -41,7 +42,8 @@ public class LetterButtonStatePacket {
             LetterButtonEnum buttonEnum = packet.buttonEnum;
             // Execute the code to update the block state on the server here
             // You can access the packet data using 'world', 'state', 'pos', and 'buttonEnum'
-            world.setBlock(pos, state.setValue(CHARACTER, buttonEnum), 3);
+            if (state.getBlock() instanceof LetterButton)
+                world.setBlock(pos, state.setValue(CHARACTER, buttonEnum), 3);
         });
         context.setPacketHandled(true);
     }
