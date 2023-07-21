@@ -6,6 +6,7 @@ import com.google.common.collect.ImmutableBiMap;
 import me.shedaniel.autoconfig.AutoConfig;
 import net.larsmans.infinitybuttons.block.InfinityButtonsBlocks;
 import net.larsmans.infinitybuttons.block.custom.emergencybutton.SafeEmergencyButton;
+import net.larsmans.infinitybuttons.block.custom.letterbutton.LetterButton;
 import net.larsmans.infinitybuttons.config.InfinityButtonsConfig;
 import net.larsmans.infinitybuttons.item.custom.SafeEmergencyButtonItem;
 import net.minecraft.ChatFormatting;
@@ -48,6 +49,10 @@ public class InfinityButtonsUtil {
     public static Supplier<BiMap<Block, Block>> WAX_OFF_BY_BLOCK;
     public static Supplier<BiMap<Block, Block>> STICKY_ON_BY_BLOCK;
     public static Supplier<BiMap<Block, Block>> STICKY_OFF_BY_BLOCK;
+
+    public static boolean crouchClickOverrides(Block block) {
+        return block instanceof SafeEmergencyButton || block instanceof LetterButton;
+    }
 
     @OnlyIn(Dist.CLIENT)
     public static void tooltip(List<Component> tooltip, String name) {
