@@ -20,6 +20,7 @@ import net.minecraft.world.level.block.state.StateDefinition;
 import net.minecraft.world.level.block.state.properties.BlockStateProperties;
 import net.minecraft.world.level.block.state.properties.BooleanProperty;
 import net.minecraft.world.level.gameevent.GameEvent;
+import net.minecraft.world.level.material.PushReaction;
 import net.minecraft.world.phys.BlockHitResult;
 import net.minecraft.world.phys.shapes.CollisionContext;
 import net.minecraft.world.phys.shapes.VoxelShape;
@@ -132,6 +133,11 @@ public abstract class AbstractHorizontalButton extends HorizontalDirectionalBloc
             this.playSound(null, worldIn, pos, false);
             worldIn.gameEvent(null, GameEvent.BLOCK_DEACTIVATE, pos);
         }
+    }
+
+    @Override
+    public PushReaction getPistonPushReaction(BlockState pState) {
+        return PushReaction.DESTROY;
     }
 
     public void updateNeighbors(BlockState state, Level world, BlockPos pos) {

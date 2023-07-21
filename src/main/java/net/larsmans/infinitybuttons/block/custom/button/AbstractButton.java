@@ -24,6 +24,7 @@ import net.minecraft.world.level.block.state.StateDefinition;
 import net.minecraft.world.level.block.state.properties.AttachFace;
 import net.minecraft.world.level.block.state.properties.BooleanProperty;
 import net.minecraft.world.level.gameevent.GameEvent;
+import net.minecraft.world.level.material.PushReaction;
 import net.minecraft.world.phys.BlockHitResult;
 
 import javax.annotation.Nullable;
@@ -130,6 +131,11 @@ public abstract class AbstractButton extends FaceAttachedHorizontalDirectionalBl
             worldIn.scheduleTick(new BlockPos(pos), this, this.getPressDuration());
         }
 
+    }
+
+    @Override
+    public PushReaction getPistonPushReaction(BlockState pState) {
+        return PushReaction.DESTROY;
     }
 
     public void updateNeighbors(BlockState state, Level worldIn, BlockPos pos) {
