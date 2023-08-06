@@ -57,6 +57,9 @@ public class LetterButton extends AbstractLeverableButton {
         } else if (player instanceof ServerPlayer serverPlayer) {
             gameMode = serverPlayer.gameMode.getGameModeForPlayer();
         }
+        if (gameMode == GameType.SPECTATOR)
+            return InteractionResult.FAIL;
+
         if (player.isShiftKeyDown() && gameMode != GameType.ADVENTURE) {
             openScreen(pos, player);
             return InteractionResult.sidedSuccess(worldIn.isClientSide);
@@ -68,7 +71,6 @@ public class LetterButton extends AbstractLeverableButton {
     public void setPlacedBy(@NotNull Level pLevel, @NotNull BlockPos pPos, @NotNull BlockState pState, @Nullable LivingEntity pPlacer, @NotNull ItemStack pStack) {
         super.setPlacedBy(pLevel, pPos, pState, pPlacer, pStack);
         openScreen(pPos, pPlacer);
-
     }
 
     public void openScreen(BlockPos pos, LivingEntity entity) {
