@@ -200,11 +200,17 @@ public class SafeEmergencyButton extends FaceAttachedHorizontalDirectionalBlock 
 
     @Override
     public InteractionResult use(BlockState state, Level worldIn, BlockPos pos, Player player, InteractionHand handIn, BlockHitResult hit) {
-        ClientPacketListener connection = Minecraft.getInstance().getConnection();
-        assert connection != null;
-        GameType gameMode = Objects.requireNonNull(connection.getPlayerInfo(player.getGameProfile().getId())).getGameMode();
+        GameType gameMode = GameType.DEFAULT_MODE;
+        if (worldIn.isClientSide) {
+            ClientPacketListener connection = Minecraft.getInstance().getConnection();
+            assert connection != null;
+            gameMode = Objects.requireNonNull(connection.getPlayerInfo(player.getGameProfile().getId())).getGameMode();
+        } else if (player instanceof ServerPlayer serverPlayer) {
+            gameMode = serverPlayer.gameMode.getGameModeForPlayer();
+        }
         if (gameMode == GameType.SPECTATOR)
             return InteractionResult.FAIL;
+
         switch (state.getValue(STATE)) {
             case PRESSED -> {
                 return InteractionResult.CONSUME;
@@ -216,9 +222,7 @@ public class SafeEmergencyButton extends FaceAttachedHorizontalDirectionalBlock 
                 } else {
                     this.powerBlock(state, worldIn, pos);
                     this.playClickSound(player, worldIn, pos, true);
-                    if (config.alarmSoundType != AlarmEnum.OFF) {
-                        EmergencyButton.emergencySound(worldIn, pos, player);
-                    }
+                    EmergencyButton.emergencySound(worldIn, pos);
                     if (player instanceof ServerPlayer) {
                         InfinityButtonsTriggers.EMERGENCY_TRIGGER.trigger((ServerPlayer) player);
                     }

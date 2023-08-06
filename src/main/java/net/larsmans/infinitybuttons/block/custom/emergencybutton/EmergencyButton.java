@@ -1,10 +1,10 @@
 package net.larsmans.infinitybuttons.block.custom.emergencybutton;
 
-import net.larsmans.infinitybuttons.InfinityButtonsUtil;
 import net.larsmans.infinitybuttons.advancement.InfinityButtonsTriggers;
 import net.larsmans.infinitybuttons.block.custom.button.AbstractButton;
 import net.larsmans.infinitybuttons.config.AlarmEnum;
-import net.larsmans.infinitybuttons.sounds.InfinityButtonsSounds;
+import net.larsmans.infinitybuttons.network.IBPacketHandler;
+import net.larsmans.infinitybuttons.network.packets.AlarmPacket;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
 import net.minecraft.server.level.ServerPlayer;
@@ -110,9 +110,7 @@ public class EmergencyButton extends AbstractButton {
         }
         this.powerBlock(state, worldIn, pos);
         this.playSound(player, worldIn, pos, true);
-        if (config.alarmSoundType != AlarmEnum.OFF) {
-            emergencySound(worldIn, pos, player);
-        }
+        emergencySound(worldIn, pos);
         if (player instanceof ServerPlayer) {
             InfinityButtonsTriggers.EMERGENCY_TRIGGER.trigger((ServerPlayer) player);
         }
@@ -151,11 +149,9 @@ public class EmergencyButton extends AbstractButton {
         return SoundEvents.BONE_BLOCK_BREAK;
     }
 
-    public static void emergencySound(Level level, BlockPos pos, Player player) {
-        if (config.alarmSoundType == AlarmEnum.GLOBAL) {
-            InfinityButtonsUtil.playGlobalSound(level, pos, InfinityButtonsSounds.ALARM.get(), SoundSource.BLOCKS);
-        } else {
-            level.playSound(player, pos, InfinityButtonsSounds.ALARM.get(), SoundSource.BLOCKS, (float)config.alarmSoundRange / 16.0F, 1);
+    public static void emergencySound(Level level, BlockPos pos) {
+        if (!level.isClientSide) {
+            IBPacketHandler.sendToAllPlayers(new AlarmPacket(pos, config.alarmSoundType));
         }
     }
 }

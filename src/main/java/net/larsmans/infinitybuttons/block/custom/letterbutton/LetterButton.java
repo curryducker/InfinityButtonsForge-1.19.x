@@ -3,12 +3,14 @@ package net.larsmans.infinitybuttons.block.custom.letterbutton;
 import net.larsmans.infinitybuttons.InfinityButtonsUtil;
 import net.larsmans.infinitybuttons.block.custom.button.AbstractLeverableButton;
 import net.larsmans.infinitybuttons.block.custom.button.LargeButtonShape;
-import net.larsmans.infinitybuttons.block.custom.letterbutton.gui.LetterButtonGui;
+import net.larsmans.infinitybuttons.network.IBPacketHandler;
+import net.larsmans.infinitybuttons.network.packets.LetterButtonScreenPacket;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.multiplayer.ClientPacketListener;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
 import net.minecraft.network.chat.Component;
+import net.minecraft.server.level.ServerPlayer;
 import net.minecraft.sounds.SoundEvent;
 import net.minecraft.sounds.SoundEvents;
 import net.minecraft.world.InteractionHand;
@@ -47,35 +49,36 @@ public class LetterButton extends AbstractLeverableButton {
 
     @Override
     public InteractionResult use(BlockState state, Level worldIn, BlockPos pos, Player player, InteractionHand handIn, BlockHitResult hit) {
-        ClientPacketListener connection = Minecraft.getInstance().getConnection();
-        assert connection != null;
-        GameType gameMode = Objects.requireNonNull(connection.getPlayerInfo(player.getGameProfile().getId())).getGameMode();
-        if (player.isShiftKeyDown()) {
-            if (gameMode == GameType.ADVENTURE) {
-                return super.use(state, worldIn, pos, player, handIn, hit);
-            }
-            openScreen(state, worldIn, pos);
-            return InteractionResult.sidedSuccess(worldIn.isClientSide);
-        } else {
-            return super.use(state, worldIn, pos, player, handIn, hit);
-        }
-    }
-
-    @Override
-    public void setPlacedBy(Level pLevel, BlockPos pPos, BlockState pState, @Nullable LivingEntity pPlacer, ItemStack pStack) {
-        super.setPlacedBy(pLevel, pPos, pState, pPlacer, pStack);
-        openScreen(pState, pLevel, pPos);
-
-    }
-
-    public void openScreen(BlockState state, Level worldIn, BlockPos pos) {
+        GameType gameMode = GameType.DEFAULT_MODE;
         if (worldIn.isClientSide) {
-            Minecraft.getInstance().setScreen(new LetterButtonGui(this, state, worldIn, pos));
+            ClientPacketListener connection = Minecraft.getInstance().getConnection();
+            assert connection != null;
+            gameMode = Objects.requireNonNull(connection.getPlayerInfo(player.getGameProfile().getId())).getGameMode();
+        } else if (player instanceof ServerPlayer serverPlayer) {
+            gameMode = serverPlayer.gameMode.getGameModeForPlayer();
+        }
+        if (player.isShiftKeyDown() && gameMode != GameType.ADVENTURE) {
+            openScreen(pos, player);
+            return InteractionResult.sidedSuccess(worldIn.isClientSide);
+        }
+        return super.use(state, worldIn, pos, player, handIn, hit);
+    }
+
+    @Override
+    public void setPlacedBy(@NotNull Level pLevel, @NotNull BlockPos pPos, @NotNull BlockState pState, @Nullable LivingEntity pPlacer, @NotNull ItemStack pStack) {
+        super.setPlacedBy(pLevel, pPos, pState, pPlacer, pStack);
+        openScreen(pPos, pPlacer);
+
+    }
+
+    public void openScreen(BlockPos pos, LivingEntity entity) {
+        if (entity instanceof ServerPlayer player) {
+            IBPacketHandler.sendToPlayer(new LetterButtonScreenPacket(pos), player);
         }
     }
 
     @Override
-    public VoxelShape getShape(@NotNull BlockState pState, @NotNull BlockGetter pLevel, @NotNull BlockPos pPos, @NotNull CollisionContext pContext) {
+    public @NotNull VoxelShape getShape(@NotNull BlockState pState, @NotNull BlockGetter pLevel, @NotNull BlockPos pPos, @NotNull CollisionContext pContext) {
         return LargeButtonShape.outlineShape(pState);
     }
 

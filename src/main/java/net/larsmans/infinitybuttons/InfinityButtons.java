@@ -29,6 +29,7 @@ import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.event.lifecycle.FMLCommonSetupEvent;
 import net.minecraftforge.fml.javafmlmod.FMLJavaModLoadingContext;
 import net.minecraftforge.registries.ForgeRegistries;
+import org.jetbrains.annotations.NotNull;
 import org.slf4j.Logger;
 
 // The value here should match an entry in the META-INF/mods.toml file
@@ -106,7 +107,7 @@ public class InfinityButtons
         for (Item safe : ForgeRegistries.ITEMS.getValues()) {
             if (safe instanceof SafeEmergencyButtonItem) {
                 DispenserBlock.registerBehavior(safe, new OptionalDispenseItemBehavior() {
-                    protected ItemStack execute(BlockSource blockSource, ItemStack itemStack) {
+                    protected @NotNull ItemStack execute(@NotNull BlockSource blockSource, @NotNull ItemStack itemStack) {
                         this.setSuccess(ArmorItem.dispenseArmor(blockSource, itemStack));
                         return itemStack;
                     }
