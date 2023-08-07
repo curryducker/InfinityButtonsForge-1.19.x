@@ -47,7 +47,7 @@ public class NethersDelightBlocks {
      */
 
     private static Block byName(String block) {
-        return ForgeRegistries.BLOCKS.getValue(new ResourceLocation("nethers_delight", block));
+        return ForgeRegistries.BLOCKS.getValue(new ResourceLocation("nethersdelight", block));
     }
 
     private static <T extends Block> RegistryObject<T> registerBlock(Supplier<T> block) {
