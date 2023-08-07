@@ -1,9 +1,7 @@
 package net.larsmans.infinitybuttons.network;
 
 import net.larsmans.infinitybuttons.InfinityButtons;
-import net.larsmans.infinitybuttons.network.packets.AlarmPacket;
-import net.larsmans.infinitybuttons.network.packets.LetterButtonScreenPacket;
-import net.larsmans.infinitybuttons.network.packets.LetterButtonStatePacket;
+import net.larsmans.infinitybuttons.network.packets.*;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.server.level.ServerPlayer;
 import net.minecraftforge.network.NetworkDirection;
@@ -45,6 +43,18 @@ public class IBPacketHandler {
                 .decoder(AlarmPacket::decode)
                 .encoder(AlarmPacket::encode)
                 .consumerMainThread(AlarmPacket::handle)
+                .add();
+
+        net.messageBuilder(RequestJadePacket.class, id(), NetworkDirection.PLAY_TO_SERVER)
+                .decoder(RequestJadePacket::decode)
+                .encoder(RequestJadePacket::encode)
+                .consumerMainThread(RequestJadePacket::handle)
+                .add();
+
+        net.messageBuilder(JadePacket.class, id(), NetworkDirection.PLAY_TO_CLIENT)
+                .decoder(JadePacket::decode)
+                .encoder(JadePacket::encode)
+                .consumerMainThread(JadePacket::handle)
                 .add();
     }
 
