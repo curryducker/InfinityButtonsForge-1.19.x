@@ -410,5 +410,6 @@
   "tag.item.infinitybuttons.wooden_secret_buttons": "Houten verborgen knoppen",
 
   "config.jade.plugin_infinitybuttons.hide_secret_buttons": "Verberg verborgen knoppen",
-  "config.jade.plugin_infinitybuttons.hide_torch_buttons": "Verberg fakkelknoppen"
+  "config.jade.plugin_infinitybuttons.hide_torch_buttons": "Verberg fakkelknoppen",
+  "config.jade.plugin_infinitybuttons.hide_lantern_buttons": "Verberg lantaarnknoppen"
 }

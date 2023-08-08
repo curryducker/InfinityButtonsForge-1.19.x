@@ -2,6 +2,7 @@ package net.larsmans.infinitybuttons.compat.jade;
 
 import net.larsmans.infinitybuttons.InfinityButtons;
 import net.larsmans.infinitybuttons.block.custom.HoglinMountButton;
+import net.larsmans.infinitybuttons.block.custom.LanternButton;
 import net.larsmans.infinitybuttons.block.custom.secretbutton.AbstractSecretButton;
 import net.larsmans.infinitybuttons.block.custom.torch.RedstoneTorchButton;
 import net.larsmans.infinitybuttons.block.custom.torch.TorchButton;
@@ -27,6 +28,7 @@ public class InfinityButtonsPlugin implements IWailaPlugin {
 
     static final ResourceLocation CONFIG_HIDE_SECRET_BUTTONS = new ResourceLocation(InfinityButtons.MOD_ID, "hide_secret_buttons");
     static final ResourceLocation CONFIG_HIDE_TORCH_BUTTONS = new ResourceLocation(InfinityButtons.MOD_ID, "hide_torch_buttons");
+    static final ResourceLocation CONFIG_HIDE_LANTERN_BUTTONS = new ResourceLocation(InfinityButtons.MOD_ID, "hide_lantern_buttons");
 
     private static Block HOGLIN_MOUNT = ForgeRegistries.BLOCKS.getValue(new ResourceLocation("nethersdelight", "hoglin_mount"));
 
@@ -34,8 +36,10 @@ public class InfinityButtonsPlugin implements IWailaPlugin {
     public void registerClient(IWailaClientRegistration registration) {
         registration.addConfig(CONFIG_HIDE_SECRET_BUTTONS, true);
         registration.addConfig(CONFIG_HIDE_TORCH_BUTTONS, true);
+        registration.addConfig(CONFIG_HIDE_LANTERN_BUTTONS, true);
         registration.markAsClientFeature(CONFIG_HIDE_SECRET_BUTTONS);
         registration.markAsClientFeature(CONFIG_HIDE_TORCH_BUTTONS);
+        registration.markAsClientFeature(CONFIG_HIDE_LANTERN_BUTTONS);
         registration.addRayTraceCallback((hitResult, accessor, originalAccessor) -> {
             if (accessor instanceof BlockAccessor blockAccessor) {
                 if (hidden(CONFIG_HIDE_SECRET_BUTTONS) && blockAccessor.getBlock() instanceof AbstractSecretButton secretButton) {
@@ -49,6 +53,9 @@ public class InfinityButtonsPlugin implements IWailaPlugin {
                 }
                 if (hidden(CONFIG_HIDE_TORCH_BUTTONS) && blockAccessor.getBlock() instanceof RedstoneTorchButton redstoneTorchButton) {
                     return registration.blockAccessor().from(blockAccessor).blockState(redstoneTorchButton.jadeBlock.defaultBlockState()).build();
+                }
+                if (hidden(CONFIG_HIDE_LANTERN_BUTTONS) && blockAccessor.getBlock() instanceof LanternButton lanternButton) {
+                    return registration.blockAccessor().from(blockAccessor).blockState(lanternButton.jadeBlock.defaultBlockState()).build();
                 }
             }
             return accessor;
