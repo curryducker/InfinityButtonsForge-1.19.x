@@ -1,0 +1,49 @@
+{
+  "parent": "infinitybuttons:first_button",
+  "display": {
+    "icon": {
+      "item": "minecraft:honey_bottle"
+    },
+    "title": {
+      "translate": "advancement.infinitybuttons.sticky"
+    },
+    "description": {
+      "translate": "advancement.infinitybuttons.sticky.desc"
+    },
+    "frame": "task",
+    "show_toast": true,
+    "announce_to_chat": true,
+    "hidden": false
+  },
+  "criteria": {
+    "sticky": {
+      "trigger": "minecraft:item_used_on_block",
+      "conditions": {
+        "location": {
+          "block": {
+            "blocks": [
+              "infinitybuttons:waxed_copper_button",
+              "infinitybuttons:waxed_exposed_copper_button",
+              "infinitybuttons:waxed_weathered_copper_button",
+              "infinitybuttons:waxed_oxidized_copper_button",
+              "infinitybuttons:waxed_copper_large_button",
+              "infinitybuttons:waxed_exposed_copper_large_button",
+              "infinitybuttons:waxed_weathered_copper_large_button",
+              "infinitybuttons:waxed_oxidized_copper_large_button"
+            ]
+          }
+        },
+        "item": {
+          "items": [
+            "minecraft:honey_bottle"
+          ]
+        }
+      }
+    }
+  },
+  "requirements": [
+    [
+      "sticky"
+    ]
+  ]
+}

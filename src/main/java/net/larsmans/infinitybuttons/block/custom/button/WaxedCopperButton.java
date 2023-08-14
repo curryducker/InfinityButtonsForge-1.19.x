@@ -1,5 +1,6 @@
 package net.larsmans.infinitybuttons.block.custom.button;
 
+import net.larsmans.infinitybuttons.advancement.InfinityButtonsTriggers;
 import net.minecraft.advancements.CriteriaTriggers;
 import net.minecraft.core.BlockPos;
 import net.minecraft.server.level.ServerPlayer;
@@ -50,6 +51,9 @@ public class WaxedCopperButton extends AbstractSmallButton {
             }
             level.setBlock(blockpos, waxedBlockState, Block.UPDATE_ALL_IMMEDIATE);
             level.levelEvent(player, 3004, blockpos, 0);
+            level.playSound(player, blockpos, SoundEvents.AXE_WAX_OFF, SoundSource.BLOCKS, 1.0f, 1.0f);
+            if (player instanceof ServerPlayer serverPlayer)
+                InfinityButtonsTriggers.WAX_OFF_TRIGGER.trigger(serverPlayer);
             return InteractionResult.sidedSuccess(level.isClientSide);
         }).orElse(InteractionResult.sidedSuccess(level.isClientSide));
     }
@@ -64,6 +68,7 @@ public class WaxedCopperButton extends AbstractSmallButton {
             }
             level.setBlock(blockpos, waxedBlockState, Block.UPDATE_ALL_IMMEDIATE);
             level.levelEvent(player, 3003, blockpos, 0);
+            level.playSound(player, blockpos, SoundEvents.HONEYCOMB_WAX_ON, SoundSource.BLOCKS, 1.0f, 1.0f);
             return InteractionResult.sidedSuccess(level.isClientSide);
         }).orElse(InteractionResult.sidedSuccess(level.isClientSide));
     }

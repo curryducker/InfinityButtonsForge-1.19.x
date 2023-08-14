@@ -370,6 +370,8 @@
   "advancement.infinitybuttons.safety_button.desc": "Wear a Safety Button on your head",
   "advancement.infinitybuttons.letter_button": "Write Me a Letter",
   "advancement.infinitybuttons.letter_button.desc": "Express yourself with a Letter Button",
+  "advancement.infinitybuttons.sticky": "Sticky!",
+  "advancement.infinitybuttons.sticky.desc": "Create a Sticky Copper Button by pouring honey over a Waxed Copper Button",
 
   "text.autoconfig.infinitybuttons.option.muteAlarmSound": "Mute Alarms",
   "text.autoconfig.infinitybuttons.option.alarmSoundType": "Alarm Type",

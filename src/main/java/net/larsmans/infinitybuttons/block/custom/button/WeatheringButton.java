@@ -4,6 +4,8 @@ import net.larsmans.infinitybuttons.InfinityButtonsUtil;
 import net.minecraft.advancements.CriteriaTriggers;
 import net.minecraft.core.BlockPos;
 import net.minecraft.server.level.ServerPlayer;
+import net.minecraft.sounds.SoundEvents;
+import net.minecraft.sounds.SoundSource;
 import net.minecraft.world.InteractionResult;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.ItemStack;
@@ -68,6 +70,7 @@ public interface WeatheringButton extends WeatheringCopper {
             }
             level.setBlock(blockpos, waxedBlockState, Block.UPDATE_ALL_IMMEDIATE);
             level.levelEvent(player, 3003, blockpos, 0);
+            level.playSound(player, blockpos, SoundEvents.HONEYCOMB_WAX_ON, SoundSource.BLOCKS, 1.0f, 1.0f);
             return InteractionResult.sidedSuccess(level.isClientSide);
         }).orElse(InteractionResult.sidedSuccess(level.isClientSide));
     }
@@ -82,6 +85,7 @@ public interface WeatheringButton extends WeatheringCopper {
             }
             level.setBlock(blockpos, previousBlockState, Block.UPDATE_ALL_IMMEDIATE);
             level.levelEvent(player, 3005, blockpos, 0);
+            level.playSound(player, blockpos, SoundEvents.AXE_SCRAPE, SoundSource.BLOCKS, 1.0f, 1.0f);
             return InteractionResult.sidedSuccess(level.isClientSide);
         }).orElse(InteractionResult.sidedSuccess(level.isClientSide));
     }

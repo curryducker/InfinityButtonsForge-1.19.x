@@ -370,6 +370,8 @@
   "advancement.infinitybuttons.safety_button.desc": "Draag een veilige noodknop op je hoofd",
   "advancement.infinitybuttons.letter_button": "Schrijf er een brief mee!",
   "advancement.infinitybuttons.letter_button.desc": "Uit jezelf met een letterknop",
+  "advancement.infinitybuttons.sticky": "Plakkerig!",
+  "advancement.infinitybuttons.sticky.desc": "Maak een kleverige koperen knop door honing over een ingewassen koperen knop heen te gieten",
 
   "text.autoconfig.infinitybuttons.option.muteAlarmSound": "Demp alarmen",
   "text.autoconfig.infinitybuttons.option.alarmSoundType": "Alarmtype",

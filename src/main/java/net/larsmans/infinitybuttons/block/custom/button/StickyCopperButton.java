@@ -50,6 +50,7 @@ public class StickyCopperButton extends AbstractSmallButton {
                 }
                 worldIn.setBlock(pos, waxedBlockState.setValue(PRESSED, false), Block.UPDATE_ALL_IMMEDIATE);
                 worldIn.levelEvent(player, 3004, pos, 0);
+                worldIn.playSound(player, pos, SoundEvents.AXE_WAX_OFF, SoundSource.BLOCKS, 1.0f, 1.0f);
                 return InteractionResult.sidedSuccess(worldIn.isClientSide);
             }).orElse(InteractionResult.PASS);
         } else {
