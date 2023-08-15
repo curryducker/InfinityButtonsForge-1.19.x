@@ -47,8 +47,10 @@ public class IBClientPacketHandler {
 
     public static void playGlobalSound (Level level, BlockPos pos, SoundEvent soundEvent, SoundSource soundSource) {
         Camera cam = Minecraft.getInstance().gameRenderer.getMainCamera();
+        Vec3 centerPos = Vec3.atCenterOf(pos);
         if (cam.isInitialized()) {
-            level.playLocalSound(pos.getX(), pos.getY(), pos.getZ(), soundEvent, soundSource, (float)cam.getPosition().distanceTo(Vec3.atCenterOf(pos))/16.0F + 20.0F, 1.0F, false);
+            float chunkDistance = (float)cam.getPosition().distanceTo(centerPos) / 16.0F;
+            level.playLocalSound(centerPos.x, centerPos.y, centerPos.z, soundEvent, soundSource, chunkDistance * 1.3F + 20F, 1.0F, false);
         }
     }
 
