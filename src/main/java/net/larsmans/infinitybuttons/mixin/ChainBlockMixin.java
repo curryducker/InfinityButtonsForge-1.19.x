@@ -6,11 +6,14 @@ import net.minecraft.core.Direction;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.level.BlockGetter;
 import net.minecraft.world.level.Level;
+import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.ChainBlock;
 import net.minecraft.world.level.block.RotatedPillarBlock;
 import net.minecraft.world.level.block.SimpleWaterloggedBlock;
 import net.minecraft.world.level.block.state.BlockState;
 import org.spongepowered.asm.mixin.Mixin;
+
+import static net.larsmans.infinitybuttons.InfinityButtonsUtil.checkChains;
 
 @Mixin(ChainBlock.class)
 public abstract class ChainBlockMixin extends RotatedPillarBlock implements SimpleWaterloggedBlock {
@@ -21,7 +24,7 @@ public abstract class ChainBlockMixin extends RotatedPillarBlock implements Simp
 
     @Override
     public int getSignal(BlockState blockState, BlockGetter blockAccess, BlockPos pos, Direction side) {
-        return checkAround(blockState, blockAccess, pos) ? 15 : 0;
+        return checkAround(blockState, blockAccess, pos) && side == Direction.DOWN ? 15 : 0;
     }
 
     @Override
@@ -50,9 +53,28 @@ public abstract class ChainBlockMixin extends RotatedPillarBlock implements Simp
         return blockState.getValue(LanternButton.PRESSED);
     }
 
+    // Update the top chain too if this chain is updated. If this is the top chain, update the redstone power positions
     @Override
-    public void playerWillDestroy(Level world, BlockPos pos, BlockState state, Player player) {
-        world.neighborChanged(pos.above(), this, pos);
-        super.playerWillDestroy(world, pos, state, player);
+    public void neighborChanged(BlockState state, Level worldIn, BlockPos pos, Block blockIn, BlockPos fromPos, boolean isMoving) {
+        int distance = checkChains(worldIn, pos);
+        if (distance > 0) {
+            worldIn.neighborChanged(pos.above(distance), this, pos);
+        } else {
+            worldIn.neighborChanged(pos.above(), this, pos);
+            worldIn.updateNeighborsAtExceptFromFacing(pos.above(), this, Direction.DOWN);
+        }
+
+        super.neighborChanged(state, worldIn, pos, blockIn, fromPos, isMoving);
+    }
+
+    // Update the redstone power positions if this is the top chain
+    @Override
+    public void onRemove(BlockState state, Level world, BlockPos pos, BlockState newState, boolean moved) {
+        int distance = checkChains(world, pos);
+        if (distance == 0) {
+            world.updateNeighborsAtExceptFromFacing(pos.above(), this, Direction.DOWN);
+        }
+
+        super.onRemove(state, world, pos, newState, moved);
     }
 }

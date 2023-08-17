@@ -11,10 +11,13 @@ import net.larsmans.infinitybuttons.config.InfinityButtonsConfig;
 import net.larsmans.infinitybuttons.item.custom.SafeEmergencyButtonItem;
 import net.minecraft.ChatFormatting;
 import net.minecraft.client.gui.screens.Screen;
+import net.minecraft.core.BlockPos;
 import net.minecraft.network.chat.Component;
 import net.minecraft.network.chat.MutableComponent;
 import net.minecraft.world.item.Item;
+import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.Block;
+import net.minecraft.world.level.block.ChainBlock;
 import net.minecraft.world.level.block.state.properties.BlockStateProperties;
 import net.minecraft.world.level.block.state.properties.BooleanProperty;
 import net.minecraft.world.level.block.state.properties.DirectionProperty;
@@ -121,5 +124,13 @@ public class InfinityButtonsUtil {
                 if (entry.get() instanceof SafeEmergencyButton)
                     SAFETY_BUTTONS.add((SafeEmergencyButtonItem) entry.get().asItem());
         }
+    }
+
+    public static int checkChains(Level world, BlockPos pos) {
+        int i = 0;
+        while (world.getBlockState(pos.above(i + 1)).getBlock() instanceof ChainBlock) {
+            i++;
+        }
+        return i;
     }
 }
