@@ -3,6 +3,7 @@ package net.larsmans.infinitybuttons.compat;
 import net.larsmans.infinitybuttons.InfinityButtons;
 import net.larsmans.infinitybuttons.InfinityButtonsUtil;
 import net.larsmans.infinitybuttons.block.InfinityButtonsBlocks;
+import net.larsmans.infinitybuttons.block.custom.button.compat.FallingCompatButton;
 import net.larsmans.infinitybuttons.block.custom.secretbutton.compat.CompatBookshelfSecretButton;
 import net.larsmans.infinitybuttons.item.InfinityButtonsItemGroup;
 import net.larsmans.infinitybuttons.item.InfinityButtonsItems;
@@ -20,6 +21,12 @@ import java.util.function.Supplier;
 
 public class AtmosphericBlocks {
 
+    public static final RegistryObject<Block> ARID_SAND_BUTTON = registerSandButton("arid_sand");
+    public static final RegistryObject<Block> RED_ARID_SAND_BUTTON = registerSandButton("red_arid_sand");
+
+    public static final RegistryObject<Block> ARID_SAND_LARGE_BUTTON = registerSandLargeButton("arid_sand");
+    public static final RegistryObject<Block> RED_ARID_SAND_LARGE_BUTTON = registerSandLargeButton("red_arid_sand");
+
     public static final RegistryObject<Block> ROSEWOOD_BOOKSHELF_SECRET_BUTTON = registerBookshelf("rosewood");
     public static final RegistryObject<Block> MORADO_BOOKSHELF_SECRET_BUTTON = registerBookshelf("morado");
     public static final RegistryObject<Block> YUCCA_BOOKSHELF_SECRET_BUTTON = registerBookshelf("yucca");
@@ -33,6 +40,14 @@ public class AtmosphericBlocks {
 
     private static Block byName(String block) {
         return ForgeRegistries.BLOCKS.getValue(new ResourceLocation("atmospheric", block));
+    }
+
+    private static RegistryObject<Block> registerSandButton(String type) {
+        return registerBlock(type + "_button", () -> new FallingCompatButton(false, BlockBehaviour.Properties.of(Material.DECORATION).strength(0.5f).noCollission().sound(SoundType.SAND), false));
+    }
+
+    private static RegistryObject<Block> registerSandLargeButton(String type) {
+        return registerBlock(type + "_large_button", () -> new FallingCompatButton(false, BlockBehaviour.Properties.of(Material.DECORATION).strength(0.5f).noCollission().sound(SoundType.SAND), true));
     }
 
     private static RegistryObject<Block> registerBookshelf(String wood) {

@@ -4,8 +4,7 @@ import net.larsmans.infinitybuttons.block.InfinityButtonsBlocks;
 import net.larsmans.infinitybuttons.block.custom.DoorbellButton;
 import net.larsmans.infinitybuttons.block.custom.LampButton;
 import net.larsmans.infinitybuttons.block.custom.LanternButton;
-import net.larsmans.infinitybuttons.block.custom.button.AbstractSmallButton;
-import net.larsmans.infinitybuttons.block.custom.button.WoodenButton;
+import net.larsmans.infinitybuttons.block.custom.button.*;
 import net.larsmans.infinitybuttons.block.custom.consolebutton.ConsoleButton;
 import net.larsmans.infinitybuttons.block.custom.emergencybutton.EmergencyButton;
 import net.larsmans.infinitybuttons.block.custom.emergencybutton.SafeEmergencyButton;
@@ -28,6 +27,7 @@ import java.util.List;
 import java.util.Objects;
 
 import static net.larsmans.infinitybuttons.InfinityButtonsUtil.REGISTRY_FOR_TAB;
+import static net.larsmans.infinitybuttons.InfinityButtonsUtil.blockPathContains;
 
 public class InfinityButtonsItemGroup extends CreativeModeTab {
 
@@ -47,15 +47,36 @@ public class InfinityButtonsItemGroup extends CreativeModeTab {
         List<String> BEFORE_PLANKS = List.of("brick_secret_button", "stone_brick_secret_button", "mossy_stone_brick_secret_button", "cracked_stone_brick_secret_button", "chiseled_stone_brick_secret_button", "deepslate_brick_secret_button", "cracked_deepslate_brick_secret_button", "deepslate_tile_secret_button", "cracked_deepslate_tile_secret_button");
         REGISTRY_FOR_TAB.sort(Comparator.comparing(o -> {
             Block block = Block.byItem(o.get());
+            boolean b = block instanceof StoneButton || block instanceof CopperButton || block instanceof StickyCopperButton || block instanceof ArrowButton || block instanceof EmeraldButton || block instanceof DiamondButton || block instanceof PrismarineButton;
             if (block instanceof AbstractSmallButton && !((AbstractSmallButton) block).isLarge()) {
                 if (block instanceof WoodenButton) {
                     return "AA";
+                } else if (b) {
+                    return "AB";
+                } else if (block instanceof FallingButton) {
+                    if (!((FallingButton)block).gravel && !blockPathContains(block, "concrete")) {
+                        return "ACA";
+                    } else if (((FallingButton)block).gravel) {
+                        return "ACB";
+                    } else {
+                        return "ACZ";
+                    }
                 } else {
                     return "AZ";
                 }
             } else if (block instanceof AbstractSmallButton && ((AbstractSmallButton) block).isLarge()) {
                 if (block instanceof WoodenButton) {
                     return "BA";
+                } else if (b) {
+                    return "BB";
+                } else if (block instanceof FallingButton) {
+                    if (!((FallingButton)block).gravel && !blockPathContains(block, "concrete")) {
+                        return "BCA";
+                    } else if (((FallingButton)block).gravel) {
+                        return "BCB";
+                    } else {
+                        return "BCZ";
+                    }
                 } else {
                     return "BZ";
                 }

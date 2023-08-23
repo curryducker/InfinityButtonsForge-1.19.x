@@ -23,6 +23,14 @@
     "infinitybuttons:dark_prismarine_large_button",
     "infinitybuttons:sand_large_button",
     "infinitybuttons:red_sand_large_button",
+    {
+      "id": "infinitybuttons:arid_sand_large_button",
+      "required": false
+    },
+    {
+      "id": "infinitybuttons:red_arid_sand_large_button",
+      "required": false
+    },
     "infinitybuttons:gravel_large_button"
   ]
 }

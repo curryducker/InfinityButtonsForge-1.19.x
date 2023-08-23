@@ -45,6 +45,9 @@
   "block.infinitybuttons.magenta_concrete_powder_button": "Magenta cementknop",
   "block.infinitybuttons.pink_concrete_powder_button": "Roze cementknop",
 
+  "block.infinitybuttons.arid_sand_button": "Dorre zandknop",
+  "block.infinitybuttons.red_arid_sand_button": "Rode dorre zandknop",
+
   "block.infinitybuttons.oak_large_button": "Eikenhouten grote knop",
   "block.infinitybuttons.spruce_large_button": "Sparrenhouten grote knop",
   "block.infinitybuttons.birch_large_button": "Berkenhouten grote knop",
@@ -101,6 +104,9 @@
   "block.infinitybuttons.purple_concrete_powder_large_button": "Grote paarse cementknop",
   "block.infinitybuttons.magenta_concrete_powder_large_button": "Grote magenta cementknop",
   "block.infinitybuttons.pink_concrete_powder_large_button": "Grote roze cementknop",
+
+  "block.infinitybuttons.arid_sand_large_button": "Grote dorre zandknop",
+  "block.infinitybuttons.red_arid_sand_large_button": "Grote rode dorre zandknop",
 
   "block.infinitybuttons.white_emergency_button": "Witte noodknop",
   "block.infinitybuttons.light_gray_emergency_button": "Lichtgrijze noodknop",

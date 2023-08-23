@@ -23,10 +23,12 @@ import net.minecraft.world.level.block.state.properties.BooleanProperty;
 import net.minecraft.world.level.block.state.properties.DirectionProperty;
 import net.minecraftforge.api.distmarker.Dist;
 import net.minecraftforge.api.distmarker.OnlyIn;
+import net.minecraftforge.registries.ForgeRegistries;
 import net.minecraftforge.registries.RegistryObject;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Objects;
 import java.util.function.Supplier;
 
 public class InfinityButtonsUtil {
@@ -132,5 +134,9 @@ public class InfinityButtonsUtil {
             i++;
         }
         return i;
+    }
+
+    public static boolean blockPathContains(Block block, String contains) {
+        return Objects.requireNonNull(ForgeRegistries.BLOCKS.getKey(block)).getPath().contains(contains);
     }
 }

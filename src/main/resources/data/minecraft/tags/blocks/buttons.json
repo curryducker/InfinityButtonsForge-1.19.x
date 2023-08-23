@@ -20,6 +20,14 @@
     "infinitybuttons:dark_prismarine_button",
     "infinitybuttons:sand_button",
     "infinitybuttons:red_sand_button",
+    {
+      "id": "infinitybuttons:arid_sand_button",
+      "required": false
+    },
+    {
+      "id": "infinitybuttons:red_arid_sand_button",
+      "required": false
+    },
     "infinitybuttons:gravel_button"
   ]
 }
